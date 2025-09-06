@@ -10,84 +10,84 @@
 #.DS_Store
 #
 ## Ignore Unity generated files
-#[Ll]ibrary/
-#[Tt]emp/
-#[Oo]bj/
-#[Bb]uild/
-#[Bb]uilds/
-#[Ll]ogs/
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
 #
 ## Ignore Unity auto-generated files
-#sysinfo.txt
-#*.stackdump
+sysinfo.txt
+*.stackdump
 #
 ## Ignore crash reports
 #crash-reports/
 #
 ## Ignore asset meta data
-#*.pidb
-#*.pidb.meta
-#*.pdb.meta
-#*.mdb.meta
-#*.ilk
-#*.map
-#*.obj
-#*.pch
-#*.pdb
-#*.rsp
-#*.sbr
-#*.tlog
-#*.log
-#*.vspscc
-#*.vssscc
-#*.unityproj
-#*.sln
-#*.userprefs
-#*.csproj
-#*.tmp
+*.pidb
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+*.ilk
+*.map
+*.obj
+*.pch
+*.pdb
+*.rsp
+*.sbr
+*.tlog
+*.log
+*.vspscc
+*.vssscc
+*.unityproj
+*.sln
+*.userprefs
+*.csproj
+*.tmp
 #
 ## Ignore any auto-generated files by Unity
-#/Assets/AssetStoreTools*
-#/Assets/Standard Assets/ExampleProject*
+/Assets/AssetStoreTools*
+/Assets/Standard Assets/ExampleProject*
 #
 ## Ignore Unity auto-generated folders
-#.ionide/
+.ionide/
 #
 ## Ignore build directories
-#/Build/
-#/[Oo]bj/
-#[Bb]uilds/
-#/[Bb]in/
-#/[Oo]ut/
+/Build/
+/[Oo]bj/
+[Bb]uilds/
+/[Bb]in/
+/[Oo]ut/
 #
 ## Ignore user-specific files
-#*.csproj
-#*.unityproj
-#*.sln
-#*.suo
-#*.user
-#*.userprefs
-#*.pidb
-#*.booproj
-#*.svd
-#*.pdb
-#*.mdb
-#*.opendb
-#*.VC.db
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
 #
 ## Ignore the main Unity configuration file
-#ProjectSettings/EditorSettings.asset
-#ProjectSettings/TagManager.asset
-#ProjectSettings/TimeManager.asset
-#ProjectSettings/GraphicsSettings.asset
-#ProjectSettings/QualitySettings.asset
-#ProjectSettings/Physics2DSettings.asset
-#ProjectSettings/PhysicsSettings.asset
-#ProjectSettings/InputManager.asset
-#ProjectSettings/PlayerSettings.asset
-#ProjectSettings/AudioManager.asset
-#ProjectSettings/DynamicsManager.asset
-#ProjectSettings/ClusterInputManager.asset
+ProjectSettings/EditorSettings.asset
+ProjectSettings/TagManager.asset
+ProjectSettings/TimeManager.asset
+ProjectSettings/GraphicsSettings.asset
+ProjectSettings/QualitySettings.asset
+ProjectSettings/Physics2DSettings.asset
+ProjectSettings/PhysicsSettings.asset
+ProjectSettings/InputManager.asset
+ProjectSettings/PlayerSettings.asset
+ProjectSettings/AudioManager.asset
+ProjectSettings/DynamicsManager.asset
+ProjectSettings/ClusterInputManager.asset
 #
 ## Ignore auto-generated files
 #/Assets/Plugins/GitHub/*
@@ -101,10 +101,10 @@
 #*.sln.iml
 #
 ## Ignore Windows-specific files
-#Thumbs.db
-#ehthumbs.db
-#Desktop.ini
-#$RECYCLE.BIN/
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
 #
 ## Ignore macOS-specific files
 #.DS_Store
@@ -122,6 +122,7 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
+.vscode
 /[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
