@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 408124214}
   - component: {fileID: 408124213}
   - component: {fileID: 408124212}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -593,14 +593,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3225874551983908691, guid: 4f30989ac1c4fae4f83badf11a255f26, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1036824562}
+      addedObject: {fileID: 1036824565}
   m_SourcePrefab: {fileID: 100100000, guid: 4f30989ac1c4fae4f83badf11a255f26, type: 3}
 --- !u!1 &1036824561 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3225874551983908691, guid: 4f30989ac1c4fae4f83badf11a255f26, type: 3}
   m_PrefabInstance: {fileID: 1036824560}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1036824562
+--- !u!114 &1036824565
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -612,10 +612,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3549d7a99cd8d34b8412a281156871b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
-  turnSpeed: 100
-  jumpForce: 5
-  groundCheckDistance: 1.1
+  _moveSpeed: 10
+  _turnSpeed: 100
+  _jumpForce: 5
+  _groundCheckDistance: 1.1
+  _capa_suelo:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
