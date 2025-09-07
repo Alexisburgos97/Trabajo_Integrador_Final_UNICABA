@@ -62,7 +62,7 @@ public class MenuLoader : MonoBehaviour
 
     public void LoadFirstLevel() {
         //craga la primer pista de carreras
-        GameControler.Instance.pasarNivel("Nivel1");
+        GameControler.Instance.pasarNivel("Level1a");
         //GameControler.Instance.agregarnEscena("Hud_V2.0");
         //hudInfo?.gameObject.SetActive(true);//ya no se usa
     }
