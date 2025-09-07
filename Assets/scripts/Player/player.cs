@@ -13,6 +13,9 @@ public class TopDownCarController : MonoBehaviour
     private bool _isGrounded;
     float _moveInput,_turnInput,_turn;
     Vector3 _move;
+    public int coins = 0;
+    public float fuel = 0;
+    public int peopleRescued = 0;
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
@@ -52,6 +55,25 @@ public class TopDownCarController : MonoBehaviour
             }
             _rb.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
 
+        }
+    }
+    
+    public void Collect(Collectible.Type type)
+    {
+        if (type == Collectible.Type.Coin)
+        {
+            coins++;
+            Debug.Log("Monedas: " + coins);
+        }
+        else if (type == Collectible.Type.Gasoline)
+        {
+            fuel += 10f; // por ejemplo
+            Debug.Log("Gasolina: " + fuel);
+        }
+        else if (type == Collectible.Type.Person)
+        {
+            peopleRescued++;
+            Debug.Log("Personas rescatadas: " + peopleRescued);
         }
     }
     

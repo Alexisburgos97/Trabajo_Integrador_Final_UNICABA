@@ -742,6 +742,7 @@ GameObject:
   - component: {fileID: 5720190793474313779}
   - component: {fileID: 3816447414802717916}
   - component: {fileID: 5900584125727868774}
+  - component: {fileID: 2838591794013959947}
   m_Layer: 0
   m_Name: Auto_base
   m_TagString: Untagged
@@ -812,6 +813,29 @@ MonoBehaviour:
   _capa_suelo:
     serializedVersion: 2
     m_Bits: 0
+  coins: 0
+  fuel: 0
+--- !u!65 &2838591794013959947
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7544384012407924697}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.5, y: 1.2, z: 4.08}
+  m_Center: {x: 0, y: 0.71, z: 0.03}
 --- !u!1 &7841760249736124124
 GameObject:
   m_ObjectHideFlags: 0
