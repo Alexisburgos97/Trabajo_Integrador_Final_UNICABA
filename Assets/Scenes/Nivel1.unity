@@ -21146,10 +21146,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2043530523}
   altura: 10
-  distancia: 0
   suavizado: 5
   alturaMin: 5
-  alturaMax: 30
+  alturaMax: 50
   velocidadZoom: 5
 --- !u!1001 &1640538512
 PrefabInstance:
