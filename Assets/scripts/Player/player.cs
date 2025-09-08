@@ -13,6 +13,7 @@ public class TopDownCarController : MonoBehaviour
     private bool _isGrounded;
     float _moveInput,_turnInput,_turn;
     Vector3 _move;
+
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
@@ -33,26 +34,8 @@ public class TopDownCarController : MonoBehaviour
         Quaternion turnRotation = Quaternion.Euler(0f, _turn, 0f);
 
         _rb.MoveRotation(_rb.rotation * turnRotation);
-        // Verificar si está en el suelo
-        _isGrounded = Physics.Raycast(transform.position, Vector3.up, _groundCheckDistance, _capa_suelo);
+
 
     }
-
-    
-    void FixUpadate()
-    {
-        // Salto con SPACE
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Debug.Log("Salto");
-            Debug.Log(_isGrounded);
-            if (_isGrounded)
-            {
-                Debug.Log("en tierra");
-            }
-            _rb.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
-
-        }
-    }
-    
+  
 }
