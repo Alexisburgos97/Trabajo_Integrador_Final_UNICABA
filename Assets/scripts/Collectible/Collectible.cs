@@ -7,7 +7,9 @@ public class Collectible : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        var car = other.GetComponent<colectables>();
+        Debug.Log("interaccion colecctable");
+        var car = other.GetComponent<Colectables>();
+        Debug.Log(car);
         if (car == null) return;
 
         car.Collect(type);
