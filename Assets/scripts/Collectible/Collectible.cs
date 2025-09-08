@@ -7,7 +7,7 @@ public class Collectible : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        var car = other.GetComponent<TopDownCarController>();
+        var car = other.GetComponent<colectables>();
         if (car == null) return;
 
         car.Collect(type);

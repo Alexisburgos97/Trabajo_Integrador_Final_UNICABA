@@ -13,9 +13,7 @@ public class TopDownCarController : MonoBehaviour
     private bool _isGrounded;
     float _moveInput,_turnInput,_turn;
     Vector3 _move;
-    public int coins = 0;
-    public float fuel = 0;
-    public int peopleRescued = 0;
+
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
@@ -36,45 +34,8 @@ public class TopDownCarController : MonoBehaviour
         Quaternion turnRotation = Quaternion.Euler(0f, _turn, 0f);
 
         _rb.MoveRotation(_rb.rotation * turnRotation);
-        // Verificar si está en el suelo
-        _isGrounded = Physics.Raycast(transform.position, Vector3.up, _groundCheckDistance, _capa_suelo);
+
 
     }
-
-    
-    void FixUpadate()
-    {
-        // Salto con SPACE
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Debug.Log("Salto");
-            Debug.Log(_isGrounded);
-            if (_isGrounded)
-            {
-                Debug.Log("en tierra");
-            }
-            _rb.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
-
-        }
-    }
-    
-    public void Collect(Collectible.Type type)
-    {
-        if (type == Collectible.Type.Coin)
-        {
-            coins++;
-            Debug.Log("Monedas: " + coins);
-        }
-        else if (type == Collectible.Type.Gasoline)
-        {
-            fuel += 10f; // por ejemplo
-            Debug.Log("Gasolina: " + fuel);
-        }
-        else if (type == Collectible.Type.Person)
-        {
-            peopleRescued++;
-            Debug.Log("Personas rescatadas: " + peopleRescued);
-        }
-    }
-    
+  
 }
