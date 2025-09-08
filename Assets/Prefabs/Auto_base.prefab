@@ -741,7 +741,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5720190793474313779}
   - component: {fileID: 3816447414802717916}
-  - component: {fileID: 5900584125727868774}
+  - component: {fileID: 1857557561029842994}
+  - component: {fileID: 6360691375681174450}
   m_Layer: 0
   m_Name: Auto_base
   m_TagString: Untagged
@@ -793,7 +794,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &5900584125727868774
+--- !u!114 &1857557561029842994
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -811,7 +812,22 @@ MonoBehaviour:
   _groundCheckDistance: 1.1
   _capa_suelo:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
+--- !u!114 &6360691375681174450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7544384012407924697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbd08e9045b6c9242ac8a4fef287b902, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coins: 0
+  fuel: 0
+  peopleRescued: 0
 --- !u!1 &7841760249736124124
 GameObject:
   m_ObjectHideFlags: 0
