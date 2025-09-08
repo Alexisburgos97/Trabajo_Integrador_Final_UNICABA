@@ -4,38 +4,37 @@ using UnityEngine;
 
 public class TopDownCarController : MonoBehaviour
 {
-    [SerializeField] float _moveSpeed = 10f;      // Velocidad hacia adelante/atrás
+[SerializeField] float _moveSpeed = 10f;      // Velocidad hacia adelante/atrás
     [SerializeField] float _turnSpeed = 100f;     // Velocidad de giro
-    [SerializeField] float _jumpForce = 5f;       // Fuerza del salto
-    [SerializeField] float _groundCheckDistance = 1.1f; // Distancia para verificar si está en el suelo
-    [SerializeField] LayerMask _capa_suelo; //muestra las capas diponibles para seleccionar la indicada por inspector
     private Rigidbody _rb;
-    private bool _isGrounded;
-    float _moveInput,_turnInput,_turn;
-    Vector3 _move;
+    
+    private float _moveInput;
+    private float _turnInput;
 
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
         _rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+        _rb.interpolation = RigidbodyInterpolation.Interpolate;
     }
 
     void Update()
     {
+        // Leer input en Update (mejor para no perder frames de input)
+        _moveInput = Input.GetAxis("Vertical");
+        _turnInput = Input.GetAxis("Horizontal");
+    }
+
+    void FixedUpdate()
+    {
         // Movimiento adelante / atrás
-        _moveInput = Input.GetAxis("Vertical");   // W/S o Flechas ↑↓
-        _move = transform.forward * _moveInput * _moveSpeed * Time.deltaTime;
-        _rb.MovePosition(_rb.position + _move);
-
+        Vector3 move = transform.forward * _moveInput * _moveSpeed * Time.fixedDeltaTime;
+        _rb.MovePosition(_rb.position + move);
+        //avance con fuerza
         // Rotación izquierda / derecha
-      
-        _turnInput = Input.GetAxis("Horizontal"); // A/D o Flechas ←→
-        _turn = _turnInput * _turnSpeed * Time.deltaTime;
-        Quaternion turnRotation = Quaternion.Euler(0f, _turn, 0f);
-
+        float turn = _turnInput * _turnSpeed * Time.fixedDeltaTime;
+        Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
         _rb.MoveRotation(_rb.rotation * turnRotation);
-
-
     }
   
 }
