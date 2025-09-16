@@ -6,13 +6,24 @@ namespace Simplon {
 
     public  class GameControler : MonoBehaviour
     {
-        public static GameControler Instance => instance;
-        public static GameControler instance;
+        // public static GameControler Instance => instance;
+        // public static GameControler instance;
         private int Speed;
         //Variables para manejar las vidas
         [SerializeField] private int ConfLife=3;
 
         public int Life { get; set; }
+        
+        public static GameControler Instance
+        {
+            get
+            {
+                if (instance == null)
+                    instance = FindObjectOfType<GameControler>();
+                return instance;
+            }
+        }
+        public static GameControler instance;
 
         // //variables para manejar el combustible, default 200
         [SerializeField] float ConfCombustible=200f;

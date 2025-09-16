@@ -2,28 +2,25 @@ using UnityEngine;
 
 public class Colectables : MonoBehaviour
 {
-
-    public int coins = 0;
-    public float fuel = 0;
-    public int peopleRescued = 0;
-
-
     public void Collect(Collectible.Type type)
     {
-        if (type == Collectible.Type.Coin)
+        var stats = GetComponentInParent<PlayerStats>(); // en el Player
+        if (stats == null) return;
+
+        switch (type)
         {
-            coins++;
-            Debug.Log("Monedas: " + coins);
-        }
-        else if (type == Collectible.Type.Gasoline)
-        {
-            fuel += 10f;
-            Debug.Log("Gasolina: " + fuel);
-        }
-        else if (type == Collectible.Type.Person)
-        {
-            peopleRescued++;
-            Debug.Log("Personas rescatadas: " + peopleRescued);
+            case Collectible.Type.Coin:
+                stats.AddCoin(1);
+                Debug.Log("Monedas: " + stats.Coins);
+                break;
+            case Collectible.Type.Gasoline:
+                stats.AddFuel(10f);
+                Debug.Log("Gasolina: " + stats.Fuel);
+                break;
+            case Collectible.Type.Person:
+                stats.AddRescued(1);
+                Debug.Log("Personas rescatadas: " + stats.PeopleRescued);
+                break;
         }
     }
 }
