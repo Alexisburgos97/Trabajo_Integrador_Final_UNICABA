@@ -1149,10 +1149,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f9d11edfd00f5f409f90fb4c88cd21f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 6
-  _maxDistance: 10
-  _fuerzaMinPincho: 1
-  _fuerzaMaxPincho: 5
+  _moveSpeed: 10
+  _maxDistance: 20
+  _fuerzaMinPincho: 5
+  _fuerzaMaxPincho: 15
   _pinchos:
   - {fileID: 2832319938974411049}
   - {fileID: 6548952186525272056}
