@@ -29,7 +29,7 @@ public class Cilindro_main : MonoBehaviour
         if (Vector3.Distance(_startPos, transform.position) >= _maxDistance)
         {
             DispararPinchos();
-            Destroy(gameObject);
+            //Destroy(gameObject);
             Explode();
         }
     }
@@ -40,7 +40,7 @@ public class Cilindro_main : MonoBehaviour
         {
             // Al chocar con el jugador dispara pinchos y destruye
             DispararPinchos();
-            Destroy(gameObject);
+            //Destroy(gameObject);
             Explode();
             Debug.Log("Cilindro: colision con el player");
         }
