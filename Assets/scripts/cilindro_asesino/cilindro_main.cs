@@ -3,12 +3,16 @@ using UnityEngine;
 public class Cilindro_main : MonoBehaviour
 {
     [SerializeField] float _moveSpeed = 5f;          // Velocidad de desplazamiento
-    [SerializeField]float _maxDistance = 20f;       // Distancia máxima antes de autodestruirse
+    [SerializeField] float _maxDistance = 20f;       // Distancia máxima antes de autodestruirse
 
     [SerializeField] float _fuerzaMinPincho = 5f;   // Fuerza mínima
     [SerializeField] float _fuerzaMaxPincho = 15f;  // Fuerza máxima
     [SerializeField] Transform[] _pinchos;           // Lista de pinchos hijos
 
+    [Header("Efectos")]
+    [SerializeField] GameObject _explosionPrefab;   // Prefab de partículas de explosión
+    [SerializeField] AudioClip _explosionSound;     // Sonido de explosión
+    [SerializeField] float _volumenExplosion = 1f;  // Volumen del sonido
     [SerializeField] Vector3 _startPos;
 
     void Start()
@@ -26,6 +30,7 @@ public class Cilindro_main : MonoBehaviour
         {
             DispararPinchos();
             Destroy(gameObject);
+            Explode();
         }
     }
 
@@ -36,29 +41,45 @@ public class Cilindro_main : MonoBehaviour
             // Al chocar con el jugador dispara pinchos y destruye
             DispararPinchos();
             Destroy(gameObject);
+            Explode();
             Debug.Log("Cilindro: colision con el player");
         }
     }
 
     void DispararPinchos()
-{
-    foreach (Transform pincho in _pinchos)
     {
-        pincho.SetParent(null); // Lo sacamos del cilindro
+        foreach (Transform pincho in _pinchos)
+        {
+            pincho.SetParent(null); // Lo sacamos del cilindro
 
-        Rigidbody rb = pincho.gameObject.GetComponent<Rigidbody>();
-        if (rb == null)
-            rb = pincho.gameObject.AddComponent<Rigidbody>();
+            Rigidbody rb = pincho.gameObject.GetComponent<Rigidbody>();
+            if (rb == null)
+                rb = pincho.gameObject.AddComponent<Rigidbody>();
 
-        // Fuerza aleatoria entre min y max
-        float fuerzaAleatoria = Random.Range(_fuerzaMinPincho, _fuerzaMaxPincho);
+            // Fuerza aleatoria entre min y max
+            float fuerzaAleatoria = Random.Range(_fuerzaMinPincho, _fuerzaMaxPincho);
 
-        // Disparo en el eje forward del pincho
-        rb.AddForce(pincho.forward * fuerzaAleatoria, ForceMode.Impulse);
+            // Disparo en el eje forward del pincho
+            rb.AddForce(pincho.forward * fuerzaAleatoria, ForceMode.Impulse);
 
-        // Le agregamos script de autodestrucción
-        if (pincho.GetComponent<Pincho>() == null)
-            pincho.gameObject.AddComponent<Pincho>();
+            Pincho script = pincho.GetComponent<Pincho>();
+            if (script == null)
+                script = pincho.gameObject.AddComponent<Pincho>();
+
+            script.ActivarPincho(); // 🔥 activamos el pincho recién aquí
+        }
     }
-}
+    
+    void Explode()
+    {
+        // Instanciar explosión
+        if (_explosionPrefab != null)
+            Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
+
+        // Reproducir sonido
+        if (_explosionSound != null)
+            AudioSource.PlayClipAtPoint(_explosionSound, transform.position, _volumenExplosion);
+
+        Destroy(gameObject);
+    }
 }

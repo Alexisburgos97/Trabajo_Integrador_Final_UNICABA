@@ -10,7 +10,7 @@ public class Pincho : MonoBehaviour
     [SerializeField] AudioClip _explosionSound;     // Sonido de explosión
     [SerializeField] float _volumenExplosion = 0.7f; // Volumen (un poco más bajo que el cilindro)
     private Vector3 _startPos;
-
+    private bool _activo = false; // control de activación
     void Start()
     {
         _startPos = transform.position;
@@ -25,26 +25,31 @@ public class Pincho : MonoBehaviour
         }
     }
 
+    /*
     private void OnCollisionEnter(Collision collision)
     {
         Destroy(gameObject); // al chocar desaparece
         Debug.Log("Pinchos: otra colision");
     }
-
+    */
     private void OnTriggerEnter(Collider other)
     {
+        if (!_activo) return; // ignorar colisiones mientras está en el cilindro
+
         if (other.CompareTag("Player"))
         {
-            // Al chocar con el jugador dispara pinchos y destruye
-            Destroy(gameObject);
             Debug.Log("Pinchos: colision con el player");
+            Destroy(gameObject); // ahora sí empieza el conteo de vida
+            Explode();
         }
         else
         {
             Debug.Log("Pinchos: otra colision");
+            Destroy(gameObject); // ahora sí empieza el conteo de vida
+            Explode();
         }
     }
-    
+
     void Explode()
     {
         if (_explosionPrefab != null)
@@ -56,6 +61,12 @@ public class Pincho : MonoBehaviour
         Destroy(gameObject);
     }
     
+    public void ActivarPincho()
+    {
+        _activo = true;
+        _startPos = transform.position; // reiniciamos punto de partida
+        //Destroy(gameObject, _lifeTime); // ahora sí empieza el conteo de vida
+    }
 }
 
 
