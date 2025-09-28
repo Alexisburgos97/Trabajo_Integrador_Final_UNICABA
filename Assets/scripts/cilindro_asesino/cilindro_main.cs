@@ -29,8 +29,8 @@ public class Cilindro_main : MonoBehaviour
         if (Vector3.Distance(_startPos, transform.position) >= _maxDistance)
         {
             DispararPinchos();
-            //Destroy(gameObject);
             Explode();
+            //Destroy(gameObject);
         }
     }
 
@@ -39,9 +39,8 @@ public class Cilindro_main : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             // Al chocar con el jugador dispara pinchos y destruye
-            DispararPinchos();
-            //Destroy(gameObject);
             Explode();
+            DispararPinchos();            
             Debug.Log("Cilindro: colision con el player");
         }
     }
@@ -68,6 +67,7 @@ public class Cilindro_main : MonoBehaviour
 
             script.ActivarPincho(); // 🔥 activamos el pincho recién aquí
         }
+        Destroy(gameObject);
     }
     
     void Explode()
@@ -79,7 +79,6 @@ public class Cilindro_main : MonoBehaviour
         // Reproducir sonido
         if (_explosionSound != null)
             AudioSource.PlayClipAtPoint(_explosionSound, transform.position, _volumenExplosion);
-
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 }

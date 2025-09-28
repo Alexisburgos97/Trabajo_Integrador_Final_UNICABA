@@ -38,15 +38,17 @@ public class Pincho : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
+            Explode();
             Debug.Log("Pinchos: colision con el player");
             Destroy(gameObject); // ahora sí empieza el conteo de vida
-            Explode();
+            
         }
         else
         {
+            Explode();
             Debug.Log("Pinchos: otra colision");
             Destroy(gameObject); // ahora sí empieza el conteo de vida
-            Explode();
+            
         }
     }
 

@@ -2469,6 +2469,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spawner_cilindros
       objectReference: {fileID: 0}
+    - target: {fileID: 1246599053497509321, guid: ebe4742bb1b782c47837fa4c8634aa00, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6176508352920526129, guid: ebe4742bb1b782c47837fa4c8634aa00, type: 3}
       propertyPath: m_LocalPosition.x
       value: -202.7
@@ -21869,7 +21873,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2043530523}
   altura: 10
-  suavizado: 5
+  suavizado: 20
   alturaMin: 5
   alturaMax: 50
   velocidadZoom: 5
