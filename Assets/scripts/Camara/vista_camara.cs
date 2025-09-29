@@ -14,7 +14,7 @@ public class vista_camara : MonoBehaviour
 
     private Vector3 posicionDeseada;
 
-    void LateUpdate()
+    void FixedUpdate()
     {
         if (player == null) return;
 
