@@ -15,16 +15,19 @@ public class EnemyTouchDamage : MonoBehaviour
     public float knockbackForce = 6f;      // empujón suave
 
     float _nextTime;
-
-    void OnCollisionEnter(Collision c)  { Apply(c.collider, c, true); }
-    void OnCollisionStay (Collision c)  { Apply(c.collider, c, false); }
-
+    GameControler _controller;
+    void OnCollisionEnter(Collision c) { Apply(c.collider, c, true); }
+    void OnCollisionStay(Collision c) { Apply(c.collider, c, false); }
+    void Start()
+    {
+        _controller = GameControler.Instance;
+    }
     void Apply(Component other, Collision col, bool isFirstTouch)
     {
         // ¿es el player?
         var player = other.GetComponentInParent<TopDownCarController>();
         if (player == null) return;
-        
+
         // Obtener PlayerStats del jugador
         var stats = other.GetComponentInParent<PlayerStats>();
         if (stats == null) return;
@@ -68,7 +71,7 @@ public class EnemyTouchDamage : MonoBehaviour
                 a.clip = hitSfx;
                 a.volume = sfxVolume;
 
-                a.time = 3.9f;  
+                a.time = 3.9f;
 
                 a.Play();
 
@@ -76,5 +79,9 @@ public class EnemyTouchDamage : MonoBehaviour
                 Destroy(temp, a.clip.length - a.time);
             }
         }
+    }
+    
+    private void QuitarCombustible(float restar) { 
+        _controller.Combustible-=restar;
     }
 }
