@@ -8,6 +8,12 @@ public class TopDownCarController : MonoBehaviour
     
     private float _moveInput;
     private float _turnInput;
+    
+    int _safeZoneOverlaps = 0;
+    public bool IsInSafeZone => _safeZoneOverlaps > 0;
+    
+    public void EnterSafeZone() => _safeZoneOverlaps++;
+    public void ExitSafeZone()  => _safeZoneOverlaps = Mathf.Max(0, _safeZoneOverlaps - 1);
 
     void Start()
     {
