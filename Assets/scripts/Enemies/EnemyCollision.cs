@@ -35,12 +35,26 @@ public class EnemyTouchDamage : MonoBehaviour
         // DAÑO INMEDIATO en el primer toque
         if (isFirstTouch || Time.time >= _nextTime)
         {
-            float before = stats.Fuel;
-            stats.SpendFuel(fuelDrainPerTouch);
+            // float before = stats.Fuel;
+            // stats.SpendFuel(fuelDrainPerTouch);
+            // _nextTime = Time.time + cooldown;
+            // Debug.Log($"[ENEMIGO] Toque! Combustible: {before} -> {stats.Fuel}");
+
+            float before = _controller.Combustible;
+
+            QuitarCombustible(fuelDrainPerTouch);
+
             _nextTime = Time.time + cooldown;
 
-            Debug.Log($"[ENEMIGO] Toque! Combustible: {before} -> {stats.Fuel}");
+            Debug.Log($"[ENEMIGO] Toque! Combustible GC: {before} -> {_controller.Combustible}");
 
+            // Si te quedaste sin combustible, aplica la misma regla que en Control_Distancia
+            if (_controller.Combustible <= 0f)
+            {
+                _controller.QuitarVida(1);
+                _controller.ResetCombustible();
+            }
+            
             // Knockback suave para que no se “pegue”
             var rbPlayer = other.GetComponentInParent<Rigidbody>();
             if (rbPlayer != null)
