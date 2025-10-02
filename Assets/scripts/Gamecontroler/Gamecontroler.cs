@@ -124,7 +124,7 @@ namespace Simplon {
             Life -= Cantidad;
             if (Life < 1) {
                 //perdio y vuelve a reiniciar el juego
-                pasarNivel("Lose_Screen");
+                pasarNivel("Perdiste");
                 ResetVariables();
             }
         }
