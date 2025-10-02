@@ -30,7 +30,7 @@ public class Cilindro_main : MonoBehaviour
         {
             DispararPinchos();
             Explode();
-            //Destroy(gameObject);
+            Destroy(gameObject);
         }
     }
 
@@ -40,8 +40,9 @@ public class Cilindro_main : MonoBehaviour
         {
             // Al chocar con el jugador dispara pinchos y destruye
             Explode();
-            DispararPinchos();            
+            DispararPinchos();
             Debug.Log("Cilindro: colision con el player");
+            Destroy(gameObject);
         }
     }
 
