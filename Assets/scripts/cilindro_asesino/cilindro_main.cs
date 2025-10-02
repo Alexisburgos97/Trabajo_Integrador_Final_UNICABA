@@ -45,29 +45,55 @@ public class Cilindro_main : MonoBehaviour
         }
     }
 
+    // void DispararPinchos()
+    // {
+    //     foreach (Transform pincho in _pinchos)
+    //     {
+    //         pincho.SetParent(null); // Lo sacamos del cilindro
+    //
+    //         Rigidbody rb = pincho.gameObject.GetComponent<Rigidbody>();
+    //         if (rb == null)
+    //             rb = pincho.gameObject.AddComponent<Rigidbody>();
+    //
+    //         // Fuerza aleatoria entre min y max
+    //         float fuerzaAleatoria = Random.Range(_fuerzaMinPincho, _fuerzaMaxPincho);
+    //
+    //         // Disparo en el eje forward del pincho
+    //         rb.AddForce(pincho.forward * fuerzaAleatoria, ForceMode.Impulse);
+    //
+    //         Pincho script = pincho.GetComponent<Pincho>();
+    //         if (script == null)
+    //             script = pincho.gameObject.AddComponent<Pincho>();
+    //
+    //         script.ActivarPincho(); // 🔥 activamos el pincho recién aquí
+    //     }
+    //     Destroy(gameObject);
+    // }
+    
     void DispararPinchos()
     {
-        foreach (Transform pincho in _pinchos)
-        {
-            pincho.SetParent(null); // Lo sacamos del cilindro
+        if (_pinchos == null) return;
 
-            Rigidbody rb = pincho.gameObject.GetComponent<Rigidbody>();
-            if (rb == null)
+        foreach (var pincho in _pinchos)
+        {
+            if (pincho == null) continue;                   // ⛔ ya destruido o no asignado
+            if (pincho.parent == null) continue;            // ya despadreado en otra llamada
+
+            pincho.SetParent(null, true);                   // ✅ conservar world transform
+
+            // rigidbody
+            if (!pincho.TryGetComponent<Rigidbody>(out var rb))
                 rb = pincho.gameObject.AddComponent<Rigidbody>();
 
-            // Fuerza aleatoria entre min y max
-            float fuerzaAleatoria = Random.Range(_fuerzaMinPincho, _fuerzaMaxPincho);
+            float fuerza = Random.Range(_fuerzaMinPincho, _fuerzaMaxPincho);
+            rb.AddForce(pincho.forward * fuerza, ForceMode.Impulse);
 
-            // Disparo en el eje forward del pincho
-            rb.AddForce(pincho.forward * fuerzaAleatoria, ForceMode.Impulse);
-
-            Pincho script = pincho.GetComponent<Pincho>();
-            if (script == null)
+            // script del pincho
+            if (!pincho.TryGetComponent<Pincho>(out var script))
                 script = pincho.gameObject.AddComponent<Pincho>();
 
-            script.ActivarPincho(); // 🔥 activamos el pincho recién aquí
+            script.ActivarPincho();
         }
-        Destroy(gameObject);
     }
     
     void Explode()
