@@ -18,7 +18,7 @@ public class Quicksand : MonoBehaviour
 
     void Awake()
     {
-        _gc = GameControler.Instance ?? FindObjectOfType<GameControler>();
+        _gc = GameControler.Instance ?? FindAnyObjectByType<GameControler>();
         if (_gc == null) { Debug.LogError("[ArenaMovediza] No hay GameControler."); enabled = false; return; }
 
         var box = GetComponent<BoxCollider>();
