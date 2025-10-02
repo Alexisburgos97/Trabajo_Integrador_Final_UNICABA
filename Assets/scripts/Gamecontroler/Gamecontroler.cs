@@ -22,10 +22,10 @@ namespace Simplon {
         public float Combustible { get; set; }
 
         //seteo las cantidad de vueltas por defect a 3
-        [SerializeField] private int _total_rescates = 3;
+        [SerializeField] private int totalVueltas = 3;
 
         //guarda en que vuelta va la carrera
-        private int _rescates_actual;
+        private int vuelta_actual;
        
         //variable que gurda la distancia recorrida
         public float distancia { get; set; }
@@ -62,8 +62,8 @@ namespace Simplon {
             //setear combustible a 200           
             Combustible = ConfCombustible;
 
-            //setear vuelta actual a 0
-            _rescates_actual = 0;
+            //setear vuelta actual a 1
+            vuelta_actual = 1;
       
         }
         //cambiar de a la pista2
@@ -95,22 +95,22 @@ namespace Simplon {
         }
 
         //suma 1 a la variable vuelta actual
-        public void Sumar_vuelta() => _rescates_actual++;
+        public void Sumar_vuelta() => vuelta_actual++;
 
 
         public int Obtener_vuelta()
         {
             //devuelve en que vualta va la carrera
-            return _rescates_actual;
+            return vuelta_actual;
         }
         public void Setear_totalVueltas(int vueltas) { 
             //setea otro valor para el total de vueltas
 
-            _total_rescates=vueltas; 
+            totalVueltas=vueltas; 
         }
         public int Obtener_totalVueltas() { 
             //devuelve el total de vueltas de la carrera
-            return _total_rescates; 
+            return totalVueltas; 
         }
 
         public int ObtenerTotalVidas() {
@@ -124,7 +124,7 @@ namespace Simplon {
             Life -= Cantidad;
             if (Life < 1) {
                 //perdio y vuelve a reiniciar el juego
-                pasarNivel("Perdiste");
+                pasarNivel("Lose_Screen");
                 ResetVariables();
             }
         }
