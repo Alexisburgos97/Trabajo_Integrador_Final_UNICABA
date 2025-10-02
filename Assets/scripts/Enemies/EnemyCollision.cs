@@ -74,6 +74,7 @@ public class EnemyTouchDamage : MonoBehaviour
                 a.Play();
                 Destroy(temp, a.clip.length);
             }
+            Destroy(gameObject);
         }
     }
 }
