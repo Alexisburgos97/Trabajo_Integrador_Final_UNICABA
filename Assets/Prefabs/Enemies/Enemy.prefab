@@ -190,6 +190,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb50c934671e1394b97b0c55f6d06d73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  moveSpeed: 8
-  turnSpeed: 180
+  _targetTag: Player
+  _moveSpeed: 15
+  _turnSpeed: 180
