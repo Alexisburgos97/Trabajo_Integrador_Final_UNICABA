@@ -22,7 +22,7 @@ namespace Simplon {
         public float Combustible { get; set; }
 
         //seteo las cantidad de vueltas por defect a 3
-        [SerializeField] private int totalVueltas = 3;
+        [SerializeField] private int _total_a_rescatar = 3;
 
         //guarda en que vuelta va la carrera
         private int vuelta_actual;
@@ -103,14 +103,14 @@ namespace Simplon {
             //devuelve en que vualta va la carrera
             return vuelta_actual;
         }
-        public void Setear_totalVueltas(int vueltas) { 
+        public void Setear_total_a_rescatar(int total) { 
             //setea otro valor para el total de vueltas
 
-            totalVueltas=vueltas; 
+            _total_a_rescatar=total; 
         }
         public int Obtener_totalVueltas() { 
             //devuelve el total de vueltas de la carrera
-            return totalVueltas; 
+            return _total_a_rescatar; 
         }
 
         public int ObtenerTotalVidas() {
