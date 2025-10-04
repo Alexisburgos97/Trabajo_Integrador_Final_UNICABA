@@ -1,5 +1,4 @@
 using UnityEngine;
-using Simplon;
 
 public class Colectables : MonoBehaviour
 {
@@ -7,12 +6,7 @@ public class Colectables : MonoBehaviour
     public int coins = 0;
     public float fuel = 0;
     public int peopleRescued = 0;
-    GameControler _controller;
 
-    void Start()
-    {
-        _controller = GameControler.Instance;
-    }
 
     public void Collect(Collectible.Type type)
     {
@@ -30,12 +24,6 @@ public class Colectables : MonoBehaviour
         {
             peopleRescued++;
             Debug.Log("Personas rescatadas: " + peopleRescued);
-            if ( peopleRescued == _controller.Obtener_totalVueltas())
-            {
-                //si es la meta y se completaron todas las vueltas pasa de nivel
-                _controller.ResetVariables();
-                _controller.pasarNivel("Ganaste");
-            }
         }
     }
 }
