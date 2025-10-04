@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Hud.unity
     guid: a89291c38a774844aa5a1012128cfc1c
   - enabled: 1
+    path: Assets/Scenes/Nivel1.unity
+    guid: 2e7208297aed4ca4e9918641ee0288c1
+  - enabled: 1
     path: Assets/Scenes/Level1a.unity
     guid: 2b0b8b4cb295d3545a455de7271b2633
   - enabled: 1
@@ -20,9 +23,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Perdiste.unity
     guid: f1b61e7034268c541aa52a0ffe4d75e7
-  - enabled: 1
-    path: Assets/Scenes/Nivel1.unity
-    guid: 2e7208297aed4ca4e9918641ee0288c1
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
