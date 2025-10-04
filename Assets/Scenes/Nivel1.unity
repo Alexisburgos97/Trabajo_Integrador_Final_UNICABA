@@ -271,8 +271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2072332056}
   altura: 10
-  distancia: 0
-  suavizado: 5
+  suavizado: 10
   alturaMin: 5
   alturaMax: 30
   velocidadZoom: 5
@@ -506,6 +505,63 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
+--- !u!1001 &437076970
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6004547910649225173, guid: 6f5fa15fb8a3c1e41b295e59f5c5d62b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6004547910649225173, guid: 6f5fa15fb8a3c1e41b295e59f5c5d62b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6004547910649225173, guid: 6f5fa15fb8a3c1e41b295e59f5c5d62b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6004547910649225173, guid: 6f5fa15fb8a3c1e41b295e59f5c5d62b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6004547910649225173, guid: 6f5fa15fb8a3c1e41b295e59f5c5d62b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6004547910649225173, guid: 6f5fa15fb8a3c1e41b295e59f5c5d62b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6004547910649225173, guid: 6f5fa15fb8a3c1e41b295e59f5c5d62b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6004547910649225173, guid: 6f5fa15fb8a3c1e41b295e59f5c5d62b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6004547910649225173, guid: 6f5fa15fb8a3c1e41b295e59f5c5d62b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6004547910649225173, guid: 6f5fa15fb8a3c1e41b295e59f5c5d62b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6349970121087239535, guid: 6f5fa15fb8a3c1e41b295e59f5c5d62b, type: 3}
+      propertyPath: m_Name
+      value: cilindroasesino_v2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6f5fa15fb8a3c1e41b295e59f5c5d62b, type: 3}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -631,3 +687,4 @@ SceneRoots:
   - {fileID: 832575519}
   - {fileID: 408124215}
   - {fileID: 1421311318}
+  - {fileID: 437076970}
