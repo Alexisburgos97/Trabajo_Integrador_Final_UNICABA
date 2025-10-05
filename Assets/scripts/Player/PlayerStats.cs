@@ -8,6 +8,9 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] float maxFuel = 200f;
     public float Fuel { get; private set; }
 
+    [Header("Escudo")]
+    public bool tieneEscudo;
+
     [Header("Counters")]
     public int Coins { get; private set; }
     public int PeopleRescued { get; private set; }
@@ -34,6 +37,14 @@ public class PlayerStats : MonoBehaviour
     public void SpendFuel(float amount)
     {
         if (amount <= 0f) return;
+
+        // Si tiene Escudo activo: no recibe daño
+        if (tieneEscudo)
+        {
+            Debug.Log("[STATS] Daño bloqueado: escudo activo.");
+            return;
+        }
+
         Fuel = Mathf.Max(0f, Fuel - amount);
         onFuelChanged?.Invoke(Fuel, maxFuel);
         if (Fuel <= 0f)
