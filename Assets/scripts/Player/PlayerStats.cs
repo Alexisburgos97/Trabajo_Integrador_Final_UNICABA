@@ -38,12 +38,12 @@ public class PlayerStats : MonoBehaviour
     {
         if (amount <= 0f) return;
 
-        // Si tiene Escudo activo: no recibe daño
+/*        // Si tiene Escudo activo: no recibe daño
         if (tieneEscudo)
         {
             Debug.Log("[STATS] Daño bloqueado: escudo activo.");
             return;
-        }
+        }*/
 
         Fuel = Mathf.Max(0f, Fuel - amount);
         onFuelChanged?.Invoke(Fuel, maxFuel);

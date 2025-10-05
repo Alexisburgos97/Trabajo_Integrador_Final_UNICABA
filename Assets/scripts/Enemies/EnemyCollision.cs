@@ -32,11 +32,21 @@ public class EnemyTouchDamage : MonoBehaviour
         // DAÑO INMEDIATO en el primer toque
         if (isFirstTouch || Time.time >= _nextTime)
         {
-            float before = stats.Fuel;
-            stats.SpendFuel(fuelDrainPerTouch);
+            // Bloqueo de daño en escudo por enemigo
+            var shield = player.GetComponentInChildren<EscudoJugador>();
+            if (shield != null && shield.EstaActivo())
+            {
+                Debug.Log("[ESCUDO] Daño bloqueado por escudo activo");
+                //return;
+            }
+            else
+            {
+                float before = stats.Fuel;
+                stats.SpendFuel(fuelDrainPerTouch);
+                Debug.Log($"[ENEMIGO] Toque! Combustible: {before} -> {stats.Fuel}");
+            }
+            
             _nextTime = Time.time + cooldown;
-
-            Debug.Log($"[ENEMIGO] Toque! Combustible: {before} -> {stats.Fuel}");
 
             // Knockback suave para que no se “pegue”
             var rbPlayer = other.GetComponentInParent<Rigidbody>();
