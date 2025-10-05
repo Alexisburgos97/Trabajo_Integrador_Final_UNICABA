@@ -40552,11 +40552,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7052791373746762758, guid: eb5d9d4d99a10744eb88b819f629ede2, type: 3}
   m_PrefabInstance: {fileID: 2121790164}
   m_PrefabAsset: {fileID: 0}
---- !u!54 &2121790166 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 8444813130153449203, guid: eb5d9d4d99a10744eb88b819f629ede2, type: 3}
-  m_PrefabInstance: {fileID: 2121790164}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2121790167 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4626831377977874430, guid: eb5d9d4d99a10744eb88b819f629ede2, type: 3}
@@ -40574,8 +40569,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baf93255470b6c342b17b1c6be56f17c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rb: {fileID: 2121790166}
   _tag: Muro
+  retroceso: 0.5
 --- !u!1001 &2127927812
 PrefabInstance:
   m_ObjectHideFlags: 0
