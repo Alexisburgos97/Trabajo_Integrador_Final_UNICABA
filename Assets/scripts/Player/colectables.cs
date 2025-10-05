@@ -28,9 +28,8 @@ public class Colectables : MonoBehaviour
         else if (type == Collectible.Type.Person)
         {
             _peopleRescued++;
-            Debug.Log("Personas rescatadas: " + _peopleRescued);
-            //sumar rescate
             _controler.Sumar_rescate();
+            Debug.Log($"Rescatadas: {_controler.Obtener_rescate()} / {_controler.Obtener_total_a_rescatar()}");
         }
     }
 }
