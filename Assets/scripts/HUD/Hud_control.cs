@@ -6,10 +6,10 @@ public class Hud_control : MonoBehaviour
 {
     //t_vueltas es para mostrar el numero de vueltas totales
     //Vuelta_A es para mostrar la vuelta actual
-    [SerializeField] private TextMeshProUGUI T_vueltas, Vuelta_A;
+    [SerializeField] private TextMeshProUGUI _T_vueltas, _Vuelta_A;
 
     //referencia al texbox para mostrar la distancia, vida, combustible
-    [SerializeField] private TextMeshProUGUI VisorDistancia,VisorVida,VisorCombustible;
+    [SerializeField] private TextMeshProUGUI _VisorDistancia,_VisorVida, _VisorCombustible;
 
     //private float tiempoActual;
 
@@ -47,17 +47,17 @@ public class Hud_control : MonoBehaviour
     private void MostrarDistancia() {
         //muestra la distancia recorrida en el hud
         //VisorDistancia.text=Math.Round(Controler.distancia, 2,MidpointRounding.AwayFromZero).ToString();
-        VisorDistancia.text = string.Format("{0}m", ((int)Controler.distancia));
+        _VisorDistancia.text = string.Format("{0}m", ((int)Controler.distancia));
       
     }
 
     private void MostrarVida() {
-        VisorVida.text = Controler.Life.ToString();
+        _VisorVida.text = Controler.Life.ToString();
     }
   
     private void MostrarCombustible() {
         //mostrar el combustible disponible
-        VisorCombustible.text = ((int)Controler.Combustible).ToString();
+        _VisorCombustible.text = ((int)Controler.Combustible).ToString();
     }
 
 }

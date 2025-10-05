@@ -32,11 +32,11 @@ public class EnemyTouchDamage : MonoBehaviour
         // DAÑO INMEDIATO en el primer toque
         if (isFirstTouch || Time.time >= _nextTime)
         {
-                float before = stats.Fuel;
-                stats.SpendFuel(fuelDrainPerTouch);
-                _nextTime = Time.time + cooldown;
+            float before = stats.Fuel;
+            stats.SpendFuel(fuelDrainPerTouch);
+            _nextTime = Time.time + cooldown;
 
-                Debug.Log($"[ENEMIGO] Toque! Combustible: {before} -> {stats.Fuel}");
+            Debug.Log($"[ENEMIGO] Toque! Combustible: {before} -> {stats.Fuel}");
 
             // Knockback suave para que no se “pegue”
             var rbPlayer = other.GetComponentInParent<Rigidbody>();

@@ -60,7 +60,7 @@ public class Pincho : MonoBehaviour
         if (_explosionSound != null)
             AudioSource.PlayClipAtPoint(_explosionSound, transform.position, _volumenExplosion);
 
-        //Destroy(gameObject);
+        Destroy(gameObject);
     }
     
     public void ActivarPincho()
