@@ -27189,7 +27189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2121790165}
   altura: 40
-  suavizado: 20
+  suavizado: 30
   alturaMin: 5
   alturaMax: 40
   velocidadZoom: 5
@@ -43217,10 +43217,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7052791373746762758, guid: eb5d9d4d99a10744eb88b819f629ede2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8787222324571833404, guid: eb5d9d4d99a10744eb88b819f629ede2, type: 3}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
