@@ -53,7 +53,7 @@ public class Quicksand : MonoBehaviour
         if (drainPerSecond > 0f)
             _gc.Combustible = Mathf.Max(0f, _gc.Combustible - drainPerSecond * Time.deltaTime);
 
-        if (_gc.Combustible <= 0f) { _gc.QuitarVida(1); _gc.ResetCombustible(); }
+        if (_gc.Combustible <= 0f) { _gc.Quitar_Vida(1); _gc.ResetCombustible(); }
     }
 
     void OnTriggerExit(Collider other)

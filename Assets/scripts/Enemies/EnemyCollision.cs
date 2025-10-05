@@ -43,7 +43,7 @@ public class EnemyTouchDamage : MonoBehaviour
 
             if (_controller.Combustible <= 0f)
             {
-                _controller.QuitarVida(1);
+                _controller.Quitar_Vida(1);
                 _controller.ResetCombustible();
             }
 

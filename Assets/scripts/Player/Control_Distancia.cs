@@ -35,7 +35,7 @@ public class Control_Distancia : MonoBehaviour
         posicionAnterior = transform.position;
 
         //Controler.Distancia = distanciaTotalRecorrida;
-        Controler.distancia = distanciaTotalRecorrida;
+        Controler._distancia = distanciaTotalRecorrida;
 
        if (control > 1 ) {
             //si recorio mas de 1 metro restar combustible
@@ -44,7 +44,7 @@ public class Control_Distancia : MonoBehaviour
                 QuitarCombustible(ConsumoCombustible);
             }
             else {
-                Controler.QuitarVida(1);
+                Controler.Quitar_Vida(1);
                 Controler.ResetCombustible();
             }
           

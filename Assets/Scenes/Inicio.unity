@@ -840,7 +840,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -433, y: 27.88}
+  m_AnchoredPosition: {x: -414, y: 28}
   m_SizeDelta: {x: 200, y: 65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &472133833
@@ -1072,15 +1072,15 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 893717270}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 127}
-  m_LocalScale: {x: 0.6890647, y: 0.5708322, z: 0.92045}
+  m_LocalPosition: {x: 0, y: 0, z: 39}
+  m_LocalScale: {x: 0.61137265, y: 0.59275216, z: 0.92045}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 230789495}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 12, y: 4}
+  m_AnchoredPosition: {x: -3, y: -13}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &893717272
@@ -1291,7 +1291,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -435.84, y: -146.36}
+  m_AnchoredPosition: {x: -416.83997, y: -146.23999}
   m_SizeDelta: {x: 200, y: 65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1141354880
@@ -1488,7 +1488,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -437.73, y: -59.241}
+  m_AnchoredPosition: {x: -418.72998, y: -59.120987}
   m_SizeDelta: {x: 200, y: 65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1583416074
@@ -1764,7 +1764,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -433, y: -233.48}
+  m_AnchoredPosition: {x: -413.99997, y: -233.35999}
   m_SizeDelta: {x: 200, y: 65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1854145587
@@ -2044,6 +2044,10 @@ PrefabInstance:
     - target: {fileID: 8520400709279942591, guid: 4172fa19606cd7841a2140be847b313b, type: 3}
       propertyPath: _total_rescates
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8520400709279942591, guid: 4172fa19606cd7841a2140be847b313b, type: 3}
+      propertyPath: _total_a_rescatar
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
