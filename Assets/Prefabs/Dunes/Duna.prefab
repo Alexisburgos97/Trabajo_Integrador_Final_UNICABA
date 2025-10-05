@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1451176612793244546}
   m_Layer: 0
   m_Name: Duna
-  m_TagString: Untagged
+  m_TagString: Muro
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,6 +98,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: dune2
       objectReference: {fileID: 0}
+    - target: {fileID: 1759539679024274, guid: 996ac78bb0e8f0e4493a4913b71b98a4, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 4061503698114174, guid: 996ac78bb0e8f0e4493a4913b71b98a4, type: 3}
       propertyPath: m_LocalScale.x
       value: 23
@@ -183,6 +187,10 @@ PrefabInstance:
     - target: {fileID: 1359239489208808, guid: 74b091073ae2b5c41a4912e17e3ca35c, type: 3}
       propertyPath: m_Name
       value: dune0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1359239489208808, guid: 74b091073ae2b5c41a4912e17e3ca35c, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4049443921126750, guid: 74b091073ae2b5c41a4912e17e3ca35c, type: 3}
       propertyPath: m_LocalScale.x
