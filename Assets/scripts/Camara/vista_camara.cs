@@ -13,8 +13,8 @@ public class vista_camara : MonoBehaviour
     public float velocidadZoom = 5f;    // Velocidad de cambio de altura
 
     private Vector3 posicionDeseada;
-    /*
-    void FixedUpdate()
+    
+    void LateUpdate()
     {
         if (player == null) return;
 
@@ -40,30 +40,5 @@ public class vista_camara : MonoBehaviour
         // Fijar rotación para que siempre mire hacia abajo (cenital pura)
         transform.rotation = Quaternion.Euler(90f, 0f, 0f);
     }
-    */
-    void LateUpdate()
-{
-    if (player == null) return;
-
-    // Ajustar altura con la rueda del mouse
-    float scroll = Input.GetAxis("Mouse ScrollWheel");
-    if (scroll != 0f)
-    {
-        altura -= scroll * velocidadZoom;
-        altura = Mathf.Clamp(altura, alturaMin, alturaMax);
-    }
-
-    if (Input.GetKey(KeyCode.Q)) altura -= velocidadZoom * Time.deltaTime;
-    if (Input.GetKey(KeyCode.E)) altura += velocidadZoom * Time.deltaTime;
-    altura = Mathf.Clamp(altura, alturaMin, alturaMax);
-
-    // Posición deseada
-    posicionDeseada = new Vector3(player.position.x, player.position.y + altura, player.position.z);
-
-    // Movimiento suavizado
-    transform.position = Vector3.Lerp(transform.position, posicionDeseada, suavizado * Time.deltaTime);
-
-    // Cenital fija
-    transform.rotation = Quaternion.Euler(90f, 0f, 0f);
-}
+    
 }
