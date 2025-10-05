@@ -25,7 +25,8 @@ public class Detect_Pared : MonoBehaviour
 
             // Movemos un poco el coche hacia atrás (teleport suave con MovePosition)
             _rb.MovePosition(_rb.position + direccionRetroceso);
-            _controller.Reanudar();
         }
+
+        
     }
 }

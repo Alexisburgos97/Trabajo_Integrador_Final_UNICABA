@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 328322998773666184}
   - component: {fileID: 7755733235644624696}
   - component: {fileID: 3796711637765182609}
-  - component: {fileID: 8787222324571833404}
   m_Layer: 0
   m_Name: Auto_base
   m_TagString: Player
@@ -48,7 +47,7 @@ Rigidbody:
   m_GameObject: {fileID: 4626831377977874430}
   serializedVersion: 4
   m_Mass: 1000
-  m_Drag: 0
+  m_Drag: 0.1
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -65,7 +64,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 80
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &4953912513859302650
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -73,7 +72,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4626831377977874430}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 76347ebab8eb7ef41a466ebd9e61f3d7, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -100,7 +99,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 30
-  _turnSpeed: 100
+  _maxSpeed: 30
+  _turnSpeed: 50
 --- !u!114 &328322998773666184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,20 +151,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ConsumoCombustible: 0.2
---- !u!114 &8787222324571833404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4626831377977874430}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: baf93255470b6c342b17b1c6be56f17c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _tag: Muro
-  retroceso: 3
 --- !u!1001 &4426835943498729371
 PrefabInstance:
   m_ObjectHideFlags: 0
