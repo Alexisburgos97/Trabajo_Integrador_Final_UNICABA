@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8310284941048058261
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 10
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -20,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Cruva_shader
-  m_Shader: {fileID: -6465566751694194690, guid: ad0e4b63558c6af49bb937a8fe67d47d, type: 3}
+  m_Name: Sh_camino_cruz_mat
+  m_Shader: {fileID: -6465566751694194690, guid: 61f286efdeb5a1c44b8597c1428f3f66, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -77,12 +64,12 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_5c306deeb636429ba9f930016854731f_Texture_1_Texture2D:
-        m_Texture: {fileID: 2800000, guid: 3ce296639c1ee304b98e70419e8fb5db, type: 3}
+    - _SampleTexture2D_1bfd7317907648229e94a6f2fbf77c10_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: baee9b05a02c6214089114c49d876b15, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_a838cdea591847a3952c11a82e406b18_Texture_1_Texture2D:
-        m_Texture: {fileID: 2800000, guid: fb6a7ca0876c5de4ebb0e1132b020d48, type: 3}
+    - _SampleTexture2D_d80027b0a24640c49954ea8c1b388b81_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 67933c6f0d1af56438d73899d02b41af, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
@@ -142,3 +129,16 @@ Material:
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
+--- !u!114 &4721054059074660638
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 10
