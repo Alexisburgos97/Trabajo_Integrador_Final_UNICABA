@@ -525,12 +525,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c88ef70524590c42b40c62fdf04ed52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PauseMenu: {fileID: 0}
-  playButton: {fileID: 472133833}
-  controlsButton: {fileID: 1141354880}
-  quitButton: {fileID: 0}
-  toMainMenuButton: {fileID: 0}
-  controlPanel: {fileID: 0}
+  _playButton: {fileID: 472133833}
+  _Pausa: {fileID: 0}
+  _controlsButton: {fileID: 1141354880}
+  _quitButton: {fileID: 0}
+  _toMainMenuButton: {fileID: 0}
 --- !u!1 &269101236
 GameObject:
   m_ObjectHideFlags: 0

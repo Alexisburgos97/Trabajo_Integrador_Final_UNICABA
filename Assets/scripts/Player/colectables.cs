@@ -24,6 +24,7 @@ public class Colectables : MonoBehaviour
         {
             _fuel += 10f;
             Debug.Log("Gasolina: " + _fuel);
+            _controler.Combustible += 100;
         }
         else if (type == Collectible.Type.Person)
         {
