@@ -6,7 +6,7 @@ public class Hud_control : MonoBehaviour
 {
     //t_vueltas es para mostrar el numero de vueltas totales
     //Vuelta_A es para mostrar la vuelta actual
-    [SerializeField] private TextMeshProUGUI _T_vueltas, _Vuelta_A;
+    [SerializeField] private TextMeshProUGUI _Rescates;
 
     //referencia al texbox para mostrar la distancia, vida, combustible
     [SerializeField] private TextMeshProUGUI _VisorDistancia,_VisorVida, _VisorCombustible;
@@ -26,13 +26,8 @@ public class Hud_control : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //muestra en que vuelta esta, en el hud
-        //Vuelta_A.text = string.Format("{0}", Controler.Obtener_vuelta());
-       
-
-        //muestra la cantida vueltas para ganar en el hud
-        //T_vueltas.text = string.Format("{0}", Controler.Obtener_totalVueltas());
-    
+        //muestra la cantida de rescatdos / la cantidad a rescatar para ganar en el hud
+        _Rescates.text = $"{Controler.Obtener_rescate()} / {Controler.Obtener_total_a_rescatar()}";
         //MostrarDistancia();
         //mostrar las vidas disponibles
         MostrarVida();
@@ -47,17 +42,17 @@ public class Hud_control : MonoBehaviour
     private void MostrarDistancia() {
         //muestra la distancia recorrida en el hud
         //VisorDistancia.text=Math.Round(Controler.distancia, 2,MidpointRounding.AwayFromZero).ToString();
-        _VisorDistancia.text = string.Format("{0}m", ((int)Controler.distancia));
+        _VisorDistancia.text = string.Format("{0}m", ((int)Controler._distancia));
       
     }
 
     private void MostrarVida() {
-        _VisorVida.text = Controler.Life.ToString();
+        _VisorVida.text = $"{ Controler._Life} / {Controler.Obtener_Total_Vidas()}";
     }
   
     private void MostrarCombustible() {
         //mostrar el combustible disponible
-        _VisorCombustible.text = ((int)Controler.Combustible).ToString();
+        _VisorCombustible.text = $"{(int)Controler.Combustible} / {(int)Controler.ObtenerMaxFuel()}";
     }
 
 }

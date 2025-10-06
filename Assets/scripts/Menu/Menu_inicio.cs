@@ -2,18 +2,19 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 using Simplon;
-using UnityEngine.Events; //nameSpace del game manager
+using UnityEngine.SceneManagement;
 
 public class MenuLoader : MonoBehaviour
 {
-    [SerializeField] GameObject PauseMenu;
-    bool isPaused;
+    //[SerializeField] GameObject _PauseMenu;
+    bool _isPaused;
 
-    [SerializeField] private Button playButton;
-    [SerializeField] private Button controlsButton;
-    [SerializeField] private Button quitButton;
-    [SerializeField] private Button toMainMenuButton;
-    [SerializeField] private GameObject controlPanel;
+    [SerializeField] private Button _playButton;
+    [SerializeField] private Button _Pausa;
+    [SerializeField] private Button _controlsButton;
+    [SerializeField] private Button _quitButton;
+    [SerializeField] private Button _toMainMenuButton;
+    //[SerializeField] private GameObject controlPanel;
     //[SerializeField] private GameObject hudInfo;
 
 
@@ -21,23 +22,28 @@ public class MenuLoader : MonoBehaviour
 
 
     // Start is called before the first frame update
-    private void Awake() {
-        playButton?.onClick.AddListener(LoadFirstLevel);
-        controlsButton?.onClick.AddListener(OpenControls);
-        quitButton?.onClick.AddListener(OnQuit);
-        toMainMenuButton?.onClick.AddListener(ToMainMenu);
+    private void Awake()
+    {
+        _playButton?.onClick.AddListener(LoadFirstLevel);
+        _controlsButton?.onClick.AddListener(OpenControls);
+        _quitButton?.onClick.AddListener(OnQuit);
+        _toMainMenuButton?.onClick.AddListener(ToMainMenu);
+        _Pausa?.onClick.AddListener(check_pausa);
         
     }
 
-    private void OnDestroy() {
-        playButton?.onClick.RemoveAllListeners();
-        controlsButton?.onClick.RemoveAllListeners();
-        quitButton?.onClick.RemoveAllListeners();
-        toMainMenuButton?.onClick.RemoveAllListeners();
+    private void OnDestroy()
+    {
+        _playButton?.onClick.RemoveAllListeners();
+        _controlsButton?.onClick.RemoveAllListeners();
+        _quitButton?.onClick.RemoveAllListeners();
+        _toMainMenuButton?.onClick.RemoveAllListeners();
+        _Pausa?.onClick.RemoveAllListeners();
     }
 
 
     // Update is called once per frame
+    /*
     void Update()
     {
         if (Input.GetButtonDown("Pause"))
@@ -50,20 +56,34 @@ public class MenuLoader : MonoBehaviour
         }
 
     }
+    */
+    public void check_pausa()
+{
+    if (!_isPaused)
+    {
+        OnPause();
+    }
+    else
+    {
+        OnResume();
+        // avisar al PauseManager que descargue la escena
+        FindFirstObjectByType<PauseManager>()?.UnloadPauseScene();
+    }
+}
     public void ToMainMenu() {
         //carga el menu
-        GameControler.Instance.pasarNivel("Inicio");
-        Time.timeScale= 1.0f;
+        GameControler.Instance.PasarNivel("Inicio");
+        Time.timeScale = 1.0f;
         //hudInfo?.gameObject.SetActive(false);//ya no se usa
     }
     public void OpenControls() {
-       controlPanel?.SetActive(true);
+       //controlPanel?.SetActive(true);
     }
 
     public void LoadFirstLevel() {
         //craga la primer pista de carreras
-        GameControler.Instance.pasarNivel("Nivel1");
-        GameControler.Instance.agregarnEscena("Hud");
+        GameControler.Instance.PasarNivel("Nivel1");
+        GameControler.Instance.AgregarnEscena("Hud");
         //hudInfo?.gameObject.SetActive(true);//ya no se usa
     }
     //anule esta funcion ya que ahora se usa desde el 
@@ -72,11 +92,11 @@ public class MenuLoader : MonoBehaviour
         SceneManager.LoadScene(level);
     }*/
 
-    void OnPause() {
+     public void OnPause() {
         //hudInfo?.gameObject.SetActive(false);//ya no se usa
-        controlPanel?.SetActive(false);
-        PauseMenu?.SetActive(true);
-        isPaused = true;
+        //controlPanel?.SetActive(false);
+        //PauseMenu?.SetActive(true);
+        _isPaused = true;
         Time.timeScale = 0f;
 
     }
@@ -84,9 +104,9 @@ public class MenuLoader : MonoBehaviour
         print("sin pausa");
         Time.timeScale = 1f;
         //hudInfo?.gameObject.SetActive(true);//ya no se usa
-        PauseMenu?.SetActive(false);
-        controlPanel?.SetActive(false);
-        isPaused = false;
+        //PauseMenu?.SetActive(false);
+        //controlPanel?.SetActive(false);
+        _isPaused = false;
         //mostrar el hud del auto
         //GameControler.instance.agregarnEscena("Hud");
     }
@@ -95,5 +115,11 @@ public class MenuLoader : MonoBehaviour
         #if UNITY_EDITOR
                 EditorApplication.ExitPlaymode();
         #endif
+    }
+    
+   void UnloadPauseScene()
+    {
+      SceneManager.UnloadSceneAsync("Pausa");
+   
     }
 }
