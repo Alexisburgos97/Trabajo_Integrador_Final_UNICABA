@@ -13,8 +13,8 @@ public class vista_camara : MonoBehaviour
     public float velocidadZoom = 5f;    // Velocidad de cambio de altura
 
     private Vector3 posicionDeseada;
-
-    void FixedUpdate()
+    
+    void LateUpdate()
     {
         if (player == null) return;
 
@@ -40,4 +40,5 @@ public class vista_camara : MonoBehaviour
         // Fijar rotación para que siempre mire hacia abajo (cenital pura)
         transform.rotation = Quaternion.Euler(90f, 0f, 0f);
     }
+    
 }
