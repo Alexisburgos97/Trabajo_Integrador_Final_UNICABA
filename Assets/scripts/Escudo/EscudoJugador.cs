@@ -14,11 +14,11 @@ public class EscudoJugador : MonoBehaviour
 
     private bool _activo;
     private Vector3 _escalaOriginal;
-    private PlayerStats stats;
+    // private PlayerStats stats;
 
     void Start()
     {
-        stats = GetComponentInParent<PlayerStats>();
+        // stats = GetComponentInParent<PlayerStats>();
         if (visual != null)
         {
             _escalaOriginal = visual.transform.localScale;
@@ -37,7 +37,7 @@ public class EscudoJugador : MonoBehaviour
         }
 
         _activo = true;
-        if (stats) stats.tieneEscudo = true;
+        // if (stats) stats.tieneEscudo = true;
 
         if (visual != null)
         {
@@ -69,7 +69,7 @@ public class EscudoJugador : MonoBehaviour
         if (visual != null)
             StartCoroutine(AchicarYParpadear());
         _activo = false;
-        if (stats) stats.tieneEscudo = false;
+        // if (stats) stats.tieneEscudo = false;
     }
 
     private IEnumerator AchicarYParpadear()

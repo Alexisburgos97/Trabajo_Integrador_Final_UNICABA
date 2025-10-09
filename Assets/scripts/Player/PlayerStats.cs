@@ -8,8 +8,8 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] float maxFuel = 200f;
     public float Fuel { get; private set; }
 
-    [Header("Escudo")]
-    public bool tieneEscudo;
+    // [Header("Escudo")]
+    // public bool tieneEscudo;
 
     [Header("Counters")]
     public int Coins { get; private set; }
