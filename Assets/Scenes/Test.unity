@@ -809,6 +809,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 238241249917852202, guid: c6d6c12fcb6a14248b26489236bc8491, type: 3}
+      propertyPath: m_Mass
+      value: 1500
+      objectReference: {fileID: 0}
     - target: {fileID: 353335976955721942, guid: c6d6c12fcb6a14248b26489236bc8491, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.14
@@ -852,6 +856,18 @@ PrefabInstance:
     - target: {fileID: 1129450910280311404, guid: c6d6c12fcb6a14248b26489236bc8491, type: 3}
       propertyPath: m_Name
       value: car
+      objectReference: {fileID: 0}
+    - target: {fileID: 5732367083110844195, guid: c6d6c12fcb6a14248b26489236bc8491, type: 3}
+      propertyPath: m_Mass
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 5986129600025653926, guid: c6d6c12fcb6a14248b26489236bc8491, type: 3}
+      propertyPath: m_Mass
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 6951396018514513194, guid: c6d6c12fcb6a14248b26489236bc8491, type: 3}
+      propertyPath: m_Mass
+      value: 1500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
