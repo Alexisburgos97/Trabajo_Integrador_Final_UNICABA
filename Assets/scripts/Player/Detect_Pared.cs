@@ -18,7 +18,7 @@ public class Detect_Pared : MonoBehaviour
         if (other.CompareTag(_tag))
         {
             // Llamamos al freno
-            _controller.Frenar();
+            _controller?.Frenar();  
 
             // Retroceso en dirección opuesta a donde mira el coche
             Vector3 direccionRetroceso = -transform.forward * retroceso;
