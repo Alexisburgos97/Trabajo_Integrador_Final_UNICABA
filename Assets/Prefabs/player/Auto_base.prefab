@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7052791373746762758}
   - component: {fileID: 8444813130153449203}
-  - component: {fileID: 4953912513859302650}
   - component: {fileID: 5846629753634872401}
   - component: {fileID: 328322998773666184}
   - component: {fileID: 7755733235644624696}
@@ -18,6 +17,7 @@ GameObject:
   - component: {fileID: 5440885163313639879}
   - component: {fileID: -6776384648774321536}
   - component: {fileID: 5818020110198891420}
+  - component: {fileID: 4840067533191250885}
   m_Layer: 0
   m_Name: Auto_base
   m_TagString: Player
@@ -68,27 +68,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 80
   m_CollisionDetection: 1
---- !u!65 &4953912513859302650
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4626831377977874430}
-  m_Material: {fileID: 13400000, guid: 76347ebab8eb7ef41a466ebd9e61f3d7, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.1662946, y: 2.4770539, z: 5.6715965}
-  m_Center: {x: 0.023469448, y: 1.333527, z: 0.027757645}
 --- !u!114 &5846629753634872401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,13 +80,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3549d7a99cd8d34b8412a281156871b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 35
-  _maxSpeed: 35
-  _turnSpeed: 50
-  _brakeForce: 0.9
-  _handbrakeDrag: 0.3
-  _driftFactor: 60
-  _drag: 0.1
+  accelForward: 120
+  accelReverse: 100
+  maxSpeedForward: 50
+  maxSpeedReverse: 50
+  steerAngleAt0: 20
+  steerAngleAtMax: 18
+  steerResponse: 7
+  autoAlign: 2.5
+  lateralGrip: 0.6
+  forwardGrip: 1
+  handbrakeLateralGrip: 0.6
+  extraDragWhenNoThrottle: 0.8
+  brakeStrength: 250
+  brakeKey: 32
+  handbrakeKey: 304
+  baseDrag: 0.15
+  centerOfMassOffset: {x: 0, y: -0.35, z: 0}
+  defaultLockSeconds: 0.25
+  defaultExtraBrake: 120
 --- !u!114 &328322998773666184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,6 +186,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0292c3935fcacdb429c7f043adce4332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &4840067533191250885
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4626831377977874430}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.04
+  m_Height: 5
+  m_Direction: 2
+  m_Center: {x: 0, y: 1.15, z: 0}
 --- !u!1001 &4426835943498729371
 PrefabInstance:
   m_ObjectHideFlags: 0
