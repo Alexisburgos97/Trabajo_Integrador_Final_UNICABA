@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class Cilindro_main : MonoBehaviour
 {
+    [Header("Configuracion del cilindro")]
     [SerializeField] float _moveSpeed = 5f;          // Velocidad de desplazamiento
     [SerializeField] float _maxDistance = 20f;       // Distancia máxima antes de autodestruirse
 
+    [Header("Config. de los pinchos")]
     [SerializeField] float _fuerzaMinPincho = 5f;   // Fuerza mínima
     [SerializeField] float _fuerzaMaxPincho = 15f;  // Fuerza máxima
     [SerializeField] Transform[] _pinchos;           // Lista de pinchos hijos
@@ -14,6 +16,14 @@ public class Cilindro_main : MonoBehaviour
     [SerializeField] AudioClip _explosionSound;     // Sonido de explosión
     [SerializeField] float _volumenExplosion = 1f;  // Volumen del sonido
     [SerializeField] Vector3 _startPos;
+
+    [Header("Conig. Explosion")]
+    [Tooltip("Fuerza base de la explosión")]
+    [SerializeField] float _explosionForce = 3000f;
+    [Tooltip("Radio de alcance del empuje explosivo")]
+    [SerializeField] float _explosionRadius = 5f;
+    [Tooltip("Factor vertical de empuje (0 = plano, 1 = empuja hacia arriba)")]
+    [SerializeField]float _upwardsModifier = 0.5f;
 
     void Start()
     {
@@ -42,6 +52,26 @@ public class Cilindro_main : MonoBehaviour
             Explode();
             DispararPinchos();
             Debug.Log("Cilindro: colision con el player");
+
+            // Knockback tipo explosión
+            var rbPlayer = other.GetComponentInParent<Rigidbody>();
+            if (rbPlayer != null)
+            {
+                Vector3 explosionPos = transform.position;
+
+                // Aplica fuerza radial
+                rbPlayer.AddExplosionForce(
+                    _explosionForce,        // fuerza total
+                    explosionPos,           // origen
+                    _explosionRadius,       // radio
+                    _upwardsModifier,       // empuje vertical
+                    ForceMode.Impulse       // tipo de fuerza
+                );
+
+                // Debug opcional (ver en escena)
+                Debug.DrawLine(explosionPos, rbPlayer.worldCenterOfMass, Color.red, 1f);
+            }
+
             Destroy(gameObject);
         }
     }
