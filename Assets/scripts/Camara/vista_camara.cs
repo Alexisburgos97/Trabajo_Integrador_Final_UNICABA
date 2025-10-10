@@ -6,10 +6,10 @@ public class vista_camara : MonoBehaviour
     public Transform player;
 
     [Header("Configuración de cámara")]
-    public float altura = 10f;          // Altura inicial de la cámara
-    public float suavizado = 5f;        // Suavizado del movimiento
+    public float altura = 40f;          // Altura inicial de la cámara
+    public float suavizado = 800f;        // Suavizado del movimiento
     public float alturaMin = 5f;        // Altura mínima
-    public float alturaMax = 30f;       // Altura máxima
+    public float alturaMax = 40f;       // Altura máxima
     public float velocidadZoom = 5f;    // Velocidad de cambio de altura
 
     private Vector3 posicionDeseada;
