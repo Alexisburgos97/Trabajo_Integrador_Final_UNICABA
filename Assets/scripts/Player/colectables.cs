@@ -1,29 +1,37 @@
 using UnityEngine;
-
+using Simplon;
 public class Colectables : MonoBehaviour
 {
 
-    public int coins = 0;
-    public float fuel = 0;
-    public int peopleRescued = 0;
+    public int _coins = 0;
+    public float _fuel = 0;
+    public int _peopleRescued = 0;
+    GameControler _controler;
 
+    void Start()
+    {
+        _controler = GameControler.Instance;
+    }
 
     public void Collect(Collectible.Type type)
     {
         if (type == Collectible.Type.Coin)
         {
-            coins++;
-            Debug.Log("Monedas: " + coins);
+            _coins++;
+            Debug.Log("Monedas: " + _coins);
         }
         else if (type == Collectible.Type.Gasoline)
         {
-            fuel += 10f;
-            Debug.Log("Gasolina: " + fuel);
+            _fuel += 10f;
+            Debug.Log("Gasolina: " + _fuel);
+            _controler.Combustible += 100;
         }
         else if (type == Collectible.Type.Person)
         {
-            peopleRescued++;
-            Debug.Log("Personas rescatadas: " + peopleRescued);
+            _peopleRescued++;
+            Debug.Log("Personas rescatadas: " + _peopleRescued);
+            //sumar rescate
+            _controler.Sumar_rescate();
         }
     }
 }
