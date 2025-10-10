@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Pincho : MonoBehaviour
 {
-    [SerializeField] float _lifeTime = 3f;
+    [Header("Config. autodestruccion")]
     [SerializeField] float _maxDistance = 15f;
 
     [Header("Efectos")]
@@ -23,7 +23,6 @@ public class Pincho : MonoBehaviour
     void Start()
     {
         _startPos = transform.position;
-        //Destroy(gameObject, _lifeTime); // autodestrucción por tiempo
     }
 
     void Update()
