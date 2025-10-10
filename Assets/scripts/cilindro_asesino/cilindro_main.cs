@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class Cilindro_main : MonoBehaviour
 {
+    [Header("Configuracion del cilindro")]
     [SerializeField] float _moveSpeed = 5f;          // Velocidad de desplazamiento
     [SerializeField] float _maxDistance = 20f;       // Distancia máxima antes de autodestruirse
 
+    [Header("Config. de los pinchos")]
     [SerializeField] float _fuerzaMinPincho = 5f;   // Fuerza mínima
     [SerializeField] float _fuerzaMaxPincho = 15f;  // Fuerza máxima
     [SerializeField] Transform[] _pinchos;           // Lista de pinchos hijos
@@ -14,6 +16,11 @@ public class Cilindro_main : MonoBehaviour
     [SerializeField] AudioClip _explosionSound;     // Sonido de explosión
     [SerializeField] float _volumenExplosion = 1f;  // Volumen del sonido
     [SerializeField] Vector3 _startPos;
+
+    [Header("Conig. Explosion")]
+    [SerializeField] float _knockbackForce = 6f;
+    [SerializeField] float _explosionRadius = 5f;      // radio de la onda expansiva
+    [SerializeField] float _explosionPower = 50f; // potencia de la explosión
 
     void Start()
     {
@@ -42,6 +49,15 @@ public class Cilindro_main : MonoBehaviour
             Explode();
             DispararPinchos();
             Debug.Log("Cilindro: colision con el player");
+            // Knockback tipo explosión
+            var rbPlayer = other.GetComponentInParent<Rigidbody>();
+            if (rbPlayer != null)
+            {
+                Vector3 explosionPos = transform.position;
+                
+                _explosionPower = _knockbackForce * 50f; // potencia de la explosión
+                rbPlayer.AddExplosionForce(_explosionPower, explosionPos, _explosionRadius, 0f, ForceMode.Impulse);
+            }
             Destroy(gameObject);
         }
     }
