@@ -18,9 +18,12 @@ public class Cilindro_main : MonoBehaviour
     [SerializeField] Vector3 _startPos;
 
     [Header("Conig. Explosion")]
-    [SerializeField] float _knockbackForce = 6f;
-    [SerializeField] float _explosionRadius = 5f;      // radio de la onda expansiva
-    [SerializeField] float _explosionPower = 50f; // potencia de la explosión
+    [Tooltip("Fuerza base de la explosión")]
+    [SerializeField] float _explosionForce = 3000f;
+    [Tooltip("Radio de alcance del empuje explosivo")]
+    [SerializeField] float _explosionRadius = 5f;
+    [Tooltip("Factor vertical de empuje (0 = plano, 1 = empuja hacia arriba)")]
+    [SerializeField]float _upwardsModifier = 0.5f;
 
     void Start()
     {
@@ -49,15 +52,26 @@ public class Cilindro_main : MonoBehaviour
             Explode();
             DispararPinchos();
             Debug.Log("Cilindro: colision con el player");
+
             // Knockback tipo explosión
             var rbPlayer = other.GetComponentInParent<Rigidbody>();
             if (rbPlayer != null)
             {
                 Vector3 explosionPos = transform.position;
-                
-                _explosionPower = _knockbackForce * 50f; // potencia de la explosión
-                rbPlayer.AddExplosionForce(_explosionPower, explosionPos, _explosionRadius, 0f, ForceMode.Impulse);
+
+                // Aplica fuerza radial
+                rbPlayer.AddExplosionForce(
+                    _explosionForce,        // fuerza total
+                    explosionPos,           // origen
+                    _explosionRadius,       // radio
+                    _upwardsModifier,       // empuje vertical
+                    ForceMode.Impulse       // tipo de fuerza
+                );
+
+                // Debug opcional (ver en escena)
+                Debug.DrawLine(explosionPos, rbPlayer.worldCenterOfMass, Color.red, 1f);
             }
+
             Destroy(gameObject);
         }
     }

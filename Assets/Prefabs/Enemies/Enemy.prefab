@@ -179,7 +179,7 @@ MonoBehaviour:
   hitSfx: {fileID: 8300000, guid: 423a995c2b714fe40912d942daa5a27c, type: 3}
   _sfxVolume: 0.1
   _explosionForce: 3000
-  _explosionRadius: 0.3
+  _explosionRadius: 1
   _upwardsModifier: 0
 --- !u!114 &8639020448065031957
 MonoBehaviour:
@@ -207,7 +207,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 243914861002086086, guid: fcc71635aab95ff4fbdf1880bf2afa2f, type: 2}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 2aa9fcaa46713c2449eee839be68046a, type: 3}
+  m_Resource: {fileID: 8300000, guid: 0cf1cdd28099d9a48bc74a9c02f9f959, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.892
   m_Pitch: 1
