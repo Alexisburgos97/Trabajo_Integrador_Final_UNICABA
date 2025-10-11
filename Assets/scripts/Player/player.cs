@@ -84,6 +84,11 @@ public class TopDownCarController : MonoBehaviour
     float nextJumpTime = 0f;
     bool jumpHeld = false;
 
+    public float GetMaxSpeed()
+    {
+        return Mathf.Max(maxSpeedForward, maxSpeedReverse);
+    }
+    
     void Awake()
     {
         rb = GetComponent<Rigidbody>();

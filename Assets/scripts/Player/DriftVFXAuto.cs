@@ -165,7 +165,7 @@ public class DriftVFXAuto : MonoBehaviour
 
         bool drifting = false;
         if (car != null) drifting |= car.IsDrifting;                       // si el controller lo informa
-        drifting |= (speed > minSpeed && slip > slipThreshold);            // heurística por velocidad/lateral
+        drifting |= speed > minSpeed && slip > slipThreshold;            // heurística por velocidad/lateral
         if (triggerOnHandbrake && Input.GetKey(handbrakeKey))              // también con freno de mano
             drifting |= speed > (minSpeed * 0.4f);                         // permite algo más lento
 
