@@ -30485,12 +30485,26 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4626831377977874430, guid: eb5d9d4d99a10744eb88b819f629ede2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2121790176}
+    - targetCorrespondingSourceObject: {fileID: 4626831377977874430, guid: eb5d9d4d99a10744eb88b819f629ede2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2121790177}
   m_SourcePrefab: {fileID: 100100000, guid: eb5d9d4d99a10744eb88b819f629ede2, type: 3}
 --- !u!4 &2121790165 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7052791373746762758, guid: eb5d9d4d99a10744eb88b819f629ede2, type: 3}
   m_PrefabInstance: {fileID: 2121790164}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2121790166 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5846629753634872401, guid: eb5d9d4d99a10744eb88b819f629ede2, type: 3}
+  m_PrefabInstance: {fileID: 2121790164}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1742001860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3549d7a99cd8d34b8412a281156871b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &2121790176
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -30514,6 +30528,30 @@ CapsuleCollider:
   m_Height: 6.45
   m_Direction: 2
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &2121790177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1742001860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 036aed6f67163404583a813fab6f353c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  car: {fileID: 2121790166}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 8
+  skidMaterial: {fileID: 2100000, guid: d59c8004e758784449cf3a33a537244d, type: 2}
+  smokeMaterial: {fileID: 2100000, guid: 2a9bbc57078cdd347831c18f2f05054b, type: 2}
+  skidClip: {fileID: 0}
+  audioMaxVol: 0.9
+  minSpeed: 2
+  slipThreshold: 0.6
+  slipForMax: 1.8
+  rayLen: 2
 --- !u!1001 &2133274715
 PrefabInstance:
   m_ObjectHideFlags: 0
