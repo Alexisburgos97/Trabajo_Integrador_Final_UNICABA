@@ -11,11 +11,18 @@ TagManager:
   - Gasoline
   - Enemy
   - Muro
+  - Cactus
+  - Camino
+  - Arboles
+  - Casas
+  - Rocas
+  - Pasto
+  - Portales
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Caminos
   - Water
   - UI
   - 
