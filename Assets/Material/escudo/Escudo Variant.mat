@@ -7,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Moneda
+  m_Name: Escudo Variant
   m_Shader: {fileID: -6465566751694194690, guid: d66a0eda48380ae478a073ab1be5c85c, type: 3}
-  m_Parent: {fileID: -876546973899608171, guid: d66a0eda48380ae478a073ab1be5c85c, type: 3}
+  m_Parent: {fileID: 2100000, guid: c755598e671b6624b87cfd1cdc77636b, type: 2}
   m_ModifiedSerializedProperties: 18
   m_ValidKeywords:
   - _SURFACE_TYPE_TRANSPARENT
@@ -31,6 +31,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaClip: 0
+    - _Blend: 0
     - _Cull: 0
     - _DstBlend: 10
     - _QueueControl: 1
@@ -38,10 +39,10 @@ Material:
     - _Surface: 1
     - _ZWrite: 0
     m_Colors:
-    - _BaseColor: {r: 0.36837575, g: 0.36707902, b: 0.6886792, a: 1}
+    - _BaseColor: {r: 0, g: 0.41509438, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &4208238763033330560
+--- !u!114 &2960933062591865070
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
