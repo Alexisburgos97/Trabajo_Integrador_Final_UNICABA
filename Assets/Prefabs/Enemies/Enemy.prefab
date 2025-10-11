@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 541121484077837973}
   - component: {fileID: 7572130924690198330}
   - component: {fileID: 1361879786034816188}
-  - component: {fileID: 7805907285880190206}
   - component: {fileID: 914357012412768757}
   - component: {fileID: 8639020448065031957}
   - component: {fileID: -2298117446679193406}
@@ -140,27 +139,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &7805907285880190206
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5211514230792277621}
-  m_Material: {fileID: 13400000, guid: 49a34a5ea2d312e45a2409bd7d203a7d, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &914357012412768757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,7 +189,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.892
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
