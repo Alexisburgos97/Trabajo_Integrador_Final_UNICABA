@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5061462768992756624}
   - component: {fileID: 8935781111927050516}
-  - component: {fileID: 2248813458353709943}
+  - component: {fileID: 5104399789543305021}
   m_Layer: 0
   m_Name: Area Light (1)
   m_TagString: Untagged
@@ -98,7 +98,7 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
---- !u!114 &2248813458353709943
+--- !u!114 &5104399789543305021
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -388,7 +388,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7316475106707048697}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.02}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
@@ -594,7 +594,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8355019141854643409}
   - component: {fileID: 2889069747745314192}
-  - component: {fileID: 432673731934612680}
+  - component: {fileID: 499903232794884783}
   m_Layer: 0
   m_Name: Area Light
   m_TagString: Untagged
@@ -682,7 +682,7 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
---- !u!114 &432673731934612680
+--- !u!114 &499903232794884783
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -715,7 +715,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2900249949689770964}
   - component: {fileID: 4620512738853846444}
-  - component: {fileID: 8689622345515786765}
+  - component: {fileID: 8152342402866771761}
   m_Layer: 0
   m_Name: Area Light (2)
   m_TagString: Untagged
@@ -803,7 +803,7 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
---- !u!114 &8689622345515786765
+--- !u!114 &8152342402866771761
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
