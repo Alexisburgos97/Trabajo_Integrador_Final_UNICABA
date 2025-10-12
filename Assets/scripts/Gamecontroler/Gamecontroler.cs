@@ -9,17 +9,19 @@ namespace Simplon {
         public static GameControler Instance => instance;
         public static GameControler instance;
         private int _Speed;
-        //Variables para manejar las vidas
-        [SerializeField] private int _ConfLife=3;
 
+        //Variables para manejar las vidas
+        [Header("Config. Total de Vidas")]
+        [SerializeField] private int _ConfLife=3;
         public int _Life { get; set; }
 
-        // //variables para manejar el combustible, default 200
+        ///variables para manejar el combustible, default 200
+        [Header("Config Total Combustible")]
         [SerializeField] float _ConfCombustible=200f;
-        public float ObtenerMaxFuel() {
-            return _ConfCombustible;
-        }
         public float Combustible { get; set; }
+
+        [Header("Setear tiempo del nivel")]
+        [SerializeField] private float _tiempo_Restante = 60f; // Temporizador de 60 segundos (puedes ajustar este valor)
 
         //seteo las cantidad de vueltas por defect a 3
         [SerializeField] private int _total_a_rescatar = 3;
@@ -53,6 +55,18 @@ namespace Simplon {
             ResetVariables();
         }
 
+        public float ObtenerMaxFuel()
+        {
+            //Devuel la configuracionde combustible
+            return _ConfCombustible;
+        }
+
+        public float Obtener_total_tiempo()
+        {
+            //devuelve la condiguracion del tiempo del nivel
+            return _tiempo_Restante;
+        }
+        
         public void ResetVariables() {
             //Funcion para renicicializar las variables
 
