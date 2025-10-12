@@ -39,7 +39,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
   m_LocalPosition: {x: -222, y: -0.0040634274, z: 226.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4244078236097650800}
   m_Father: {fileID: 0}
@@ -134,7 +134,7 @@ MonoBehaviour:
   groundProbeRadius: 0
   groundMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 128
   airSteerMultiplier: 0.45
   airAccelMultiplier: 0.65
   brakeStrength: 250
