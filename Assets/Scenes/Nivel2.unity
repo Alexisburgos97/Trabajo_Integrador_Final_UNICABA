@@ -28631,7 +28631,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7608419381422787940, guid: c5417146f72e5a34baf85f6512777459, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 293
+      value: 292
       objectReference: {fileID: 0}
     - target: {fileID: 7608419381422787940, guid: c5417146f72e5a34baf85f6512777459, type: 3}
       propertyPath: m_LocalRotation.w
@@ -64940,9 +64940,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rampa_Escape_Cordillera_Piedra
       objectReference: {fileID: 0}
+    - target: {fileID: 3810009608026282175, guid: ad8b9b0b5b6053346aa4b19fa1db27db, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4554487158661097987, guid: ad8b9b0b5b6053346aa4b19fa1db27db, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 347
+      value: 348
       objectReference: {fileID: 0}
     - target: {fileID: 4554487158661097987, guid: ad8b9b0b5b6053346aa4b19fa1db27db, type: 3}
       propertyPath: m_LocalPosition.y
@@ -64950,7 +64954,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4554487158661097987, guid: ad8b9b0b5b6053346aa4b19fa1db27db, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -101
+      value: -100
       objectReference: {fileID: 0}
     - target: {fileID: 4554487158661097987, guid: ad8b9b0b5b6053346aa4b19fa1db27db, type: 3}
       propertyPath: m_LocalRotation.w
