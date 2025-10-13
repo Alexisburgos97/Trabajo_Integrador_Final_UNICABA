@@ -74,4 +74,14 @@ public class Enemy : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, separationRadius);
     }
+
+    void OnCollisionStay(Collision col)
+{
+    if (col.gameObject.CompareTag("Enemy"))
+    {
+        Vector3 pushDir = transform.position - col.transform.position;
+        _rb.AddForce(pushDir.normalized * 20f, ForceMode.Acceleration);
+    }
+}
+
 }
