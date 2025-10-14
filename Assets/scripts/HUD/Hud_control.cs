@@ -11,6 +11,8 @@ public class Hud_control : MonoBehaviour
     //referencia al texbox para mostrar la distancia, vida, combustible
     [SerializeField] private TextMeshProUGUI _VisorDistancia,_VisorVida, _VisorCombustible;
 
+    private int _vidaTotal;
+
     //private float tiempoActual;
 
     //variable para la instancia del gamecontroler
@@ -47,7 +49,9 @@ public class Hud_control : MonoBehaviour
     }
 
     private void MostrarVida() {
-        _VisorVida.text = $"{ Controler._Life} / {Controler.Obtener_Total_Vidas()}";
+        // _VisorVida.text = $"{ Controler._Life} / {Controler.Obtener_Total_Vidas()}";
+        _vidaTotal = Controler._Life;
+        _VisorVida.text = $"{"0"}{(int)Controler._Life}";
     }
   
     private void MostrarCombustible() {

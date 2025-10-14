@@ -19,6 +19,39 @@ AudioMixerGroupController:
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
+--- !u!243 &-7075665181644718392
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Enemy explosion
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: d66cec711cfb69042b523c160b7c0cd5
+  m_Children: []
+  m_Volume: 7b82f7ce851f77d4ba23f8f0ab025e80
+  m_Pitch: d797f2a4533294d43a51122cf4d0e0b6
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -3533981141938192434}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!244 &-3533981141938192434
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 0649f95139815104e96c03dd8f756d0f
+  m_EffectName: Attenuation
+  m_MixLevel: 50b6d147b40db4449849ec1c181fef5b
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!244 &-2711384382820460416
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
@@ -95,6 +128,7 @@ AudioMixerController:
     - 10c2f6ec4c0f0487cbd2b5688630c444
     - 1f214955e99db4a16bcb7e3988b2d69c
     - 2fd646ca9c5c559439b78f33960682a6
+    - d66cec711cfb69042b523c160b7c0cd5
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -188,6 +222,7 @@ AudioMixerSnapshotController:
     7f0f481dc19aee54494f0cadb95b1a39: 2
     e3f0156d81bc13244a1f79c135215525: 4096
     7e2109ddaea0bfb439c647fc829c6dab: -0.27209944
+    7b82f7ce851f77d4ba23f8f0ab025e80: -4.9356413
     7e87b52f9feb3ae4e864bffb4f3e06c8: 0
     70df095f6b61c4641911227183c05cec: -4269
     3a89ce8f257c6a041b7335a1044f926a: -19.928473
@@ -260,6 +295,7 @@ AudioMixerGroupController:
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 33aec0ee65f9f6d41b2dec800c6b2aa0
   m_Children:
+  - {fileID: -7075665181644718392}
   - {fileID: 243617406347679018}
   - {fileID: 243932061282238976}
   - {fileID: 243723186235802514}
