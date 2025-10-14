@@ -33,14 +33,16 @@ public class Time_Control : MonoBehaviour
     {
         //muestra el tiempo en el hud y si se termina rinicia la carrera
         _tiempoActual = _ptc.Obtenter_tiempo();
+        /*
         int minutos = Mathf.FloorToInt(_tiempoActual / 60f);
         int segundos = Mathf.FloorToInt(_tiempoActual % 60f);
         int centesimas = Mathf.FloorToInt(_tiempoActual * 100 % 100);
-        int tot_min = (int)_tiempo_total;
+        */
+        int tot_min = (int)_tiempoActual;
         //tiempo en minutos segundos centesimas
         //textoTemporizador.text = $"{minutos}:{segundos}:{centesimas}"; 
         //tiempo en segundos restantes sobre seguntos totales
-        _textoTemporizador.text = $"{minutos}/{tot_min}";
+        _textoTemporizador.text = $"{tot_min}";
     }
 
 

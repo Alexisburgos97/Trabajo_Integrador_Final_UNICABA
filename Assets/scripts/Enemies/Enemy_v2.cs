@@ -9,12 +9,12 @@ public class Enemy_v2 : MonoBehaviour
     private Transform _target;
 
     [Header("Movimiento")]
-    [SerializeField] float _moveSpeed = 8f;
+    [SerializeField] float _moveSpeed = 15f;
     [SerializeField] float _turnSpeed = 180f;
 
     [Header("Evitar superposición")]
-    [SerializeField] float _separationRadius = 2f;
-    [SerializeField] float _separationForce = 5f;
+    [SerializeField] float _separationRadius = 5f;
+    [SerializeField] float _separationForce = 60f;
 
     [Header("Dash / Teletransporte")]
     [SerializeField] float _dashDistance = 15f;
@@ -22,12 +22,12 @@ public class Enemy_v2 : MonoBehaviour
     [SerializeField] float _dashCooldown = 5f;
     [SerializeField] float _teleportDistance = 40f;
     [SerializeField] float _teleportRadiusAroundPlayer = 10f;
-    [SerializeField] float _teleportCooldown = 8f;
+    [SerializeField] float _teleportCooldown = 6f;
 
     [Header("Efectos")]
     [SerializeField] GameObject _portalPrefab; // Prefab del portal (VFX Graph)
     [SerializeField] ParticleSystem _dashTrail; // Trail del dash (Particle System)
-    [SerializeField] float _portalLifetime = 1.3f; // Duración del portal (igual al Tiempo_efecto del VFX)
+    [SerializeField] float _portalLifetime = 0.7f; // Duración del portal (igual al Tiempo_efecto del VFX)
 
     private Rigidbody _rb;
     private bool _canDash = true;
