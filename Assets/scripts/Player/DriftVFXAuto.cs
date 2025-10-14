@@ -20,6 +20,9 @@ public class DriftVFXAuto : MonoBehaviour
     public float slipThreshold = 0.6f;        // slip para empezar humo
     public float slipForMax = 1.8f;           // slip para humo máximo
     public float rayLen = 2f;                 // alcance raycast a suelo
+    
+    public Transform wheelRLAnchor;
+    public Transform wheelRRAnchor;
 
     // Runtime
     Rigidbody rb;
@@ -35,26 +38,55 @@ public class DriftVFXAuto : MonoBehaviour
 
     void Awake()
     {
+        // rb = GetComponent<Rigidbody>();
+        // if (!car) car = GetComponent<TopDownCarController>();
+        //
+        // // --- calcular tamaño del coche para ubicar las ruedas traseras ---
+        // Bounds b = CalcWorldBounds();
+        // float halfW = b.extents.x;
+        // float halfL = b.extents.z;
+        //
+        // const float trackFactor = 0.80f; // qué tan afuera las ruedas
+        // const float axleFactor  = 0.90f; // qué tan atrás el eje
+        // const float yLocal      = -0.05f; // pequeño ajuste vertical local
+        //
+        // rlLocal = new Vector3(-halfW * trackFactor, yLocal, -halfL * axleFactor);
+        // rrLocal = new Vector3(+halfW * trackFactor, yLocal, -halfL * axleFactor);
+        //
+        // // Crear puntos hijos (solo contenedores de Trail/PS)
+        // pRL = CreatePoint("FX_RL", rlLocal);
+        // pRR = CreatePoint("FX_RR", rrLocal);
+        //
+        // // Crear componentes de marcas y humo
+        // trRL = CreateTrail(pRL);   trRR = CreateTrail(pRR);
+        // psRL = CreateSmoke(pRL);   psRR = CreateSmoke(pRR);
+        
         rb = GetComponent<Rigidbody>();
         if (!car) car = GetComponent<TopDownCarController>();
 
-        // --- calcular tamaño del coche para ubicar las ruedas traseras ---
-        Bounds b = CalcWorldBounds();
-        float halfW = b.extents.x;
-        float halfL = b.extents.z;
+        // Si hay anclas, uso sus posiciones locales; si no, calculo por bounds.
+        if (wheelRLAnchor && wheelRRAnchor)
+        {
+            rlLocal = wheelRLAnchor.localPosition;
+            rrLocal = wheelRRAnchor.localPosition;
+        }
+        else
+        {
+            Bounds b = CalcWorldBoundsOnlyMeshes();
+            float halfW = b.extents.x;
+            float halfL = b.extents.z;
 
-        const float trackFactor = 0.80f; // qué tan afuera las ruedas
-        const float axleFactor  = 0.90f; // qué tan atrás el eje
-        const float yLocal      = -0.05f; // pequeño ajuste vertical local
+            const float trackFactor = 0.80f;
+            const float axleFactor  = 0.90f;
+            const float yLocal      = -0.05f;
 
-        rlLocal = new Vector3(-halfW * trackFactor, yLocal, -halfL * axleFactor);
-        rrLocal = new Vector3(+halfW * trackFactor, yLocal, -halfL * axleFactor);
+            rlLocal = new Vector3(-halfW * trackFactor, yLocal, -halfL * axleFactor);
+            rrLocal = new Vector3(+halfW * trackFactor, yLocal, -halfL * axleFactor);
+        }
 
-        // Crear puntos hijos (solo contenedores de Trail/PS)
         pRL = CreatePoint("FX_RL", rlLocal);
         pRR = CreatePoint("FX_RR", rrLocal);
 
-        // Crear componentes de marcas y humo
         trRL = CreateTrail(pRL);   trRR = CreateTrail(pRR);
         psRL = CreateSmoke(pRL);   psRR = CreateSmoke(pRR);
 
@@ -66,6 +98,22 @@ public class DriftVFXAuto : MonoBehaviour
         audioSrc.spatialBlend = 1f;
         audioSrc.minDistance = 6f;
         audioSrc.maxDistance = 40f;
+    }
+    
+    Bounds CalcWorldBoundsOnlyMeshes()
+    {
+        var meshRends = GetComponentsInChildren<MeshRenderer>();
+        var skinned   = GetComponentsInChildren<SkinnedMeshRenderer>();
+
+        Bounds? opt = null;
+        foreach (var r in meshRends)
+            opt = opt.HasValue ? Enc(opt.Value, r.bounds) : r.bounds;
+        foreach (var r in skinned)
+            opt = opt.HasValue ? Enc(opt.Value, r.bounds) : r.bounds;
+
+        return opt ?? new Bounds(transform.position, Vector3.one);
+
+        static Bounds Enc(Bounds a, Bounds b) { a.Encapsulate(b); return a; }
     }
 
     Bounds CalcWorldBounds()

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Rigidbody))]
 public class TopDownCarController : MonoBehaviour
@@ -22,24 +23,24 @@ public class TopDownCarController : MonoBehaviour
     [SerializeField] float extraDragWhenNoThrottle = 0.8f;
 
     [Header("DRIFT (W/↑ + A/D + Shift)")]
-    [SerializeField] float driftGrip = 1f;     // grip lateral durante drift
-    [SerializeField] float driftYawBoost = 1f;  // multiplica giro en drift
-    [SerializeField] float driftMinSpeed = 1f;    // velocidad mínima para entrar
-    [SerializeField] float steerDeadZone = 0.5f;  // umbral de giro para entrar
+    [SerializeField] float driftGrip = 1f;
+    [SerializeField] float driftYawBoost = 1f;
+    [SerializeField] float driftMinSpeed = 1f;
+    [SerializeField] float steerDeadZone = 0.5f;
     [SerializeField] float driftHoldSeconds = 0.5f;
 
     [Header("SALTO")]
     [SerializeField] KeyCode jumpKey = KeyCode.E;
-    [SerializeField] float jumpVelocity = 60f;   // impulso vertical (VelocityChange)
-    [SerializeField] float jumpCooldown = 0;
-    [SerializeField] float coyoteTime = 0.1f;    // perdón post-suelo
-    [SerializeField] float jumpBuffer = 0.1f;    // perdón pre-suelo
-    [SerializeField] float extraGravity = 200f;    // gravedad adicional
-    [SerializeField] float jumpCutGravity = 0;  // si soltás la tecla en subida
+    [SerializeField] float jumpVelocity = 60f;     // VelocityChange
+    [SerializeField] float jumpCooldown = 0f;
+    [SerializeField] float coyoteTime = 0.1f;
+    [SerializeField] float jumpBuffer = 0.1f;
+    [SerializeField] float extraGravity = 200f;
+    [SerializeField] float jumpCutGravity = 0f;
 
     [Header("Detección de suelo / rampas")]
     [SerializeField] float groundCheckDistance = 1f;
-    [SerializeField] float groundProbeRadius = 0;  // ayuda en bordes
+    [SerializeField] float groundProbeRadius = 0f;
     [SerializeField] LayerMask groundMask = ~0;
 
     [Header("Control en el aire")]
@@ -59,11 +60,16 @@ public class TopDownCarController : MonoBehaviour
     [SerializeField] float defaultLockSeconds = 0.25f;
     [SerializeField] float defaultExtraBrake = 120f;
 
+    [Header("EVENTOS (VFX/SFX)")]
+    public UnityEvent onJump;   // se dispara al despegar
+    public UnityEvent onLand;   // se dispara al aterrizar
+
+    // --- Privados ---
     Rigidbody rb;
     float steerInput, throttleInput;
     bool braking, handbrake;
 
-    // ambiente (arena movediza, etc.)
+    // ambiente
     float envSpeedMult = 1f, envAccelMult = 1f, envGripMult = 1f, envExtraDrag = 0f;
     bool envActive = false;
 
@@ -76,13 +82,16 @@ public class TopDownCarController : MonoBehaviour
     float driftTimer = 0f;
     public bool IsDrifting => isDrifting;
 
-    // salto
+    // salto / suelo
     bool grounded = false;
+    bool wasGrounded = true;          // para detectar transición aire->suelo
     Vector3 groundNormal = Vector3.up;
     float coyoteTimer = 0f;
     float jumpBufferTimer = 0f;
     float nextJumpTime = 0f;
     bool jumpHeld = false;
+    float lastYVel = 0f;              // velocidad vertical del frame anterior
+    [SerializeField] float landMinSpeed = -6f; // si cae más rápido que esto => onLand
 
     void Awake()
     {
@@ -121,21 +130,32 @@ public class TopDownCarController : MonoBehaviour
             externalLockTimer -= Time.deltaTime;
             if (externalLockTimer <= 0f) externalExtraBrake = 0f;
         }
+
+        lastYVel = rb.linearVelocity.y; // para el evento onLand
     }
 
     void FixedUpdate()
     {
-        // ====== GROUND CHECK con SphereCast (más estable en bordes de rampa) ======
+        // ====== GROUND CHECK ======
         groundNormal = Vector3.up;
         grounded = false;
 
         Vector3 origin = transform.position + Vector3.up * 0.2f;
-        if (Physics.SphereCast(origin, groundProbeRadius, Vector3.down, out var hit, groundCheckDistance + groundProbeRadius, groundMask, QueryTriggerInteraction.Ignore))
+        if (Physics.SphereCast(origin, groundProbeRadius, Vector3.down, out var hit,
+            groundCheckDistance + groundProbeRadius, groundMask, QueryTriggerInteraction.Ignore))
         {
             grounded = hit.distance <= (groundCheckDistance + groundProbeRadius);
             groundNormal = hit.normal;
         }
         if (grounded) coyoteTimer = coyoteTime;
+
+        // --- Detectar aterrizaje (aire -> suelo)
+        if (grounded && !wasGrounded)
+        {
+            if (lastYVel <= landMinSpeed)
+                onLand?.Invoke();
+        }
+        wasGrounded = grounded;
 
         // ====== Estado DRIFT (combo) ======
         Vector3 vel = rb.linearVelocity;
@@ -143,40 +163,37 @@ public class TopDownCarController : MonoBehaviour
         float speed = velXZ.magnitude;
 
         bool driftCombo = handbrake && throttleInput > 0.2f && Mathf.Abs(steerInput) > steerDeadZone && speed > driftMinSpeed && grounded;
-        if (driftCombo) driftTimer = driftHoldSeconds; else if (driftTimer > 0f) driftTimer -= Time.fixedDeltaTime;
+        if (driftCombo) driftTimer = driftHoldSeconds;
+        else if (driftTimer > 0f) driftTimer -= Time.fixedDeltaTime;
         isDrifting = driftTimer > 0f;
 
-        // ====== Aceleración (proyectada al plano de la rampa) ======
+        // ====== Aceleración ======
         float accel = (throttleInput >= 0 ? accelForward : accelReverse) * (grounded ? 1f : airAccelMultiplier) * envAccelMult;
         Vector3 moveDir = Vector3.ProjectOnPlane(transform.forward, groundNormal).normalized;
         rb.AddForce(moveDir * throttleInput * accel, ForceMode.Acceleration);
 
         // ====== Clamp de velocidad ======
         float baseMax = (throttleInput >= 0 ? maxSpeedForward : maxSpeedReverse) * envSpeedMult;
-        Vector3 dirSpeed = Vector3.Project(rb.linearVelocity, moveDir); // en dirección de avance sobre el plano
+        Vector3 dirSpeed = Vector3.Project(rb.linearVelocity, moveDir);
         Vector3 sideSpeed = rb.linearVelocity - dirSpeed;
-
         if (dirSpeed.magnitude > baseMax)
             dirSpeed = dirSpeed.normalized * baseMax;
 
         // ====== Grip ======
         float currentLateralGrip = isDrifting ? driftGrip : (handbrake ? handbrakeLateralGrip : lateralGrip);
         currentLateralGrip *= envGripMult;
-
         sideSpeed *= currentLateralGrip;
         dirSpeed  *= forwardGrip;
         rb.linearVelocity = dirSpeed + sideSpeed;
 
-        // ====== Dirección (yaw) sobre la normal del suelo + alineación a pendiente ======
+        // ====== Dirección (yaw) y alineación a pendiente ======
         float speed01 = Mathf.InverseLerp(0f, maxSpeedForward, speed);
         float targetSteer = Mathf.Lerp(steerAngleAt0, steerAngleAtMax, speed01) * steerInput;
         float yawMult = (isDrifting ? driftYawBoost : 1f) * (grounded ? 1f : airSteerMultiplier);
 
-        // giro alrededor de la normal del suelo (no siempre Vector3.up)
         Quaternion yawDelta = Quaternion.AngleAxis(targetSteer * yawMult * Time.fixedDeltaTime * steerResponse,
                                                    grounded ? groundNormal : Vector3.up);
 
-        // alinear el up del auto con la normal del suelo suavemente
         float slopeAlignSpeed = 10f;
         Quaternion alignToGround = Quaternion.FromToRotation(transform.up, groundNormal);
         Quaternion targetRot = alignToGround * rb.rotation * yawDelta;
@@ -199,11 +216,11 @@ public class TopDownCarController : MonoBehaviour
         else if (Mathf.Approximately(throttleInput, 0f))
             rb.linearVelocity *= (1f - (extraDragWhenNoThrottle * Time.fixedDeltaTime));
 
-        // ====== Lock externo (colisiones) ======
+        // ====== Lock externo ======
         if (externalLockTimer > 0f)
             rb.AddForce(-rb.linearVelocity.normalized * (brakeStrength + externalExtraBrake), ForceMode.Acceleration);
 
-        // ====== Drag por ambiente (arena, etc.) ======
+        // ====== Drag por ambiente ======
         rb.linearDamping = baseDrag + (envActive ? envExtraDrag : 0f);
     }
 
@@ -218,12 +235,15 @@ public class TopDownCarController : MonoBehaviour
         // impulso vertical independiente de masa
         rb.AddForce(Vector3.up * jumpVelocity, ForceMode.VelocityChange);
 
+        // >>> evento
+        onJump?.Invoke();
+
         jumpBufferTimer = 0f;
         coyoteTimer = 0f;
         nextJumpTime = Time.time + jumpCooldown;
     }
 
-    // === API para zonas de entorno (arena movediza, hielo, etc.) ===
+    // === API de entorno ===
     public void ApplyEnvironment(float speedMult, float accelMult, float gripMult, float extraDrag, bool overrideIfActive = false)
     {
         if (envActive && !overrideIfActive) return;
@@ -240,7 +260,7 @@ public class TopDownCarController : MonoBehaviour
         envActive    = false;
     }
 
-    // === Compatibilidad con tu Detect_Pared ===
+    // === Compatibilidad con Detect_Pared ===
     public void Frenar() => Frenar(defaultLockSeconds, defaultExtraBrake);
     public void Frenar(float lockSeconds, float extraBrake)
     {
@@ -251,7 +271,6 @@ public class TopDownCarController : MonoBehaviour
 #if UNITY_EDITOR
     void OnDrawGizmosSelected()
     {
-        // debug del ground check
         Gizmos.color = Color.yellow;
         Vector3 origin = transform.position + Vector3.up * 0.2f;
         Gizmos.DrawWireSphere(origin + Vector3.down * groundCheckDistance, groundProbeRadius);
