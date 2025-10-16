@@ -49,7 +49,7 @@ public class TimeControl : MonoBehaviour
         else
         {
             textoTemporizador.text = "00:00:00";
-            GameControler.Instance.QuitarVida(1);
+            GameControler.Instance.Quitar_Vida(1);
             Reset_TimeControler();
 
             //if (GameControler.Instance.Life > 1)

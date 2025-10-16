@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
  hasta el momento contola la carga de escenas y la velocidad del vehiculo*/
 namespace Simplon {
 
-    public  class GameControler : MonoBehaviour
+    public class GameControler : MonoBehaviour
     {
         public static GameControler Instance => instance;
         public static GameControler instance;
