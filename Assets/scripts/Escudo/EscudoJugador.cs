@@ -35,7 +35,7 @@ public class EscudoJugador : MonoBehaviour
             Invoke(nameof(DesactivarEscudo), duracionEscudo);
             return;
         }
-
+        
         _activo = true;
         // if (stats) stats.tieneEscudo = true;
 
