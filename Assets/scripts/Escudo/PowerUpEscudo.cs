@@ -40,7 +40,7 @@ public class PowerUpEscudo : MonoBehaviour
         {
             shield.duracionEscudo = duracion; // opcional: actualizar duraci�n
             shield.ActivarEscudo();
-
+            Debug.Log("activar escudo");
             //if (recogerVFX)
             //    Instantiate(recogerVFX, transform.position, Quaternion.identity);
             //if (recogerSFX)
