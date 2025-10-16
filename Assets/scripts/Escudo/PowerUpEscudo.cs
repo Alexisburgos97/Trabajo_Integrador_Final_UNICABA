@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PowerUpEscudo : MonoBehaviour
 {
-    [Header("Duración extra del escudo")]
+    [Header("Duraciï¿½n extra del escudo")]
     public float duracion = 5f;
 
     //[Header("Efectos")]
@@ -23,11 +23,11 @@ public class PowerUpEscudo : MonoBehaviour
             col.isTrigger = true;
         }
 
-        // Asegurarse de que hay un Rigidbody (puede ser cinemático)
+        // Asegurarse de que hay un Rigidbody (puede ser cinemï¿½tico)
         var rb = GetComponent<Rigidbody>();
         if (rb == null)
         {
-            Debug.LogWarning("[POWERUP] No hay Rigidbody, añadiendo uno cinemático...");
+            Debug.LogWarning("[POWERUP] No hay Rigidbody, aï¿½adiendo uno cinemï¿½tico...");
             rb = gameObject.AddComponent<Rigidbody>();
             rb.isKinematic = true;
         }
@@ -38,7 +38,7 @@ public class PowerUpEscudo : MonoBehaviour
         var shield = other.GetComponentInChildren<EscudoJugador>();
         if (shield != null)
         {
-            shield.duracionEscudo = duracion; // opcional: actualizar duración
+            shield.duracionEscudo = duracion; // opcional: actualizar duraciï¿½n
             shield.ActivarEscudo();
 
             //if (recogerVFX)

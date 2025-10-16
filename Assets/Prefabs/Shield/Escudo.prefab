@@ -9677,6 +9677,8 @@ GameObject:
   - component: {fileID: 8461846582903198423}
   - component: {fileID: 1432503776327017652}
   - component: {fileID: 5092009248233610118}
+  - component: {fileID: 8169571905260106833}
+  - component: {fileID: -9156603692725158699}
   m_Layer: 0
   m_Name: Escudo
   m_TagString: Untagged
@@ -14569,6 +14571,40 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!135 &8169571905260106833
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7314526620251459061}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 4
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-9156603692725158699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7314526620251459061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce29c449dcb7f134d8d96e7c1357860d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duracion: 5
 --- !u!1001 &2619029584279844066
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14637,7 +14673,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shadow
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5937625669080973944, guid: 569e1f46f7ce7cc40bf7f422001c3ec3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
