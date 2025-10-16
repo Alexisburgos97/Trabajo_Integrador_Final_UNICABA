@@ -7,15 +7,14 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Moneda
+  m_Name: texture_0 Variant
   m_Shader: {fileID: -6465566751694194690, guid: d66a0eda48380ae478a073ab1be5c85c, type: 3}
-  m_Parent: {fileID: -876546973899608171, guid: d66a0eda48380ae478a073ab1be5c85c, type: 3}
-  m_ModifiedSerializedProperties: 18
+  m_Parent: {fileID: 2100000, guid: 747ece8af8f14894daeaafcdd196513f, type: 2}
+  m_ModifiedSerializedProperties: 16
   m_ValidKeywords:
   - _SURFACE_TYPE_TRANSPARENT
-  m_InvalidKeywords:
-  - _EMISSION
-  m_LightmapFlags: 2
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 3000
@@ -24,24 +23,19 @@ Material:
   disabledShaderPasses:
   - MOTIONVECTORS
   - DepthOnly
+  - SHADOWCASTER
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _AlphaClip: 0
-    - _Cull: 0
-    - _DstBlend: 10
-    - _QueueControl: 1
-    - _SrcBlend: 5
-    - _Surface: 1
-    - _ZWrite: 0
-    m_Colors:
-    - _BaseColor: {r: 0.36837575, g: 0.36707902, b: 0.6886792, a: 1}
+    - _CastShadows: 0
+    - _QueueControl: 0
+    m_Colors: []
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &4208238763033330560
+--- !u!114 &2401425583129254337
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
