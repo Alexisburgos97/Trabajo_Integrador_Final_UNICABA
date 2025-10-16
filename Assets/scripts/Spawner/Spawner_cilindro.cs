@@ -12,7 +12,7 @@ public class Spawner_cilindro : MonoBehaviour
 
     void Update()
     {
-
+        espera_respown();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -29,15 +29,28 @@ public class Spawner_cilindro : MonoBehaviour
                 _activado = true;
             else
             {
+                _activado = true;
                 _espera = _cool_down;
             }
 
-                
+
         }
     }
     
+    //funcion para checkear y reactivar el spawner luego del tiempo de espera
+    //si esta configurado para usarse mas de una vez
     void espera_respown()
     {
-        if
+        if (!_usarUnaVez)
+        {
+            if (_espera > 0)
+            {
+                _espera -= Time.deltaTime;
+            }
+            else
+            {
+                _activado = false;
+            }
+        }
     }
 }
