@@ -13,7 +13,7 @@ public class TopDownCarController : MonoBehaviour
     [SerializeField] float steerAngleAt0 = 70f;   // gira MUCHO a baja velocidad
     [SerializeField] float steerAngleAtMax = 50f; // gira POCO a alta velocidad
     [SerializeField] float steerResponse = 7f;    // rapidez al tomar giro
-    [SerializeField] float autoAlign = 2.5f;      // endereza según dirección de avance
+    //[SerializeField] float autoAlign = 2.5f;      // endereza según dirección de avance
 
     [Header("Grip / Derrape base")]
     [Range(0f,1f)] [SerializeField] float lateralGrip = 0.6f;

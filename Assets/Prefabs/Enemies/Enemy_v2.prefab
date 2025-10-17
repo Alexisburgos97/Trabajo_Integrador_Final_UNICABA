@@ -211,7 +211,7 @@ MonoBehaviour:
   _separationRadius: 5
   _separationForce: 60
   _dashDistance: 15
-  _dashSpeed: 40
+  _dashSpeed: 45
   _dashCooldown: 3
   _teleportDistance: 40
   _teleportRadiusAroundPlayer: 10
@@ -219,6 +219,9 @@ MonoBehaviour:
   _portalPrefab: {fileID: 1763610537729365706, guid: e75b176f6907fae4e980ae9ba84f39fd, type: 3}
   _dashTrail: {fileID: 1094845095592315177}
   _portalLifetime: 0.7
+  _rushMultiplier: 2
+  _rushStopDistance: 40
+  _rushMaxTime: 6
 --- !u!82 &-2298117446679193406
 AudioSource:
   m_ObjectHideFlags: 0
