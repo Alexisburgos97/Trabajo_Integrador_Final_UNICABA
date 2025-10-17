@@ -6,6 +6,10 @@ public class Colectables : MonoBehaviour
     [SerializeField] AudioSource _coin_sound;
     [SerializeField] AudioSource _Rescate_sound;
     [SerializeField] AudioSource _Fuel_sound;
+
+    [Header("Configurar collectables")]
+    [SerializeField] float _cant_fuel = 100f;
+
     [Header("Visualizar colectables")]
     public int _coins = 0;
     public float _fuel = 0;
@@ -31,13 +35,13 @@ public class Colectables : MonoBehaviour
         else if (type == Collectible.Type.Gasoline)
         {
 
-            _fuel += 10f;
+            _fuel += _cant_fuel;
             if (_Fuel_sound != null)
             {
                 _Fuel_sound.Play();
             }
-            Debug.Log("Gasolina: " + _fuel);
-            _controler.Combustible += 100;
+            //Debug.Log("Gasolina: " + _fuel);
+            _controler.Combustible += _cant_fuel;
         }
         else if (type == Collectible.Type.Person)
         {
