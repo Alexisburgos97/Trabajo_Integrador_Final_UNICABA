@@ -39,15 +39,6 @@ public class EnemyTouchDamage : MonoBehaviour
 
         if (isFirstTouch )
         {
-            // Bloqueo de daño en escudo por enemigo
-            var shield = player.GetComponentInChildren<EscudoJugador>();
-            if (shield != null && shield.EstaActivo())
-            {
-                Debug.Log("[ESCUDO] Daño bloqueado por escudo activo");
-                //return;
-            }
-            else
-            {
             float before = _controller.Combustible;
 
             // ✅ Restar en el GameController (fuente única)
@@ -55,7 +46,6 @@ public class EnemyTouchDamage : MonoBehaviour
             //_nextTime = Time.time + _cooldown;
 
             Debug.Log($"[ENEMIGO] Toque! Combustible GC: {before} -> {_controller.Combustible}");
-            }
 
             if (_controller.Combustible <= 0f)
             {
@@ -95,7 +85,6 @@ public class EnemyTouchDamage : MonoBehaviour
                 Vector3 p = (col != null && col.contactCount > 0) ? col.GetContact(0).point : other.transform.position;
                 var temp = new GameObject("TempAudio");
                 temp.transform.position = p;
-
                 var a = temp.AddComponent<AudioSource>();
                 a.clip = hitSfx;
                 a.volume = _sfxVolume;

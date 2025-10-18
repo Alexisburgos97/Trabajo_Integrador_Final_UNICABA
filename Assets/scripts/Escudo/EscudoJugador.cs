@@ -3,16 +3,16 @@ using System.Collections;
 
 public class EscudoJugador : MonoBehaviour
 {
-    [Header("Configuración del Escudo")]
+    [Header("Configuraciï¿½n del Escudo")]
     public GameObject visual;           // Escudo visual
     public AudioSource audioActivacion;
     public float duracionEscudo = 5f;
-    public float tiempoCrecer = 0.3f;   // tiempo de animación de aparición
-    public float tiempoAchicar = 0.2f;  // tiempo de animación de desaparición
+    public float tiempoCrecer = 0.3f;   // tiempo de animaciï¿½n de apariciï¿½n
+    public float tiempoAchicar = 0.2f;  // tiempo de animaciï¿½n de desapariciï¿½n
     public float parpadeoAntes = 1.0f;  // segundos de parpadeo al final
     public float frecuenciaParpadeo = 0.1f; // intervalo de parpadeo
 
-    private bool _activo;
+    private bool _activo=false;
     private Vector3 _escalaOriginal;
     // private PlayerStats stats;
 
@@ -35,7 +35,7 @@ public class EscudoJugador : MonoBehaviour
             Invoke(nameof(DesactivarEscudo), duracionEscudo);
             return;
         }
-
+        
         _activo = true;
         // if (stats) stats.tieneEscudo = true;
 

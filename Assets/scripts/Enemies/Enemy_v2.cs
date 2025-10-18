@@ -9,12 +9,12 @@ public class Enemy_v2 : MonoBehaviour
     private Transform _target;
 
     [Header("Movimiento")]
-    [SerializeField] float _moveSpeed = 8f;
+    [SerializeField] float _moveSpeed = 15f;
     [SerializeField] float _turnSpeed = 180f;
 
     [Header("Evitar superposición")]
-    [SerializeField] float _separationRadius = 2f;
-    [SerializeField] float _separationForce = 5f;
+    [SerializeField] float _separationRadius = 5f;
+    [SerializeField] float _separationForce = 60f;
 
     [Header("Dash / Teletransporte")]
     [SerializeField] float _dashDistance = 15f;
@@ -22,16 +22,23 @@ public class Enemy_v2 : MonoBehaviour
     [SerializeField] float _dashCooldown = 5f;
     [SerializeField] float _teleportDistance = 40f;
     [SerializeField] float _teleportRadiusAroundPlayer = 10f;
-    [SerializeField] float _teleportCooldown = 8f;
+    [SerializeField] float _teleportCooldown = 6f;
 
     [Header("Efectos")]
     [SerializeField] GameObject _portalPrefab; // Prefab del portal (VFX Graph)
     [SerializeField] ParticleSystem _dashTrail; // Trail del dash (Particle System)
-    [SerializeField] float _portalLifetime = 1.3f; // Duración del portal (igual al Tiempo_efecto del VFX)
+    [SerializeField] float _portalLifetime = 0.7f; // Duración del portal (igual al Tiempo_efecto del VFX)
+
+    [Header("Rush inicial")]
+    [SerializeField] float _rushMultiplier = 2f;        // Velocidad multiplicada al inicio
+    [SerializeField] float _rushStopDistance = 20f;     // Distancia al player para salir del modo rush
+    [SerializeField] float _rushMaxTime = 6f;           // Tiempo máximo antes de forzar teleport
 
     private Rigidbody _rb;
-    private bool _canDash = true;
-    private bool _canTeleport = true;
+    private bool _canDash = false;
+    private bool _canTeleport = false;
+    private bool _isRushing = true;
+    private float _rushTimer = 0f;
 
     void Awake()
     {
@@ -53,6 +60,25 @@ public class Enemy_v2 : MonoBehaviour
 
         float distToPlayer = Vector3.Distance(transform.position, _target.position);
 
+        // --- Fase inicial Rush ---
+        if (_isRushing)
+        {
+            _rushTimer += Time.fixedDeltaTime;
+            MoveTowardsPlayer(_moveSpeed * _rushMultiplier);
+
+            // Si se acerca lo suficiente o excede el tiempo máximo → salir del modo rush
+            if (distToPlayer < _rushStopDistance)
+            {
+                EndRush();
+            }
+            else if (_rushTimer >= _rushMaxTime)
+            {
+                // Teletransportar para iniciar comportamiento normal
+                StartCoroutine(EndRushWithTeleport());
+            }
+            return;
+        }
+
         // --- Teleport si está muy lejos ---
         if (_canTeleport && distToPlayer > _teleportDistance)
         {
@@ -67,12 +93,29 @@ public class Enemy_v2 : MonoBehaviour
             return;
         }
 
-        // Movimiento normal si nada especial ocurre
-        MoveTowardsPlayer();
+        // --- Movimiento normal ---
+        MoveTowardsPlayer(_moveSpeed);
     }
 
-    // --- Movimiento normal ---
-    void MoveTowardsPlayer()
+    // --- Terminar rush sin teleport ---
+    void EndRush()
+    {
+        _isRushing = false;
+        _canDash = true;
+        _canTeleport = true;
+    }
+
+    // --- Terminar rush con teleport ---
+    IEnumerator EndRushWithTeleport()
+    {
+        _isRushing = false;
+        yield return TeleportNearPlayer(); // hace el teleport y activa cooldown
+        _canDash = true;
+        _canTeleport = true;
+    }
+
+    // --- Movimiento hacia el jugador ---
+    void MoveTowardsPlayer(float speed)
     {
         Vector3 dir = (_target.position - transform.position).normalized;
         dir.y = 0f;
@@ -89,7 +132,7 @@ public class Enemy_v2 : MonoBehaviour
         Vector3 finalDir = (dir + sep * _separationForce).normalized;
         Quaternion look = Quaternion.LookRotation(finalDir);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, look, _turnSpeed * Time.fixedDeltaTime);
-        _rb.MovePosition(_rb.position + finalDir * _moveSpeed * Time.fixedDeltaTime);
+        _rb.MovePosition(_rb.position + finalDir * speed * Time.fixedDeltaTime);
     }
 
     // --- Dash ---
@@ -133,7 +176,13 @@ public class Enemy_v2 : MonoBehaviour
         // Esperar que termine la animación del portal antes de mover al enemigo
         yield return new WaitForSeconds(_portalLifetime);
 
+        // Reubicar al enemigo
         transform.position = randomPos;
+
+        // --- Ajustar rotación para mirar al jugador ---
+        Vector3 lookDir = (_target.position - transform.position).normalized;
+        lookDir.y = 0f;
+        transform.rotation = Quaternion.LookRotation(lookDir, Vector3.up);
 
         // Destruir el portal después del efecto
         Destroy(portal, _portalLifetime);
