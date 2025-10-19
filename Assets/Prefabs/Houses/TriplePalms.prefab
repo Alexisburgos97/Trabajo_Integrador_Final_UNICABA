@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 6663188917051259801}
   - component: {fileID: 937345945751663215}
   - component: {fileID: -1101847353596684256}
+  - component: {fileID: 2843341301617260048}
   m_Layer: 0
   m_Name: TriplePalms
-  m_TagString: Untagged
+  m_TagString: Explotables
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,3 +110,15 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5771809108326736679, guid: 589efb82e39695d4c8c9d3069a07fb5c, type: 3}
+--- !u!114 &2843341301617260048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8274734962294016977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce855394b2ba7944db52c62116a3a347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
