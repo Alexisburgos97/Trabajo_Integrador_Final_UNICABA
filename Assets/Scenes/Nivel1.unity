@@ -7124,6 +7124,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gasoline
       objectReference: {fileID: 0}
+    - target: {fileID: 3268192620038746543, guid: a83b55b11c03ad1459749472bad0460e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268192620038746543, guid: a83b55b11c03ad1459749472bad0460e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268192620038746543, guid: a83b55b11c03ad1459749472bad0460e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18750,7 +18762,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 63
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -22637,6 +22649,18 @@ PrefabInstance:
     - target: {fileID: 2542054233861155508, guid: d10b2ef8065097343b1b5e369249c904, type: 3}
       propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8230427174002113220, guid: d10b2ef8065097343b1b5e369249c904, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8230427174002113220, guid: d10b2ef8065097343b1b5e369249c904, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8230427174002113220, guid: d10b2ef8065097343b1b5e369249c904, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -31271,7 +31295,6 @@ GameObject:
   - component: {fileID: 1098947082}
   - component: {fileID: 1098947081}
   - component: {fileID: 1098947080}
-  - component: {fileID: 1098947079}
   m_Layer: 0
   m_Name: Minimap_Camera
   m_TagString: Untagged
@@ -31279,24 +31302,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1098947079
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1098947078}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53e7d903c67a23d4987a750a2ae2cf9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1424680757}
-  altura: 50
-  suavizado: 5
-  alturaMin: 5
-  alturaMax: 30
-  velocidadZoom: 5
 --- !u!114 &1098947080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31384,7 +31389,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 45
+  orthographic size: 145
   m_Depth: -2
   m_CullingMask:
     serializedVersion: 2
@@ -31408,13 +31413,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1098947078}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -125.15468, y: 26.456898, z: -136.43239}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 4.1, y: 49.3, z: -5.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1001 &1098957755
 PrefabInstance:
   m_ObjectHideFlags: 0
