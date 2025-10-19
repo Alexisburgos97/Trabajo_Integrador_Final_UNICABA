@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4541629925635779232}
   - component: {fileID: 4964201669665109515}
   - component: {fileID: 943144503513137974}
+  - component: {fileID: 4753773199466031279}
   m_Layer: 0
   m_Name: Cactus_4
   m_TagString: Untagged
@@ -110,6 +111,18 @@ CapsuleCollider:
   m_Height: 3.7126408
   m_Direction: 1
   m_Center: {x: -0.028891563, y: 1.8293388, z: 0.009596497}
+--- !u!114 &4753773199466031279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4545950634393002019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce855394b2ba7944db52c62116a3a347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7805628978463148345
 GameObject:
   m_ObjectHideFlags: 0
@@ -120,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7428963149232657283}
   - component: {fileID: 6258595701946477043}
+  - component: {fileID: 132484602020077829}
   m_Layer: 0
   m_Name: Cactus_4
   m_TagString: Untagged
@@ -162,3 +176,15 @@ LODGroup:
     renderers:
     - renderer: {fileID: 4964201669665109515}
   m_Enabled: 1
+--- !u!114 &132484602020077829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7805628978463148345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce855394b2ba7944db52c62116a3a347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
