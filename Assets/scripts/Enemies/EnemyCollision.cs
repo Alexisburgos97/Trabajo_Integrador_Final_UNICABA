@@ -33,53 +33,57 @@ public class EnemyTouchDamage : MonoBehaviour
 
     void Apply(Component other, Collision col, bool isFirstTouch)
     {
-        // ¿es el player?
+        // ¿Es el player?
         var player = other.GetComponentInParent<TopDownCarController>();
         if (player == null) return;
 
-        if (isFirstTouch )
+        if (isFirstTouch)
         {
             float before = _controller.Combustible;
 
-            // ✅ Restar en el GameController (fuente única)
-            _controller.Combustible = Mathf.Max(0f, _controller.Combustible - _fuelDrainPerTouch);
-            //_nextTime = Time.time + _cooldown;
-
-            Debug.Log($"[ENEMIGO] Toque! Combustible GC: {before} -> {_controller.Combustible}");
-
-            if (_controller.Combustible <= 0f)
+            // ⚠️ Solo se bloquea el daño, no el resto
+            if (!EscudoJugador.EscudoActivoGlobal)
             {
-                _controller.Quitar_Vida(1);
-                _controller.ResetCombustible();
+                // ✅ Solo aplica daño si el escudo NO está activo
+                _controller.Combustible = Mathf.Max(0f, _controller.Combustible - _fuelDrainPerTouch);
+                Debug.Log($"[ENEMIGO] Toque! Combustible GC: {before} -> {_controller.Combustible}");
+
+                if (_controller.Combustible <= 0f)
+                {
+                    _controller.Quitar_Vida(1);
+                    _controller.ResetCombustible();
+                }
+            }
+            else
+            {
+                Debug.Log("[ENEMIGO] Escudo activo — sin daño al jugador, pero explota.");
             }
 
-            // Knockback tipo explosión
+            // 💥 Knockback tipo explosión (siempre se ejecuta)
             var rbPlayer = other.GetComponentInParent<Rigidbody>();
             if (rbPlayer != null)
             {
                 Vector3 explosionPos = transform.position;
 
-                // Aplica fuerza radial
                 rbPlayer.AddExplosionForce(
-                    _explosionForce,        // fuerza total
-                    explosionPos,           // origen
-                    _explosionRadius,       // radio
-                    _upwardsModifier,       // empuje vertical
-                    ForceMode.Impulse       // tipo de fuerza
+                    _explosionForce,
+                    explosionPos,
+                    _explosionRadius,
+                    _upwardsModifier,
+                    ForceMode.Impulse
                 );
 
-                // Debug opcional (ver en escena)
-                Debug.DrawLine(explosionPos, rbPlayer.worldCenterOfMass, Color.red, 1f);
+                Debug.DrawLine(explosionPos, rbPlayer.worldCenterOfMass, Color.cyan, 1f);
             }
 
-
-            // VFX/SFX (igual que ya tenías)
+            // 💫 Efectos visuales y de sonido (también siempre se ejecutan)
             if (_hitVfxPrefab)
             {
                 Vector3 p = (col != null && col.contactCount > 0) ? col.GetContact(0).point : other.transform.position;
                 var vfx = Instantiate(_hitVfxPrefab, p, Quaternion.identity);
                 Destroy(vfx, 0.25f);
             }
+
             if (hitSfx)
             {
                 Vector3 p = (col != null && col.contactCount > 0) ? col.GetContact(0).point : other.transform.position;
@@ -91,7 +95,9 @@ public class EnemyTouchDamage : MonoBehaviour
                 a.Play();
                 Destroy(temp, a.clip.length);
             }
+
+            // 💀 Siempre se destruye el enemigo tras colisionar
             Destroy(gameObject);
         }
-    }
+    }   
 }

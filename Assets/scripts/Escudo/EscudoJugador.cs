@@ -3,22 +3,22 @@ using System.Collections;
 
 public class EscudoJugador : MonoBehaviour
 {
-    [Header("Configuraci�n del Escudo")]
-    public GameObject visual;           // Escudo visual
+    public static bool EscudoActivoGlobal = false; // 🔥 NUEVO: visible para todos
+
+    [Header("Configuración del Escudo")]
+    public GameObject visual;
     public AudioSource audioActivacion;
     public float duracionEscudo = 5f;
-    public float tiempoCrecer = 0.3f;   // tiempo de animaci�n de aparici�n
-    public float tiempoAchicar = 0.2f;  // tiempo de animaci�n de desaparici�n
-    public float parpadeoAntes = 1.0f;  // segundos de parpadeo al final
-    public float frecuenciaParpadeo = 0.1f; // intervalo de parpadeo
+    public float tiempoCrecer = 0.3f;
+    public float tiempoAchicar = 0.2f;
+    public float parpadeoAntes = 1.0f;
+    public float frecuenciaParpadeo = 0.1f;
 
-    private bool _activo=false;
+    private bool _activo = false;
     private Vector3 _escalaOriginal;
-    // private PlayerStats stats;
 
     void Start()
     {
-        // stats = GetComponentInParent<PlayerStats>();
         if (visual != null)
         {
             _escalaOriginal = visual.transform.localScale;
@@ -35,9 +35,9 @@ public class EscudoJugador : MonoBehaviour
             Invoke(nameof(DesactivarEscudo), duracionEscudo);
             return;
         }
-        
+
         _activo = true;
-        // if (stats) stats.tieneEscudo = true;
+        EscudoActivoGlobal = true; // 🔥 Activar global
 
         if (visual != null)
         {
@@ -66,10 +66,11 @@ public class EscudoJugador : MonoBehaviour
 
     private void DesactivarEscudo()
     {
+        _activo = false;
+        EscudoActivoGlobal = false; // 🔥 Desactivar global
+
         if (visual != null)
             StartCoroutine(AchicarYParpadear());
-        _activo = false;
-        // if (stats) stats.tieneEscudo = false;
     }
 
     private IEnumerator AchicarYParpadear()
@@ -78,7 +79,6 @@ public class EscudoJugador : MonoBehaviour
         float contador = 0f;
         bool visible = true;
 
-        // Parpadeo
         while (contador < tiempoTotal)
         {
             visible = !visible;
@@ -87,10 +87,8 @@ public class EscudoJugador : MonoBehaviour
             yield return new WaitForSeconds(frecuenciaParpadeo);
         }
 
-        // Asegurarse de que se vea antes de achicar
         visual.SetActive(true);
 
-        // Achicar
         float t = 0f;
         Vector3 inicio = visual.transform.localScale;
         while (t < tiempoAchicar)
