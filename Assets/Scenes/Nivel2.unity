@@ -142868,6 +142868,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2000234668465034995, guid: eb5d9d4d99a10744eb88b819f629ede2, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3768988506751768827, guid: eb5d9d4d99a10744eb88b819f629ede2, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4626831377977874430, guid: eb5d9d4d99a10744eb88b819f629ede2, type: 3}
       propertyPath: m_Name
       value: Auto_base

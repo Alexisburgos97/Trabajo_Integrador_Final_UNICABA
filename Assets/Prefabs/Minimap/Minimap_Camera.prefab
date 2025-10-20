@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7086101097917154459}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -125.15468, y: 26.456898, z: -136.43239}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -70,7 +70,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 45
+  orthographic size: 100
   m_Depth: -2
   m_CullingMask:
     serializedVersion: 2
@@ -93,7 +93,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7086101097917154459}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!114 &58656581594836503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,8 +151,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  altura: 50
+  altura: 100
   suavizado: 5
-  alturaMin: 5
-  alturaMax: 30
+  alturaMin: 100
+  alturaMax: 100
   velocidadZoom: 5

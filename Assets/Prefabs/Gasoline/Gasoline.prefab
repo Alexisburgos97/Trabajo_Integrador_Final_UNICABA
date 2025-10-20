@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3644408394843287252}
   - component: {fileID: 6261220836637464404}
   m_Layer: 6
-  m_Name: Quad
+  m_Name: MiniMap_Indicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -104,7 +104,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
