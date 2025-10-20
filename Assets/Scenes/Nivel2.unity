@@ -2823,10 +2823,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3285429844956003991, guid: 57b76ad328d0b8845874034c75c5fa32, type: 3}
+      propertyPath: m_TagString
+      value: Camino
+      objectReference: {fileID: 0}
     - target: {fileID: 7527114446214363277, guid: 57b76ad328d0b8845874034c75c5fa32, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: a9ce549705fbbc544984ab0232df4f33, type: 2}
+      objectReference: {fileID: 2100000, guid: 8e00faa071ea85d43bb3d6e8a2e30354, type: 2}
     - target: {fileID: 8105276604736680447, guid: 57b76ad328d0b8845874034c75c5fa32, type: 3}
       propertyPath: m_LocalScale.x
       value: 100
@@ -76389,6 +76393,10 @@ PrefabInstance:
     - target: {fileID: 7987062488219250748, guid: b2c548bd5be3c3a46bc1c0fb07ffbb97, type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7987062488219250748, guid: b2c548bd5be3c3a46bc1c0fb07ffbb97, type: 3}
+      propertyPath: m_TagString
+      value: Camino
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
