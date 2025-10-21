@@ -2493,6 +2493,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spawner_Enemigos3
       objectReference: {fileID: 0}
+    - target: {fileID: 5698875112643355961, guid: e302a9d65904b2949b6f36f62e068bf3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6000529442896066748, guid: e302a9d65904b2949b6f36f62e068bf3, type: 3}
       propertyPath: m_Radius
       value: 60
@@ -13205,6 +13209,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spawner_Enemigos4 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5698875112643355961, guid: e302a9d65904b2949b6f36f62e068bf3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6000529442896066748, guid: e302a9d65904b2949b6f36f62e068bf3, type: 3}
       propertyPath: m_Radius
       value: 60
@@ -14950,6 +14958,10 @@ PrefabInstance:
     - target: {fileID: 5698875112643355961, guid: e302a9d65904b2949b6f36f62e068bf3, type: 3}
       propertyPath: m_Name
       value: Spawner_Enemigos2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5698875112643355961, guid: e302a9d65904b2949b6f36f62e068bf3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6000529442896066748, guid: e302a9d65904b2949b6f36f62e068bf3, type: 3}
       propertyPath: m_Radius
@@ -30251,6 +30263,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spawner_Enemigos4
       objectReference: {fileID: 0}
+    - target: {fileID: 5698875112643355961, guid: e302a9d65904b2949b6f36f62e068bf3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6000529442896066748, guid: e302a9d65904b2949b6f36f62e068bf3, type: 3}
       propertyPath: m_Radius
       value: 60
@@ -31353,7 +31369,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1098947078}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1098947082
 Camera:
   m_ObjectHideFlags: 0
@@ -34582,6 +34598,10 @@ PrefabInstance:
     - target: {fileID: 5698875112643355961, guid: e302a9d65904b2949b6f36f62e068bf3, type: 3}
       propertyPath: m_Name
       value: Spawner_Enemigos2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5698875112643355961, guid: e302a9d65904b2949b6f36f62e068bf3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6000529442896066748, guid: e302a9d65904b2949b6f36f62e068bf3, type: 3}
       propertyPath: m_Radius
@@ -43329,6 +43349,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spawner_Enemigos4 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5698875112643355961, guid: e302a9d65904b2949b6f36f62e068bf3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6000529442896066748, guid: e302a9d65904b2949b6f36f62e068bf3, type: 3}
       propertyPath: m_Radius
       value: 60
@@ -45087,7 +45111,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5698875112643355961, guid: e302a9d65904b2949b6f36f62e068bf3, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6000529442896066748, guid: e302a9d65904b2949b6f36f62e068bf3, type: 3}
       propertyPath: m_Radius
@@ -49707,6 +49731,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spawner_Enemigos5
       objectReference: {fileID: 0}
+    - target: {fileID: 5698875112643355961, guid: e302a9d65904b2949b6f36f62e068bf3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6000529442896066748, guid: e302a9d65904b2949b6f36f62e068bf3, type: 3}
       propertyPath: m_Radius
       value: 60
@@ -50925,6 +50953,10 @@ PrefabInstance:
     - target: {fileID: 5698875112643355961, guid: e302a9d65904b2949b6f36f62e068bf3, type: 3}
       propertyPath: m_Name
       value: Spawner_Enemigos1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5698875112643355961, guid: e302a9d65904b2949b6f36f62e068bf3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6000529442896066748, guid: e302a9d65904b2949b6f36f62e068bf3, type: 3}
       propertyPath: m_Radius
@@ -54301,6 +54333,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spawner_Enemigos4 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5698875112643355961, guid: e302a9d65904b2949b6f36f62e068bf3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6000529442896066748, guid: e302a9d65904b2949b6f36f62e068bf3, type: 3}
       propertyPath: m_Radius
       value: 60
@@ -54366,6 +54402,10 @@ PrefabInstance:
     - target: {fileID: 5698875112643355961, guid: e302a9d65904b2949b6f36f62e068bf3, type: 3}
       propertyPath: m_Name
       value: Spawner_Enemigos1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5698875112643355961, guid: e302a9d65904b2949b6f36f62e068bf3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6000529442896066748, guid: e302a9d65904b2949b6f36f62e068bf3, type: 3}
       propertyPath: m_Radius

@@ -36954,6 +36954,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rampa_Escape_Cordillera_Piedra
       objectReference: {fileID: 0}
+    - target: {fileID: 3810009608026282175, guid: ad8b9b0b5b6053346aa4b19fa1db27db, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4554487158661097987, guid: ad8b9b0b5b6053346aa4b19fa1db27db, type: 3}
       propertyPath: m_LocalPosition.x
       value: -290.81223
@@ -36993,6 +36997,14 @@ PrefabInstance:
     - target: {fileID: 4554487158661097987, guid: ad8b9b0b5b6053346aa4b19fa1db27db, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6314469562061994418, guid: ad8b9b0b5b6053346aa4b19fa1db27db, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6952198258785675627, guid: ad8b9b0b5b6053346aa4b19fa1db27db, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -142848,7 +142860,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7052791373746762758, guid: eb5d9d4d99a10744eb88b819f629ede2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -46
+      value: 36.9
       objectReference: {fileID: 0}
     - target: {fileID: 7052791373746762758, guid: eb5d9d4d99a10744eb88b819f629ede2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -142856,7 +142868,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7052791373746762758, guid: eb5d9d4d99a10744eb88b819f629ede2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -427
+      value: -429.2
       objectReference: {fileID: 0}
     - target: {fileID: 7052791373746762758, guid: eb5d9d4d99a10744eb88b819f629ede2, type: 3}
       propertyPath: m_LocalRotation.w
