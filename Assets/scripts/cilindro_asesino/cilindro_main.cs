@@ -76,8 +76,8 @@ public class Cilindro_main : MonoBehaviour
                 // Debug opcional (ver en escena)
                 Debug.DrawLine(explosionPos, rbPlayer.worldCenterOfMass, Color.red, 1f);
                 // ⚠️ Solo se bloquea el daño, no el resto
-                if (!EscudoJugador.EscudoActivoGlobal)
-                {
+                //if (!EscudoJugador.EscudoActivoGlobal)
+               // {
                     // ✅ Solo aplica daño si el escudo NO está activo
                     _controler.Combustible = Mathf.Max(0f, _controler.Combustible - _fuelDrainPerTouch);
                 
@@ -86,7 +86,7 @@ public class Cilindro_main : MonoBehaviour
                         _controler.Quitar_Vida(1);
                         _controler.ResetCombustible();
                     }
-                }
+                //}
             }
 
             Destroy(gameObject);
