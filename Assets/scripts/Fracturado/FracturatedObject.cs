@@ -3,20 +3,25 @@ using System.Collections;
 
 public class FracturedObject : MonoBehaviour
 {
-    public GameObject originalObject;
-    public GameObject fracturedObject;
-    public GameObject explosionVFX;
-    public float explosionMinForce = 5;
-    public float explosionMaxForce = 10;
-    public float explosionForceRadius = 10;
-    public float fragScaleFactor = 1;
-    [SerializeField] float _tiempo_destrucion=7f;
-
+    [SerializeField] GameObject originalObject;
+    [SerializeField] GameObject fracturedObject;
+    [SerializeField] GameObject explosionVFX;
+    [SerializeField] float explosionMinForce = 5;
+    [SerializeField] float explosionMaxForce = 10;
+    [SerializeField] float explosionForceRadius = 10;
+    [SerializeField] float fragScaleFactor = 1;
+    [SerializeField] float _tiempo_destrucion = 7f;
+    [SerializeField] AudioSource _explosion;
+    [SerializeField] float _tiempo_reset = 30f;
+    [SerializeField] private bool _usarUnaVez = true;    // Solo se activa una vez        
     private GameObject fractObj;
     private bool isExploded = false;
+    float _espera=0;
+    bool _activado = false;
 
     void Update()
     {
+        /*
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Explode();
@@ -26,8 +31,51 @@ public class FracturedObject : MonoBehaviour
         {
             Reset();
         }
+        */
+        espera_respown();
     }
 
+    // Este m�todo se llama autom�ticamente cuando ocurre una colisi�n f�sica
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player") && !_activado)
+        {
+            //Destroy(gameObject); // Destruye el objeto que tiene este script
+            if (_explosion != null)
+            {
+                _explosion.Play();
+            }
+            Explode();
+            if (_usarUnaVez)
+                _activado = true;
+            else
+            {
+                _activado = true;
+                _espera = _tiempo_reset;
+            }
+        }
+    }
+
+    // Si el objeto usa colliders con "isTrigger" activado, usamos este otro m�todo
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player") && !_activado)
+        {
+            //Destroy(gameObject);
+             if (_explosion != null)
+            {
+                _explosion.Play();
+            }
+            Explode();
+            if (_usarUnaVez)
+                _activado = true;
+            else
+            {
+                _activado = true;
+                _espera = _tiempo_reset;
+            }
+        }
+    }
     void Explode()
     {
         if (isExploded || originalObject == null) return;
@@ -80,6 +128,26 @@ public class FracturedObject : MonoBehaviour
         }
 
         isExploded = false;
+    }
+
+    void espera_respown()
+    {
+        if (!_usarUnaVez)
+        {
+            if (_espera > 0)
+            {
+                _espera -= Time.deltaTime;
+            }
+            else
+            {
+                if (_activado)
+                {
+                    Reset();
+                }
+                _activado = false;
+                
+            }
+        }
     }
 
     IEnumerator Shrink(Transform t, float delay)
