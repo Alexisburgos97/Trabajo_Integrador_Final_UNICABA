@@ -45,9 +45,11 @@ GameObject:
   - component: {fileID: 541121484077837973}
   - component: {fileID: 7572130924690198330}
   - component: {fileID: 1361879786034816188}
+  - component: {fileID: -2298117446679193406}
+  - component: {fileID: 1167225726135666464}
   - component: {fileID: 914357012412768757}
   - component: {fileID: 1608930207745934353}
-  - component: {fileID: -2298117446679193406}
+  - component: {fileID: 1746700071528391985}
   m_Layer: 0
   m_Name: Enemy_v2
   m_TagString: Enemy
@@ -173,55 +175,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &914357012412768757
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5211514230792277621}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c36c8d211e6f0b4785b52bc1ac22b31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _fuelDrainPerTouch: 30
-  _cooldown: 0.1
-  _hitVfxPrefab: {fileID: 425325084210939008, guid: cefb205f3c35ca249a3f8d7bf333606c, type: 3}
-  hitSfx: {fileID: 8300000, guid: 423a995c2b714fe40912d942daa5a27c, type: 3}
-  _sfxVolume: 0.1
-  _explosionForce: 3000
-  _explosionRadius: 1
-  _upwardsModifier: 0
---- !u!114 &1608930207745934353
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5211514230792277621}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3191fed56322794aae9f34512ae8e79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _targetTag: Player
-  _moveSpeed: 15
-  _turnSpeed: 180
-  _separationRadius: 5
-  _separationForce: 60
-  _dashDistance: 15
-  _dashSpeed: 45
-  _dashCooldown: 3
-  _teleportDistance: 40
-  _teleportRadiusAroundPlayer: 10
-  _teleportCooldown: 6
-  _portalPrefab: {fileID: 1763610537729365706, guid: e75b176f6907fae4e980ae9ba84f39fd, type: 3}
-  _dashTrail: {fileID: 1094845095592315177}
-  _portalLifetime: 0.7
-  _rushMultiplier: 2
-  _rushStopDistance: 40
-  _rushMaxTime: 6
 --- !u!82 &-2298117446679193406
 AudioSource:
   m_ObjectHideFlags: 0
@@ -319,6 +272,175 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!82 &1167225726135666464
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5211514230792277621}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -7075665181644718392, guid: fcc71635aab95ff4fbdf1880bf2afa2f, type: 2}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 423a995c2b714fe40912d942daa5a27c, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &914357012412768757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5211514230792277621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c36c8d211e6f0b4785b52bc1ac22b31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fuelDrainPerTouch: 30
+  _cooldown: 0.1
+  _hitVfxPrefab: {fileID: 0}
+  hitSfx: {fileID: 0}
+  _sfxVolume: 0.1
+  _explosionForce: 3000
+  _explosionRadius: 1
+  _upwardsModifier: 0
+--- !u!114 &1608930207745934353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5211514230792277621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3191fed56322794aae9f34512ae8e79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetTag: Player
+  _moveSpeed: 15
+  _turnSpeed: 180
+  _separationRadius: 5
+  _separationForce: 60
+  _dashDistance: 15
+  _dashSpeed: 45
+  _dashCooldown: 3
+  _teleportDistance: 40
+  _teleportRadiusAroundPlayer: 10
+  _teleportCooldown: 6
+  _portalPrefab: {fileID: 1763610537729365706, guid: e75b176f6907fae4e980ae9ba84f39fd, type: 3}
+  _dashTrail: {fileID: 1094845095592315177}
+  _portalLifetime: 0.7
+  _rushMultiplier: 2
+  _rushStopDistance: 40
+  _rushMaxTime: 6
+--- !u!114 &1746700071528391985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5211514230792277621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ef6d5602527dd4459c9a6337f5909d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  originalObject: {fileID: 2339359460119068109}
+  fracturedObject: {fileID: 2921494274122080318, guid: c96b54699eb09474388213b1f354aca5, type: 3}
+  explosionVFX: {fileID: 425325084210939008, guid: cefb205f3c35ca249a3f8d7bf333606c, type: 3}
+  explosionMinForce: 5
+  explosionMaxForce: 10
+  explosionForceRadius: 10
+  fragScaleFactor: 1
+  _tiempo_destrucion: 5
+  _explosion: {fileID: 1167225726135666464}
+  _tiempo_reset: 30
+  _usarUnaVez: 1
 --- !u!1001 &3715161849617028004
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -597,6 +719,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b2c520c0a14a85408659b78ad738336, type: 3}
+--- !u!1 &2339359460119068109 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8714293339291707174, guid: 6b2c520c0a14a85408659b78ad738336, type: 3}
+  m_PrefabInstance: {fileID: 6383976269856398059}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7578227626702604364 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3581264917933150887, guid: 6b2c520c0a14a85408659b78ad738336, type: 3}
