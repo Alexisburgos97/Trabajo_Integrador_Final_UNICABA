@@ -41,15 +41,16 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4626831377977874430}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
-  m_LocalPosition: {x: -222, y: -0.0040634274, z: 226.8}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4244078236097650800}
   - {fileID: 840066320401471374}
+  - {fileID: 2073300063812511046}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &1972999032193599765
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -500,13 +501,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3549d7a99cd8d34b8412a281156871b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  accelForward: 120
-  accelReverse: 100
-  maxSpeedForward: 50
-  maxSpeedReverse: 50
+  accelForward: 90
+  accelReverse: 90
+  maxSpeedForward: 40
+  maxSpeedReverse: 40
   steerAngleAt0: 70
   steerAngleAtMax: 50
-  steerResponse: 7
+  steerResponse: 10
   lateralGrip: 0.6
   forwardGrip: 1
   handbrakeLateralGrip: 0.6
@@ -704,6 +705,61 @@ MonoBehaviour:
   tiempoAchicar: 0.2
   parpadeoAntes: 1
   frecuenciaParpadeo: 0.1
+--- !u!1 &5241086014740655310
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2073300063812511046}
+  - component: {fileID: 948485704976458867}
+  m_Layer: 0
+  m_Name: Cohetera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2073300063812511046
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5241086014740655310}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.22, z: -1.61}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7052791373746762758}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &948485704976458867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5241086014740655310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f179074e53cb54240835c9239b2c628b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectionRadius: 60
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  checkInterval: 0.25
+  rocketPrefab: {fileID: 1067942136597262000, guid: a85abc8599abe1a4fa1a78337a5ad228, type: 3}
+  poolSize: 6
+  spawnPoint: {fileID: 2073300063812511046}
+  sequentialDelay: 0.15
+  launchSpreadOffset: 0
+  maxRocketsPerWave: 3
 --- !u!1001 &4426835943498729371
 PrefabInstance:
   m_ObjectHideFlags: 0

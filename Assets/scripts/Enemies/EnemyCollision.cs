@@ -99,5 +99,45 @@ public class EnemyTouchDamage : MonoBehaviour
             // 💀 Siempre se destruye el enemigo tras colisionar
             Destroy(gameObject);
         }
-    }   
+    }  
+
+    // ----------------------------
+    // Método público para ser llamado por proyectiles / cohetes
+    // ----------------------------
+    public void ExplodeFromProjectile(Vector3 contactPoint)
+    {
+        // knockback (si quieres, podrías calcular rb alrededor)
+        if (_hitVfxPrefab)
+        {
+            var vfx = Instantiate(_hitVfxPrefab, contactPoint, Quaternion.identity);
+            Destroy(vfx, 0.25f);
+        }
+
+        if (hitSfx)
+        {
+            var temp = new GameObject("TempAudio");
+            temp.transform.position = contactPoint;
+            var a = temp.AddComponent<AudioSource>();
+            a.clip = hitSfx;
+            a.volume = _sfxVolume;
+            a.Play();
+            Destroy(temp, a.clip.length);
+        }
+
+        // Explosión con física hacia objetos cercanos (similar a Apply)
+        Vector3 explosionPos = transform.position;
+        Collider[] cols = Physics.OverlapSphere(explosionPos, _explosionRadius);
+        foreach (var c in cols)
+        {
+            var rb = c.GetComponentInParent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.AddExplosionForce(_explosionForce, explosionPos, _explosionRadius, _upwardsModifier, ForceMode.Impulse);
+            }
+        }
+
+        // destruir el enemigo
+        Destroy(gameObject);
+    }
+ 
 }
