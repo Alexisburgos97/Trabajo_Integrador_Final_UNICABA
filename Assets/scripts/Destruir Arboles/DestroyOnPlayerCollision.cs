@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class DestroyOnPlayerCollision : MonoBehaviour
 {
-    // Este método se llama automáticamente cuando ocurre una colisión física
+    // Este mï¿½todo se llama automï¿½ticamente cuando ocurre una colisiï¿½n fï¿½sica
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -11,7 +11,7 @@ public class DestroyOnPlayerCollision : MonoBehaviour
         }
     }
 
-    // Si el objeto usa colliders con "isTrigger" activado, usamos este otro método
+    // Si el objeto usa colliders con "isTrigger" activado, usamos este otro mï¿½todo
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
