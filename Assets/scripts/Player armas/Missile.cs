@@ -6,7 +6,7 @@ using Tarodev;
     public class Missile : MonoBehaviour {
         [Header("REFERENCES")] 
         [SerializeField] private Rigidbody _rb;
-        [SerializeField] private GameObject _target;
+        [SerializeField] private Target _target;
         [SerializeField] private GameObject _explosionPrefab;
 
         [Header("MOVEMENT")] 
@@ -23,10 +23,7 @@ using Tarodev;
         [SerializeField] private float _deviationAmount = 50;
         [SerializeField] private float _deviationSpeed = 2;
 
-        void Start()
-        {
-            
-        }
+
         private void FixedUpdate() {
             _rb.linearVelocity = transform.forward * _speed;
 

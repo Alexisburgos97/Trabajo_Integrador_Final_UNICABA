@@ -1,5 +1,6 @@
 using UnityEngine;
 using Simplon;
+using System.Collections;
 
 [RequireComponent(typeof(Rigidbody), typeof(Collider))]
 public class EnemyTouchDamage : MonoBehaviour
@@ -46,7 +47,7 @@ public class EnemyTouchDamage : MonoBehaviour
             {
                 // ✅ Solo aplica daño si el escudo NO está activo
                 _controller.Combustible = Mathf.Max(0f, _controller.Combustible - _fuelDrainPerTouch);
-                Debug.Log($"[ENEMIGO] Toque! Combustible GC: {before} -> {_controller.Combustible}");
+                //Debug.Log($"[ENEMIGO] Toque! Combustible GC: {before} -> {_controller.Combustible}");
 
                 if (_controller.Combustible <= 0f)
                 {
@@ -97,9 +98,9 @@ public class EnemyTouchDamage : MonoBehaviour
             }
 
             // 💀 Siempre se destruye el enemigo tras colisionar
-            Destroy(gameObject);
+            StartCoroutine(DestruirConDelay());
         }
-    }  
+    }
 
     // ----------------------------
     // Método público para ser llamado por proyectiles / cohetes
@@ -137,7 +138,13 @@ public class EnemyTouchDamage : MonoBehaviour
         }
 
         // destruir el enemigo
-        Destroy(gameObject);
+        StartCoroutine(DestruirConDelay());
     }
+    
+    IEnumerator DestruirConDelay()
+{
+    yield return new WaitForFixedUpdate(); // espera al final del frame de física
+    Destroy(gameObject);
+}
  
 }

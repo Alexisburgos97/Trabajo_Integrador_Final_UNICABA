@@ -126,12 +126,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3502654976704766322}
+  - component: {fileID: 3502941325190920122}
   - component: {fileID: 184470500350564771}
   - component: {fileID: 265837478554460588}
   - component: {fileID: 4988238155358921513}
-  - component: {fileID: 1584783652327965590}
+  - component: {fileID: 3276946020014211248}
   m_Layer: 0
-  m_Name: Missile
+  m_Name: Misil
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -153,6 +154,28 @@ Transform:
   - {fileID: 1493051510760732005}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -17.926, y: 47.505, z: -52.326}
+--- !u!114 &3502941325190920122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6218341245850011874}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e1238c706577734eb6d5910451a9cb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rb: {fileID: 184470500350564771}
+  _target: {fileID: 0}
+  _explosionPrefab: {fileID: 0}
+  _speed: 15
+  _rotateSpeed: 95
+  _maxDistancePredict: 100
+  _minDistancePredict: 5
+  _maxTimePrediction: 5
+  _deviationAmount: 50
+  _deviationSpeed: 2
 --- !u!54 &184470500350564771
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -298,7 +321,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1584783652327965590
+--- !u!114 &3276946020014211248
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -311,14 +334,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 0}
-  _explosionPrefab: {fileID: 0}
+  _explosionPrefab: {fileID: 7867694130851932451, guid: 91a03a38a691b4341ac90cdd0829b941, type: 3}
   _speed: 15
   _rotateSpeed: 95
-  _initialSpeed: 20
+  _initialSpeed: 1
   _thrust: 30
-  maxSpeed: 40
-  turnSpeed: 180
-  homingDelay: 0.25
   lifeTime: 8
   _maxDistancePredict: 100
   _minDistancePredict: 5
@@ -352,7 +372,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7604778225646678301}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.70710707, z: -0, w: 0.70710653}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.49267, y: 0.49267, z: 0.49267}
   m_ConstrainProportionsScale: 0

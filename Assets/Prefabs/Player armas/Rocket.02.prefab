@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5239494652758382837}
   - component: {fileID: 4884704176886314155}
   - component: {fileID: 4342538761826298782}
+  - component: {fileID: 851669143828275067}
   m_Layer: 0
   m_Name: Rocket.02
   m_TagString: Untagged
@@ -29,13 +30,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1067942136597262000}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.078459114, y: 0, z: 0, w: 0.99691737}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 9, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &814640641973526637
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -109,9 +110,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.46136507
-  m_Height: 3.5
+  m_Height: 1.04
   m_Direction: 1
-  m_Center: {x: 0, y: 1.64, z: 0}
+  m_Center: {x: 0, y: 4.83, z: 0}
 --- !u!54 &4884704176886314155
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -146,7 +147,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1067942136597262000}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 128ee3a88a5130c4ebbb8f2108876035, type: 3}
   m_Name: 
@@ -160,3 +161,31 @@ MonoBehaviour:
   hitVfxPrefab: {fileID: 7867694130851932451, guid: 91a03a38a691b4341ac90cdd0829b941, type: 3}
   hitSfx: {fileID: 8300000, guid: e9d455a5376e07440b7bf422f574ef34, type: 3}
   sfxVolume: 1
+--- !u!114 &851669143828275067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1067942136597262000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffd542929dcc8fa45b98da009bd44cdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 0}
+  _explosionPrefab: {fileID: 7867694130851932451, guid: 91a03a38a691b4341ac90cdd0829b941, type: 3}
+  _speed: 15
+  _rotateSpeed: 95
+  _initialSpeed: 20
+  _thrust: 30
+  maxSpeed: 40
+  turnSpeed: 180
+  homingDelay: 0.25
+  lifeTime: 8
+  _maxDistancePredict: 100
+  _minDistancePredict: 5
+  _maxTimePrediction: 5
+  _deviationAmount: 50
+  _deviationSpeed: 2
+  _tiempo_lanzamiento: 0.25
