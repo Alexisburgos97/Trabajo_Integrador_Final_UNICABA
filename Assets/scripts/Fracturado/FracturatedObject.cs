@@ -103,6 +103,7 @@ public class FracturedObject : MonoBehaviour
             }
 
             // destruir fragmentos después de un tiempo razonable
+            
             Destroy(fractObj, _tiempo_destrucion);
         }
 
@@ -110,6 +111,13 @@ public class FracturedObject : MonoBehaviour
         {
             GameObject explovFX = Instantiate(explosionVFX, originalObject.transform.position, Quaternion.identity);
             Destroy(explovFX, _tiempo_destrucion);
+        }
+        //si solo se usa una vez el objeto se destruye
+        if (_usarUnaVez)
+        {
+            Destroy(originalObject);
+            //destruir el contenedor tambien
+            Destroy(gameObject);
         }
     }
 

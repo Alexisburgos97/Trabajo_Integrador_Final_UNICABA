@@ -33,6 +33,7 @@ public class Cilindro_main : MonoBehaviour
     void Start()
     {
         _startPos = transform.position;
+        _controler = GameControler.Instance;
     }
 
     void Update()
