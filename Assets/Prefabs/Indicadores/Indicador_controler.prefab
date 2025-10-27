@@ -49,10 +49,6 @@ MonoBehaviour:
   tagPrefabPairs:
   - tag: Enemy
     prefab: {fileID: 6233270071614456066, guid: d14eab935246ee243a6a49377531681f, type: 3}
-  - tag: Rescate
-    prefab: {fileID: 6233270071614456066, guid: e9b6318a0ff0f9a4a921fad733215712, type: 3}
-  - tag: Gasoline
-    prefab: {fileID: 6233270071614456066, guid: ec38b9a3e78329a4ea5661965e6046e6, type: 3}
   minDistance: 5
   noBlinkDistance: 30
   maxDistance: 100

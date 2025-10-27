@@ -6425,6 +6425,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1982339594813336231, guid: eb5d9d4d99a10744eb88b819f629ede2, type: 3}
+      propertyPath: audioMaxVol
+      value: 0.426
+      objectReference: {fileID: 0}
     - target: {fileID: 4626831377977874430, guid: eb5d9d4d99a10744eb88b819f629ede2, type: 3}
       propertyPath: m_Name
       value: Auto_base
@@ -14493,23 +14497,11 @@ PrefabInstance:
     - target: {fileID: 5546635877660599034, guid: f9e03957ac38edc45b99680fbe85a2ec, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 950567152}
     - target: {fileID: 5546635877660599034, guid: f9e03957ac38edc45b99680fbe85a2ec, type: 3}
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 649184654}
-    - target: {fileID: 5546635877660599034, guid: f9e03957ac38edc45b99680fbe85a2ec, type: 3}
-      propertyPath: tagPrefabPairs.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5546635877660599034, guid: f9e03957ac38edc45b99680fbe85a2ec, type: 3}
-      propertyPath: tagPrefabPairs.Array.data[1].tag
-      value: Gasoline
-      objectReference: {fileID: 0}
-    - target: {fileID: 5546635877660599034, guid: f9e03957ac38edc45b99680fbe85a2ec, type: 3}
-      propertyPath: tagPrefabPairs.Array.data[1].prefab
-      value: 
-      objectReference: {fileID: 6233270071614456066, guid: ec38b9a3e78329a4ea5661965e6046e6, type: 3}
     - target: {fileID: 7591679404049211577, guid: f9e03957ac38edc45b99680fbe85a2ec, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
