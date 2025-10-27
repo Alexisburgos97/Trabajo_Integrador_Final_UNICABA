@@ -7,6 +7,8 @@ public class Enemy_v2 : MonoBehaviour
     [Header("Configuración del objetivo")]
     public string _targetTag = "Player";
     private Transform _target;
+    [Header("Prediccion de movimiento")]
+    [SerializeField] private float _size = 10;
 
     [Header("Movimiento")]
     [SerializeField] float _moveSpeed = 15f;
@@ -34,7 +36,11 @@ public class Enemy_v2 : MonoBehaviour
     [SerializeField] float _rushStopDistance = 20f;     // Distancia al player para salir del modo rush
     [SerializeField] float _rushMaxTime = 6f;           // Tiempo máximo antes de forzar teleport
 
-    private Rigidbody _rb;
+    private Rigidbody _rb,_esteRb;
+    public Rigidbody _Rb => _esteRb;
+
+    //public Vector3 _linear_Velocity;
+        
     private bool _canDash = false;
     private bool _canTeleport = false;
     private bool _isRushing = true;
@@ -52,8 +58,27 @@ public class Enemy_v2 : MonoBehaviour
     {
         GameObject targetObj = GameObject.FindGameObjectWithTag(_targetTag);
         if (targetObj) _target = targetObj.transform;
+        _esteRb = gameObject.GetComponent<Rigidbody>();
     }
 
+    /*
+    void Update()
+    {
+        //mantien actializada la posicion del enemigo y predice el movimiento
+        Vector3 dir;
+        if (_isRushing)
+        {
+            dir = new Vector3(Mathf.Cos(Time.time * _dashSpeed) * _size, Mathf.Sin(Time.time * _dashSpeed) * _size);
+        }
+        else
+        {
+            dir = new Vector3(Mathf.Cos(Time.time * _moveSpeed) * _size, Mathf.Sin(Time.time * _moveSpeed) * _size);
+        }
+        //_esteRb.linearVelocity = dir;
+        _linear_Velocity = dir;
+
+    }
+    */
     void FixedUpdate()
     {
         if (!_target) return;

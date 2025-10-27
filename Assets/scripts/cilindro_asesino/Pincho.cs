@@ -1,7 +1,11 @@
 using UnityEngine;
+using Simplon;
 
 public class Pincho : MonoBehaviour
 {
+    [Header("Daño por toque")]
+    public float _fuelDrainPerTouch = 5f;
+
     [Header("Config. autodestruccion")]
     [SerializeField] float _maxDistance = 15f;
 
@@ -20,9 +24,12 @@ public class Pincho : MonoBehaviour
     
     private Vector3 _startPos;
     private bool _activo = false; // control de activación
+
+    GameControler _controler;
     void Start()
     {
         _startPos = transform.position;
+        _controler = GameControler.Instance;
     }
 
     void Update()
@@ -67,6 +74,19 @@ public class Pincho : MonoBehaviour
 
                 // Debug opcional (ver en escena)
                 Debug.DrawLine(explosionPos, rbPlayer.worldCenterOfMass, Color.red, 1f);
+
+                // ⚠️ Solo se bloquea el daño, no el resto
+                if (!EscudoJugador.EscudoActivoGlobal)
+                {
+                    // ✅ Solo aplica daño si el escudo NO está activo
+                    _controler.Combustible = Mathf.Max(0f, _controler.Combustible - _fuelDrainPerTouch);
+                
+                    if (_controler.Combustible <= 0f)
+                    {
+                        _controler.Quitar_Vida(1);
+                        _controler.ResetCombustible();
+                    }
+                }
             }
 
             Destroy(gameObject); // ahora sí empieza el conteo de vida

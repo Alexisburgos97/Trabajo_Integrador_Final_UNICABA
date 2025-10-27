@@ -29,8 +29,8 @@ public class Hud_control : MonoBehaviour
     void Update()
     {
         //muestra la cantida de rescatdos / la cantidad a rescatar para ganar en el hud
-        _Rescates.text = $"{_Controler.Obtener_rescate()}";
-        _tot_rescatar.text = $"{_Controler.Obtener_total_a_rescatar()}";
+        _Rescates.text = $"{_Controler.Obtener_rescate():D2}";
+        _tot_rescatar.text = $"{_Controler.Obtener_total_a_rescatar():D2}";
         //MostrarDistancia();
         //mostrar las vidas disponibles
         MostrarVida();
