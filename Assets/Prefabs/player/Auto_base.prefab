@@ -49,6 +49,7 @@ Transform:
   - {fileID: 4244078236097650800}
   - {fileID: 840066320401471374}
   - {fileID: 2073300063812511046}
+  - {fileID: 6651894570720379632}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &1972999032193599765
@@ -802,6 +803,68 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 60
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1001 &209948323577234900
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7052791373746762758}
+    m_Modifications:
+    - target: {fileID: 6825667293148727076, guid: d4aee5d8b6189824686dda37ce188a0f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6825667293148727076, guid: d4aee5d8b6189824686dda37ce188a0f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6825667293148727076, guid: d4aee5d8b6189824686dda37ce188a0f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6825667293148727076, guid: d4aee5d8b6189824686dda37ce188a0f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6825667293148727076, guid: d4aee5d8b6189824686dda37ce188a0f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6825667293148727076, guid: d4aee5d8b6189824686dda37ce188a0f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6825667293148727076, guid: d4aee5d8b6189824686dda37ce188a0f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6825667293148727076, guid: d4aee5d8b6189824686dda37ce188a0f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6825667293148727076, guid: d4aee5d8b6189824686dda37ce188a0f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6825667293148727076, guid: d4aee5d8b6189824686dda37ce188a0f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9029688539860715226, guid: d4aee5d8b6189824686dda37ce188a0f, type: 3}
+      propertyPath: m_Name
+      value: marcador
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d4aee5d8b6189824686dda37ce188a0f, type: 3}
+--- !u!4 &6651894570720379632 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6825667293148727076, guid: d4aee5d8b6189824686dda37ce188a0f, type: 3}
+  m_PrefabInstance: {fileID: 209948323577234900}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4426835943498729371
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -875,6 +938,10 @@ PrefabInstance:
       value: Desert_Trailblazer
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: bdda0f2633297fb47916f1227f094e0a, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bdda0f2633297fb47916f1227f094e0a, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -903,6 +970,10 @@ PrefabInstance:
     - target: {fileID: 1067942136597262000, guid: 707e3ee3ef55a0b4da2f2294e5cd155b, type: 3}
       propertyPath: m_Name
       value: "Rocket_se\xF1uelo"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1067942136597262000, guid: 707e3ee3ef55a0b4da2f2294e5cd155b, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5070175800654012502, guid: 707e3ee3ef55a0b4da2f2294e5cd155b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1026,6 +1097,10 @@ PrefabInstance:
     - target: {fileID: 7927482738800908670, guid: e6a93c70635fed549b6b7224b8f18db0, type: 3}
       propertyPath: m_Name
       value: Escudo fino
+      objectReference: {fileID: 0}
+    - target: {fileID: 7927482738800908670, guid: e6a93c70635fed549b6b7224b8f18db0, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7927482738800908670, guid: e6a93c70635fed549b6b7224b8f18db0, type: 3}
       propertyPath: m_IsActive

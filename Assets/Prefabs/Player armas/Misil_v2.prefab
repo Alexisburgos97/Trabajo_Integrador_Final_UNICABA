@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9010006557054321220}
   - component: {fileID: 1695087435909522482}
   - component: {fileID: 8245973487892255449}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fuego_humo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -215,7 +215,6 @@ MonoBehaviour:
   _speed: 30
   _rotateSpeed: 700
   _initialSpeed: 20
-  _thrust: 30
   lifeTime: 8
   _maxDistancePredict: 100
   _minDistancePredict: 5
