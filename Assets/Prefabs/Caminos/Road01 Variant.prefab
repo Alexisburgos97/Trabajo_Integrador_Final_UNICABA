@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1421522762788327861, guid: 873b1db0bccd88a41949fea66f087ed7, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5685476408131974299, guid: 873b1db0bccd88a41949fea66f087ed7, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.04
@@ -71,6 +75,10 @@ PrefabInstance:
     - target: {fileID: 8653532322665607599, guid: 873b1db0bccd88a41949fea66f087ed7, type: 3}
       propertyPath: m_Name
       value: Road01 Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8653532322665607599, guid: 873b1db0bccd88a41949fea66f087ed7, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

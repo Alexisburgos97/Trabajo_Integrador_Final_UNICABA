@@ -1,10 +1,14 @@
 using UnityEngine;
+using Simplon;
 
 public class Cilindro_main : MonoBehaviour
 {
     [Header("Configuracion del cilindro")]
     [SerializeField] float _moveSpeed = 5f;          // Velocidad de desplazamiento
     [SerializeField] float _maxDistance = 20f;       // Distancia máxima antes de autodestruirse
+
+    [Header("Daño por toque")]
+    public float _fuelDrainPerTouch = 5f;
 
     [Header("Config. de los pinchos")]
     [SerializeField] float _fuerzaMinPincho = 5f;   // Fuerza mínima
@@ -23,11 +27,13 @@ public class Cilindro_main : MonoBehaviour
     [Tooltip("Radio de alcance del empuje explosivo")]
     [SerializeField] float _explosionRadius = 5f;
     [Tooltip("Factor vertical de empuje (0 = plano, 1 = empuja hacia arriba)")]
-    [SerializeField]float _upwardsModifier = 0.5f;
+    [SerializeField] float _upwardsModifier = 0.5f;
 
+    GameControler _controler;
     void Start()
     {
         _startPos = transform.position;
+        _controler = GameControler.Instance;
     }
 
     void Update()
@@ -70,6 +76,18 @@ public class Cilindro_main : MonoBehaviour
 
                 // Debug opcional (ver en escena)
                 Debug.DrawLine(explosionPos, rbPlayer.worldCenterOfMass, Color.red, 1f);
+                // ⚠️ Solo se bloquea el daño, no el resto
+                //if (!EscudoJugador.EscudoActivoGlobal)
+               // {
+                    // ✅ Solo aplica daño si el escudo NO está activo
+                    _controler.Combustible = Mathf.Max(0f, _controler.Combustible - _fuelDrainPerTouch);
+                
+                    if (_controler.Combustible <= 0f)
+                    {
+                        _controler.Quitar_Vida(1);
+                        _controler.ResetCombustible();
+                    }
+                //}
             }
 
             Destroy(gameObject);

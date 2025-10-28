@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3829222787378219840, guid: b7491e5c2eeeddb43b79caaa741caea3, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5604485367650465216, guid: b7491e5c2eeeddb43b79caaa741caea3, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -67,6 +71,10 @@ PrefabInstance:
     - target: {fileID: 7919647196879180810, guid: b7491e5c2eeeddb43b79caaa741caea3, type: 3}
       propertyPath: m_Name
       value: Road02 Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 7919647196879180810, guid: b7491e5c2eeeddb43b79caaa741caea3, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

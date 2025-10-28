@@ -46,6 +46,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spawner_Enemigos (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5698875112643355961, guid: e302a9d65904b2949b6f36f62e068bf3, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6000529442896066748, guid: e302a9d65904b2949b6f36f62e068bf3, type: 3}
       propertyPath: m_Radius
       value: 20
@@ -112,6 +116,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spawner_Enemigos
       objectReference: {fileID: 0}
+    - target: {fileID: 5698875112643355961, guid: e302a9d65904b2949b6f36f62e068bf3, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6000529442896066748, guid: e302a9d65904b2949b6f36f62e068bf3, type: 3}
       propertyPath: m_Radius
       value: 20
@@ -175,18 +183,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 2732817830078163693}
     m_Modifications:
     - target: {fileID: 2743468904243108522, guid: faee910220b5ef54588c80c5d880597b, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2743468904243108522, guid: faee910220b5ef54588c80c5d880597b, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2743468904243108522, guid: faee910220b5ef54588c80c5d880597b, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2743468904243108522, guid: faee910220b5ef54588c80c5d880597b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -224,10 +220,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2743468904243108522, guid: faee910220b5ef54588c80c5d880597b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2743468904243108522, guid: faee910220b5ef54588c80c5d880597b, type: 3}
-      propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3400005907305118167, guid: faee910220b5ef54588c80c5d880597b, type: 3}

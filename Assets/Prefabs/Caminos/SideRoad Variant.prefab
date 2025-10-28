@@ -8,9 +8,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 473318374054989053, guid: ddb10b92e1149cb48aaafd7ed0984603, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 473318374615662808, guid: ddb10b92e1149cb48aaafd7ed0984603, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 473318374887501260, guid: ddb10b92e1149cb48aaafd7ed0984603, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 473318375107831277, guid: ddb10b92e1149cb48aaafd7ed0984603, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6224346405528348239, guid: ddb10b92e1149cb48aaafd7ed0984603, type: 3}
       propertyPath: m_Name
       value: SideRoad Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 6224346405528348239, guid: ddb10b92e1149cb48aaafd7ed0984603, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6542761876074992823, guid: ddb10b92e1149cb48aaafd7ed0984603, type: 3}
       propertyPath: m_LocalPosition.x
