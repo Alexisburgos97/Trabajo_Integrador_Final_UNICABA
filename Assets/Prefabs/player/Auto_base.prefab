@@ -111,7 +111,7 @@ AudioSource:
   m_GameObject: {fileID: 4626831377977874430}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 243914861002086086, guid: fcc71635aab95ff4fbdf1880bf2afa2f, type: 2}
+  OutputAudioMixerGroup: {fileID: 243617406347679018, guid: fcc71635aab95ff4fbdf1880bf2afa2f, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: d780ae9358b9ae341aeced9df4351244, type: 3}
   m_PlayOnAwake: 1
@@ -648,8 +648,8 @@ MonoBehaviour:
     m_Bits: 4294967295
   skidMaterial: {fileID: 2100000, guid: d59c8004e758784449cf3a33a537244d, type: 2}
   smokeMaterial: {fileID: 2100000, guid: 2a9bbc57078cdd347831c18f2f05054b, type: 2}
-  skidClip: {fileID: 0}
-  audioMaxVol: 0.287
+  skidClip: {fileID: 8300000, guid: f812adfb4c395184b8285b67e242dfbb, type: 3}
+  audioMaxVol: 0.426
   triggerOnHandbrake: 1
   handbrakeKey: 32
   minSpeed: 6
