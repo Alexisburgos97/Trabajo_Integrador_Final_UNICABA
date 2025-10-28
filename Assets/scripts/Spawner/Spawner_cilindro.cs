@@ -19,12 +19,38 @@ public class Spawner_cilindro : MonoBehaviour
     {
         if (other.CompareTag("Player") && !_activado)
         {
-            // Si no asignás un spawnPoint, usa la posición del trigger
+            // Posición y rotación base
             Vector3 spawnPos = _spawnPoint != null ? _spawnPoint.position : transform.position;
             Quaternion spawnRot = _spawnPoint != null ? _spawnPoint.rotation : transform.rotation;
 
-            Instantiate(_cilindroPrefab, spawnPos, spawnRot);
+            // Instanciamos
+            GameObject spawned = Instantiate(_cilindroPrefab, spawnPos, spawnRot);
 
+            // --- Alineamos el FORWARD del cilindro con la LEFT del spawnPoint ---
+            // Calculamos la dirección "left" en world space (si no hay spawnPoint, usamos el mismo spawner)
+            Vector3 leftDirWorld;
+            Vector3 upVector;
+
+            if (_spawnPoint != null)
+            {
+                leftDirWorld = _spawnPoint.TransformDirection(Vector3.left); // izquierda local -> world
+                upVector = _spawnPoint.up;
+            }
+            else
+            {
+                leftDirWorld = transform.TransformDirection(Vector3.left);
+                upVector = transform.up;
+            }
+
+            // Si por alguna razón leftDirWorld es casi cero, evitamos LookRotation (por seguridad)
+            if (leftDirWorld.sqrMagnitude > 0.0001f)
+            {
+                // Forzamos la rotación del objeto instanciado para que su forward apunte en leftDirWorld
+                spawned.transform.rotation = Quaternion.LookRotation(leftDirWorld, upVector);
+                // Alternativa más directa: spawned.transform.forward = leftDirWorld.normalized;
+            }
+
+            // Resto de control de uso único / cooldown
             if (_usarUnaVez)
                 _activado = true;
             else
@@ -32,8 +58,6 @@ public class Spawner_cilindro : MonoBehaviour
                 _activado = true;
                 _espera = _cool_down;
             }
-
-
         }
     }
     

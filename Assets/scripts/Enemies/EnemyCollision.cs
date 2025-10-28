@@ -142,9 +142,9 @@ public class EnemyTouchDamage : MonoBehaviour
     }
     
     IEnumerator DestruirConDelay()
-{
-    yield return new WaitForFixedUpdate(); // espera al final del frame de física
-    Destroy(gameObject);
-}
+    {
+        yield return new WaitForFixedUpdate(); // espera al final del frame de física
+        Destroy(gameObject);
+    }
  
 }

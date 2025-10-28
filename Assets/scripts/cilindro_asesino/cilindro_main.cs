@@ -1,5 +1,6 @@
 using UnityEngine;
 using Simplon;
+using System.Collections;
 
 public class Cilindro_main : MonoBehaviour
 {
@@ -39,14 +40,14 @@ public class Cilindro_main : MonoBehaviour
     void Update()
     {
         // Mover en eje X global, ignorando la rotación de la animación
-        transform.Translate(Vector3.left * _moveSpeed * Time.deltaTime, Space.World);
+        transform.Translate(Vector3.forward * _moveSpeed * Time.deltaTime, Space.Self);
 
         // Si recorrió más que la distancia máxima → dispara pinchos y destruye
         if (Vector3.Distance(_startPos, transform.position) >= _maxDistance)
         {
             DispararPinchos();
             Explode();
-            Destroy(gameObject);
+            StartCoroutine(DestruirConDelay());
         }
     }
 
@@ -75,7 +76,7 @@ public class Cilindro_main : MonoBehaviour
                 );
 
                 // Debug opcional (ver en escena)
-                Debug.DrawLine(explosionPos, rbPlayer.worldCenterOfMass, Color.red, 1f);
+                //Debug.DrawLine(explosionPos, rbPlayer.worldCenterOfMass, Color.red, 1f);
                 // ⚠️ Solo se bloquea el daño, no el resto
                 //if (!EscudoJugador.EscudoActivoGlobal)
                // {
@@ -90,7 +91,7 @@ public class Cilindro_main : MonoBehaviour
                 //}
             }
 
-            Destroy(gameObject);
+            StartCoroutine(DestruirConDelay());
         }
     }
 
@@ -144,7 +145,7 @@ public class Cilindro_main : MonoBehaviour
             script.ActivarPincho();
         }
     }
-    
+
     void Explode()
     {
         // Instanciar explosión
@@ -155,5 +156,11 @@ public class Cilindro_main : MonoBehaviour
         if (_explosionSound != null)
             AudioSource.PlayClipAtPoint(_explosionSound, transform.position, _volumenExplosion);
         //Destroy(gameObject);
+    }
+    
+    IEnumerator DestruirConDelay()
+    {
+        yield return new WaitForFixedUpdate(); // espera al final del frame de física
+        Destroy(gameObject);
     }
 }
