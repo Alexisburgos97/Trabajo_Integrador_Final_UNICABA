@@ -6594,8 +6594,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 754830397281425928, guid: eb5d9d4d99a10744eb88b819f629ede2, type: 3}
       propertyPath: m_Volume
-      value: 0.914
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 754830397281425928, guid: eb5d9d4d99a10744eb88b819f629ede2, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 243617406347679018, guid: fcc71635aab95ff4fbdf1880bf2afa2f, type: 2}
+    - target: {fileID: 1982339594813336231, guid: eb5d9d4d99a10744eb88b819f629ede2, type: 3}
+      propertyPath: skidClip
+      value: 
+      objectReference: {fileID: 8300000, guid: f812adfb4c395184b8285b67e242dfbb, type: 3}
     - target: {fileID: 1982339594813336231, guid: eb5d9d4d99a10744eb88b819f629ede2, type: 3}
       propertyPath: audioMaxVol
       value: 0.426
