@@ -45,9 +45,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5ae975d3c778445a217307edd56fd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cilindroPrefab: {fileID: 6349970121087239535, guid: 6f5fa15fb8a3c1e41b295e59f5c5d62b, type: 3}
+  _cilindroPrefab: {fileID: 5994739313595460224, guid: 5fd4f33e888f55c4c99413981c451809, type: 3}
   _spawnPoint: {fileID: 6176508352920526129}
   _usarUnaVez: 1
+  _cool_down: 30
 --- !u!135 &3795885462903542790
 SphereCollider:
   m_ObjectHideFlags: 0

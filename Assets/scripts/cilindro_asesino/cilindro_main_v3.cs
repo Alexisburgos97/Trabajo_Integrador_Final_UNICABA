@@ -2,7 +2,7 @@ using UnityEngine;
 using Simplon;
 using System.Collections;
 
-public class Cilindro_main : MonoBehaviour
+public class Cilindro_main_v3 : MonoBehaviour
 {
     [Header("Configuracion del cilindro")]
     [SerializeField] float _moveSpeed = 5f;          // Velocidad de desplazamiento
@@ -40,7 +40,7 @@ public class Cilindro_main : MonoBehaviour
     void Update()
     {
         // Mover en eje X global, ignorando la rotación de la animación
-        transform.Translate(Vector3.left * _moveSpeed * Time.deltaTime, Space.World);
+        transform.Translate(Vector3.left * _moveSpeed * Time.deltaTime, Space.Self);
 
         // Si recorrió más que la distancia máxima → dispara pinchos y destruye
         if (Vector3.Distance(_startPos, transform.position) >= _maxDistance)
