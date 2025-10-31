@@ -4,31 +4,31 @@ using UnityEngine;
 public class DriftVFXAuto : MonoBehaviour
 {
     [Header("Referencias")]
-    public TopDownCarController car;          // opcional (solo para leer IsDrifting)
-    public LayerMask groundMask = ~0;         // capas de suelo (p.ej. Caminos)
-    public Material skidMaterial;             // material Unlit/Transparent NEGRO
-    public Material smokeMaterial;            // material Particles/Unlit gris
-    public AudioClip skidClip;                // audio chillido (loop)
+    public TopDownCarController car;          // opcional
+    public LayerMask groundMask = ~0;         // p.ej. "Caminos"
+    public Material skidMaterial;
+    public Material smokeMaterial;
+    public AudioClip skidClip;
     [Range(0, 1)] public float audioMaxVol = 0.9f;
 
     [Header("Activación adicional")]
-    public bool triggerOnHandbrake = true;    // también activar VFX con el freno de mano
+    public bool triggerOnHandbrake = true;
     public KeyCode handbrakeKey = KeyCode.Space;
 
     [Header("Tuning")]
-    public float minSpeed = 6f;               // velocidad mínima para VFX si no hay IsDrifting
-    public float slipThreshold = 0.6f;        // slip para empezar humo
-    public float slipForMax = 1.8f;           // slip para humo máximo
-    public float rayLen = 2f;                 // alcance raycast a suelo
+    public float minSpeed = 6f;
+    public float slipThreshold = 0.6f;
+    public float slipForMax = 1.8f;
+    public float rayLen = 2f;
+
+    [Header("Wheel Prefabs (opcional)")]
+    public GameObject wheelRL_Prefab;
+    public GameObject wheelRR_Prefab;
 
     // Runtime
     Rigidbody rb;
-
-    // Puntos “virtuales” de ruedas traseras (solo para tener los componentes)
     Transform pRL, pRR;
-    // Offsets LOCALES fijos respecto al auto (la clave para que no se desalineen)
-    Vector3 rlLocal, rrLocal;
-
+    Vector3 rlLocal, rrLocal;   // offsets usados SOLO si no hay prefabs
     TrailRenderer trRL, trRR;
     ParticleSystem psRL, psRR;
     AudioSource audioSrc;
@@ -38,23 +38,61 @@ public class DriftVFXAuto : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         if (!car) car = GetComponent<TopDownCarController>();
 
-        // --- calcular tamaño del coche para ubicar las ruedas traseras ---
-        Bounds b = CalcWorldBounds();
-        float halfW = b.extents.x;
-        float halfL = b.extents.z;
+        bool haveRL = wheelRL_Prefab != null;
+        bool haveRR = wheelRR_Prefab != null;
 
-        const float trackFactor = 0.80f; // qué tan afuera las ruedas
-        const float axleFactor  = 0.90f; // qué tan atrás el eje
-        const float yLocal      = -0.05f; // pequeño ajuste vertical local
+        if (!haveRL || !haveRR)
+        {
+            // calcular offsets por bounds solo si faltan prefabs
+            Bounds b = CalcWorldBounds();
+            float halfW = b.extents.x;
+            float halfL = b.extents.z;
 
-        rlLocal = new Vector3(-halfW * trackFactor, yLocal, -halfL * axleFactor);
-        rrLocal = new Vector3(+halfW * trackFactor, yLocal, -halfL * axleFactor);
+            const float trackFactor = 0.80f;
+            const float axleFactor  = 0.90f;
+            const float yLocal      = -0.05f;
 
-        // Crear puntos hijos (solo contenedores de Trail/PS)
-        pRL = CreatePoint("FX_RL", rlLocal);
-        pRR = CreatePoint("FX_RR", rrLocal);
+            rlLocal = new Vector3(-halfW * trackFactor, yLocal, -halfL * axleFactor);
+            rrLocal = new Vector3(+halfW * trackFactor, yLocal, -halfL * axleFactor);
+        }
 
-        // Crear componentes de marcas y humo
+        // Crear/ubicar puntos:
+        // if (haveRL)
+        // {
+        //     pRL = Instantiate(wheelRL_Prefab, transform).transform;
+        //     // ¡No tocar localPosition! Usá la del prefab.
+        //     rlLocal = pRL.localPosition; // guardo por si dibujo gizmos
+        // }
+        if (haveRL)
+        {
+            var rl = Instantiate(wheelRL_Prefab, transform);
+            rl.transform.localPosition = wheelRL_Prefab.transform.localPosition;
+            pRL = rl.transform;
+            rlLocal = pRL.localPosition;
+        }
+        else
+        {
+            pRL = CreatePoint("FX_RL", rlLocal);
+        }
+
+        // if (haveRR)
+        // {
+        //     pRR = Instantiate(wheelRR_Prefab, transform).transform;
+        //     rrLocal = pRR.localPosition;
+        // }
+        if (haveRR)
+        {
+            var rr = Instantiate(wheelRR_Prefab, transform);
+            rr.transform.localPosition = wheelRR_Prefab.transform.localPosition;
+            pRR = rr.transform;
+            rrLocal = pRR.localPosition;
+        }
+        else
+        {
+            pRR = CreatePoint("FX_RR", rrLocal);
+        }
+
+        // Efectos
         trRL = CreateTrail(pRL);   trRR = CreateTrail(pRR);
         psRL = CreateSmoke(pRL);   psRR = CreateSmoke(pRR);
 
@@ -87,7 +125,7 @@ public class DriftVFXAuto : MonoBehaviour
     {
         var t = new GameObject(name).transform;
         t.SetParent(transform, false);
-        t.localPosition = localOffset; // ¡no se vuelve a tocar!
+        t.localPosition = localOffset;
         return t;
     }
 
@@ -133,21 +171,15 @@ public class DriftVFXAuto : MonoBehaviour
         main.startColor    = new Color(0.5f, 0.5f, 0.5f, 0.7f);
         main.playOnAwake   = false;
 
-        var em = ps.emission;
-        em.enabled = false;
-        em.rateOverTime = new ParticleSystem.MinMaxCurve(0f);
+        var em = ps.emission; em.enabled = false; em.rateOverTime = 0f;
 
-        var shape = ps.shape;
-        shape.shapeType = ParticleSystemShapeType.Cone;
-        shape.angle     = 10f;
-        shape.radius    = 0.06f;
+        var shape = ps.shape; shape.shapeType = ParticleSystemShapeType.Cone; shape.angle = 10f; shape.radius = 0.06f;
 
         var rend = ps.GetComponent<ParticleSystemRenderer>();
         if (smokeMaterial) rend.material = smokeMaterial;
         rend.sortingFudge = 2f;
 
-        var col = ps.colorOverLifetime;
-        col.enabled = true;
+        var col = ps.colorOverLifetime; col.enabled = true;
         var g = new Gradient();
         g.SetKeys(
             new[] { new GradientColorKey(Color.gray, 0f), new GradientColorKey(Color.gray, 1f) },
@@ -160,17 +192,17 @@ public class DriftVFXAuto : MonoBehaviour
 
     void Update()
     {
-        float speed = new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z).magnitude;
+        float speed = new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z).magnitude; // <- velocity
         float slip = ComputeSlip();
 
         bool drifting = false;
-        if (car != null) drifting |= car.IsDrifting;                       // si el controller lo informa
-        drifting |= speed > minSpeed && slip > slipThreshold;            // heurística por velocidad/lateral
-        if (triggerOnHandbrake && Input.GetKey(handbrakeKey))              // también con freno de mano
-            drifting |= speed > (minSpeed * 0.4f);                         // permite algo más lento
+        if (car != null) drifting |= car.IsDrifting;
+        drifting |= speed > minSpeed && slip > slipThreshold;
+        if (triggerOnHandbrake && Input.GetKey(handbrakeKey))
+            drifting |= speed > (minSpeed * 0.4f);
 
-        UpdateWheelFXLocal(rlLocal, trRL, psRL, drifting, slip);
-        UpdateWheelFXLocal(rrLocal, trRR, psRR, drifting, slip);
+        UpdateWheelFXAt(pRL, trRL, psRL, drifting, slip);
+        UpdateWheelFXAt(pRR, trRR, psRR, drifting, slip);
         UpdateAudio(drifting, slip);
     }
 
@@ -179,49 +211,54 @@ public class DriftVFXAuto : MonoBehaviour
         Vector3 local = transform.InverseTransformDirection(rb.linearVelocity);
         return Mathf.Abs(local.x) * 0.15f;
     }
-
-    void UpdateWheelFXLocal(Vector3 localOffset, TrailRenderer tr, ParticleSystem ps, bool active, float slip)
+    
+    void UpdateWheelFXAt(Transform anchor, TrailRenderer tr, ParticleSystem ps, bool active, float slip)
     {
-        // Posición mundial ideal de la rueda a partir del offset local
-        Vector3 wheelBase = transform.TransformPoint(localOffset);
+        if (!anchor) return;
 
-        // Raycast hacia abajo (o “up” del coche para rampas)
-        Vector3 upDir = transform.up;
-        bool grounded = Physics.Raycast(wheelBase + upDir * 0.25f, -upDir,
-                                        out var hit, rayLen, groundMask,
-                                        QueryTriggerInteraction.Ignore);
+        // Raycast vertical desde la posición local del anchor (no la prefab original)
+        Vector3 rayOrigin = anchor.position + transform.up * 0.25f;
+        Vector3 rayDir = -transform.up;
+        bool grounded = Physics.Raycast(rayOrigin, rayDir, out var hit, rayLen, groundMask, QueryTriggerInteraction.Ignore);
 
-        // TRAIL
+        // Mantener trail siempre fijo a la posición local del anchor
         if (tr)
         {
-            if (grounded) tr.transform.position = hit.point + hit.normal * 0.05f;
+            tr.transform.position = anchor.position;
             tr.emitting = active && grounded;
         }
 
-        // HUMO
         if (ps)
         {
             bool shouldEmit = active && grounded;
-
             var em = ps.emission;
             em.enabled = shouldEmit;
 
-            if (shouldEmit && !ps.isPlaying) ps.Play();
-            if (!shouldEmit && ps.isPlaying) ps.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+            if (shouldEmit && !ps.isPlaying)
+                ps.Play();
+            else if (!shouldEmit && ps.isPlaying)
+                ps.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
 
             if (grounded)
             {
-                ps.transform.position = hit.point + hit.normal * 0.06f;
+                // Posicionar el humo un poquito sobre el suelo, sin moverlo lateralmente
+                Vector3 targetPos = anchor.position;
+                targetPos.y = hit.point.y + 0.06f; // ajusta la altura solamente
+                ps.transform.position = targetPos;
+
+                // Apuntar hacia adelante según la normal del terreno
                 ps.transform.rotation = Quaternion.LookRotation(
                     Vector3.ProjectOnPlane(transform.forward, hit.normal), hit.normal);
 
+                // Ajustar la cantidad de partículas según el deslizamiento
                 float t = Mathf.InverseLerp(slipThreshold, slipForMax, slip);
-                var rate = em.rateOverTime; rate.constant = Mathf.Lerp(25f, 90f, t);
+                var rate = em.rateOverTime;
+                rate.constant = Mathf.Lerp(25f, 90f, t);
                 em.rateOverTime = rate;
             }
         }
     }
-
+    
     void UpdateAudio(bool active, float slip)
     {
         if (!audioSrc || !skidClip) return;
@@ -235,10 +272,18 @@ public class DriftVFXAuto : MonoBehaviour
 #if UNITY_EDITOR
     void OnDrawGizmosSelected()
     {
-        // Gizmos para ver dónde se raycastea (posiciones locales transformadas)
         Gizmos.color = Color.magenta;
-        if (pRL) Gizmos.DrawSphere(transform.TransformPoint(rlLocal), 0.06f);
-        if (pRR) Gizmos.DrawSphere(transform.TransformPoint(rrLocal), 0.06f);
+        if (pRL) Gizmos.DrawSphere(pRL.position, 0.06f);
+        if (pRR) Gizmos.DrawSphere(pRR.position, 0.06f);
+    }
+#endif
+    
+#if UNITY_EDITOR
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        if (wheelRL_Prefab) Gizmos.DrawSphere(wheelRL_Prefab.transform.position, 0.1f);
+        if (wheelRR_Prefab) Gizmos.DrawSphere(wheelRR_Prefab.transform.position, 0.1f);
     }
 #endif
 }
