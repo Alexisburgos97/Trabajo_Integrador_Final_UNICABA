@@ -9791,6 +9791,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 661207053225964754}
+  - component: {fileID: 6843189423031813362}
   m_Layer: 0
   m_Name: Vfx_explosion
   m_TagString: Untagged
@@ -9817,6 +9818,19 @@ Transform:
   - {fileID: 9019426767772076933}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6843189423031813362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2290669960194273504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3eeb746625db52e4b84f59e43cf0754f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tiempo: 1
 --- !u!1 &4172597608743094487
 GameObject:
   m_ObjectHideFlags: 0
