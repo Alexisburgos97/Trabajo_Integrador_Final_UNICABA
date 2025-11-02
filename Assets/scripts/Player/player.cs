@@ -86,7 +86,7 @@ public class TopDownCarController : MonoBehaviour
     bool jumpHeld = false;
 
     public float GetMaxSpeed() => Mathf.Max(maxSpeedForward, maxSpeedReverse);
-
+    public Quaternion Get_Rotation() => transform.rotation;
     void Awake()
     {
         rb = GetComponent<Rigidbody>();

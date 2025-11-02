@@ -17,7 +17,7 @@ public class CarSFX : MonoBehaviour
     TopDownCarController car;
     AudioSource src;
     
-    void Awake()
+    void Start()
     {
         car = GetComponent<TopDownCarController>();
         src = GetComponent<AudioSource>();

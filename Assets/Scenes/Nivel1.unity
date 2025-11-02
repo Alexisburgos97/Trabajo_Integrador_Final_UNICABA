@@ -2861,19 +2861,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2034314281}
+    m_TransformParent: {fileID: 1479216900}
     m_Modifications:
     - target: {fileID: 4044127625513878955, guid: 9f76475096b954846b73027e5c424667, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 172.01706
+      value: -27.999985
       objectReference: {fileID: 0}
     - target: {fileID: 4044127625513878955, guid: 9f76475096b954846b73027e5c424667, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 504.77838
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4044127625513878955, guid: 9f76475096b954846b73027e5c424667, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -229.7154
+      value: 77.00003
       objectReference: {fileID: 0}
     - target: {fileID: 4044127625513878955, guid: 9f76475096b954846b73027e5c424667, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2906,6 +2906,10 @@ PrefabInstance:
     - target: {fileID: 6140092675586947028, guid: 9f76475096b954846b73027e5c424667, type: 3}
       propertyPath: m_Name
       value: CaminoRecto9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6140092675586947028, guid: 9f76475096b954846b73027e5c424667, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7854,19 +7858,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2034314281}
+    m_TransformParent: {fileID: 1479216900}
     m_Modifications:
     - target: {fileID: 4044127625513878955, guid: 9f76475096b954846b73027e5c424667, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 72.01706
+      value: -127.999985
       objectReference: {fileID: 0}
     - target: {fileID: 4044127625513878955, guid: 9f76475096b954846b73027e5c424667, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 504.77838
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4044127625513878955, guid: 9f76475096b954846b73027e5c424667, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -329.7154
+      value: -22.99997
       objectReference: {fileID: 0}
     - target: {fileID: 4044127625513878955, guid: 9f76475096b954846b73027e5c424667, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7899,6 +7903,10 @@ PrefabInstance:
     - target: {fileID: 6140092675586947028, guid: 9f76475096b954846b73027e5c424667, type: 3}
       propertyPath: m_Name
       value: CaminoRecto3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6140092675586947028, guid: 9f76475096b954846b73027e5c424667, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8172,19 +8180,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2034314281}
+    m_TransformParent: {fileID: 1479216900}
     m_Modifications:
     - target: {fileID: 4044127625513878955, guid: 9f76475096b954846b73027e5c424667, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 222.01706
+      value: 22.000015
       objectReference: {fileID: 0}
     - target: {fileID: 4044127625513878955, guid: 9f76475096b954846b73027e5c424667, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 504.77838
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4044127625513878955, guid: 9f76475096b954846b73027e5c424667, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -329.7154
+      value: -22.99997
       objectReference: {fileID: 0}
     - target: {fileID: 4044127625513878955, guid: 9f76475096b954846b73027e5c424667, type: 3}
       propertyPath: m_LocalRotation.w
@@ -8192,7 +8200,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4044127625513878955, guid: 9f76475096b954846b73027e5c424667, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4044127625513878955, guid: 9f76475096b954846b73027e5c424667, type: 3}
       propertyPath: m_LocalRotation.y
@@ -8200,7 +8208,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4044127625513878955, guid: 9f76475096b954846b73027e5c424667, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4044127625513878955, guid: 9f76475096b954846b73027e5c424667, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -8217,6 +8225,10 @@ PrefabInstance:
     - target: {fileID: 6140092675586947028, guid: 9f76475096b954846b73027e5c424667, type: 3}
       propertyPath: m_Name
       value: CaminoRecto5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6140092675586947028, guid: 9f76475096b954846b73027e5c424667, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11168,19 +11180,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2034314281}
+    m_TransformParent: {fileID: 1479216900}
     m_Modifications:
     - target: {fileID: 152685089607376956, guid: bdd088b76b01a324f84cef6dda41e5f2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 322.01706
+      value: 122.000015
       objectReference: {fileID: 0}
     - target: {fileID: 152685089607376956, guid: bdd088b76b01a324f84cef6dda41e5f2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 504.77838
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 152685089607376956, guid: bdd088b76b01a324f84cef6dda41e5f2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -279.7154
+      value: 27.00003
       objectReference: {fileID: 0}
     - target: {fileID: 152685089607376956, guid: bdd088b76b01a324f84cef6dda41e5f2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -11213,6 +11225,10 @@ PrefabInstance:
     - target: {fileID: 8194716280541721489, guid: bdd088b76b01a324f84cef6dda41e5f2, type: 3}
       propertyPath: m_Name
       value: CaminoCurva6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8194716280541721489, guid: bdd088b76b01a324f84cef6dda41e5f2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11828,19 +11844,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2034314281}
+    m_TransformParent: {fileID: 1479216900}
     m_Modifications:
     - target: {fileID: 4044127625513878955, guid: 9f76475096b954846b73027e5c424667, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 271.99707
+      value: 71.98003
       objectReference: {fileID: 0}
     - target: {fileID: 4044127625513878955, guid: 9f76475096b954846b73027e5c424667, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 504.8784
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4044127625513878955, guid: 9f76475096b954846b73027e5c424667, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -279.6154
+      value: 27.100037
       objectReference: {fileID: 0}
     - target: {fileID: 4044127625513878955, guid: 9f76475096b954846b73027e5c424667, type: 3}
       propertyPath: m_LocalRotation.w
@@ -11873,6 +11889,10 @@ PrefabInstance:
     - target: {fileID: 6140092675586947028, guid: 9f76475096b954846b73027e5c424667, type: 3}
       propertyPath: m_Name
       value: CaminoRecto6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6140092675586947028, guid: 9f76475096b954846b73027e5c424667, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -22636,19 +22656,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2034314281}
+    m_TransformParent: {fileID: 1479216900}
     m_Modifications:
     - target: {fileID: 152685089607376956, guid: bdd088b76b01a324f84cef6dda41e5f2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 172.01704
+      value: -28
       objectReference: {fileID: 0}
     - target: {fileID: 152685089607376956, guid: bdd088b76b01a324f84cef6dda41e5f2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 504.77838
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 152685089607376956, guid: bdd088b76b01a324f84cef6dda41e5f2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -379.7154
+      value: -72.99997
       objectReference: {fileID: 0}
     - target: {fileID: 152685089607376956, guid: bdd088b76b01a324f84cef6dda41e5f2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -22656,7 +22676,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 152685089607376956, guid: bdd088b76b01a324f84cef6dda41e5f2, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 152685089607376956, guid: bdd088b76b01a324f84cef6dda41e5f2, type: 3}
       propertyPath: m_LocalRotation.y
@@ -22681,6 +22701,10 @@ PrefabInstance:
     - target: {fileID: 8194716280541721489, guid: bdd088b76b01a324f84cef6dda41e5f2, type: 3}
       propertyPath: m_Name
       value: CaminoCurva2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8194716280541721489, guid: bdd088b76b01a324f84cef6dda41e5f2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23845,19 +23869,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2034314281}
+    m_TransformParent: {fileID: 1479216900}
     m_Modifications:
     - target: {fileID: 4044127625513878955, guid: 9f76475096b954846b73027e5c424667, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 72.01706
+      value: -127.999985
       objectReference: {fileID: 0}
     - target: {fileID: 4044127625513878955, guid: 9f76475096b954846b73027e5c424667, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 504.77838
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4044127625513878955, guid: 9f76475096b954846b73027e5c424667, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -279.7154
+      value: 27.00003
       objectReference: {fileID: 0}
     - target: {fileID: 4044127625513878955, guid: 9f76475096b954846b73027e5c424667, type: 3}
       propertyPath: m_LocalRotation.w
@@ -23890,6 +23914,10 @@ PrefabInstance:
     - target: {fileID: 6140092675586947028, guid: 9f76475096b954846b73027e5c424667, type: 3}
       propertyPath: m_Name
       value: CaminoRecto4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6140092675586947028, guid: 9f76475096b954846b73027e5c424667, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -24511,11 +24539,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2034314281}
+    m_TransformParent: {fileID: 1479216900}
     m_Modifications:
     - target: {fileID: 4111693299988619446, guid: 5d90d87daef2d2742a72113faa9a9f82, type: 3}
       propertyPath: m_Name
       value: CaminoT2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4111693299988619446, guid: 5d90d87daef2d2742a72113faa9a9f82, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4500039107016867059, guid: 5d90d87daef2d2742a72113faa9a9f82, type: 3}
       propertyPath: m_LocalScale.x
@@ -24531,15 +24563,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4500039107016867059, guid: 5d90d87daef2d2742a72113faa9a9f82, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 322.01703
+      value: 121.999985
       objectReference: {fileID: 0}
     - target: {fileID: 4500039107016867059, guid: 5d90d87daef2d2742a72113faa9a9f82, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 504.77838
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4500039107016867059, guid: 5d90d87daef2d2742a72113faa9a9f82, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -329.7154
+      value: -22.99997
       objectReference: {fileID: 0}
     - target: {fileID: 4500039107016867059, guid: 5d90d87daef2d2742a72113faa9a9f82, type: 3}
       propertyPath: m_LocalRotation.w
@@ -32440,19 +32472,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2034314281}
+    m_TransformParent: {fileID: 1479216900}
     m_Modifications:
     - target: {fileID: 152685089607376956, guid: bdd088b76b01a324f84cef6dda41e5f2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 222.01706
+      value: 22.000015
       objectReference: {fileID: 0}
     - target: {fileID: 152685089607376956, guid: bdd088b76b01a324f84cef6dda41e5f2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 504.77838
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 152685089607376956, guid: bdd088b76b01a324f84cef6dda41e5f2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -229.7154
+      value: 77.00003
       objectReference: {fileID: 0}
     - target: {fileID: 152685089607376956, guid: bdd088b76b01a324f84cef6dda41e5f2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -32485,6 +32517,10 @@ PrefabInstance:
     - target: {fileID: 8194716280541721489, guid: bdd088b76b01a324f84cef6dda41e5f2, type: 3}
       propertyPath: m_Name
       value: CaminoCurva7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8194716280541721489, guid: bdd088b76b01a324f84cef6dda41e5f2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -37805,19 +37841,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2034314281}
+    m_TransformParent: {fileID: 1479216900}
     m_Modifications:
     - target: {fileID: 4044127625513878955, guid: 9f76475096b954846b73027e5c424667, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 272.01703
+      value: 71.999985
       objectReference: {fileID: 0}
     - target: {fileID: 4044127625513878955, guid: 9f76475096b954846b73027e5c424667, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 504.77838
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4044127625513878955, guid: 9f76475096b954846b73027e5c424667, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -379.7154
+      value: -72.99997
       objectReference: {fileID: 0}
     - target: {fileID: 4044127625513878955, guid: 9f76475096b954846b73027e5c424667, type: 3}
       propertyPath: m_LocalRotation.w
@@ -37850,6 +37886,10 @@ PrefabInstance:
     - target: {fileID: 6140092675586947028, guid: 9f76475096b954846b73027e5c424667, type: 3}
       propertyPath: m_Name
       value: CaminoRecto7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6140092675586947028, guid: 9f76475096b954846b73027e5c424667, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -42488,19 +42528,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2034314281}
+    m_TransformParent: {fileID: 1479216900}
     m_Modifications:
     - target: {fileID: 4044127625513878955, guid: 9f76475096b954846b73027e5c424667, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 122.01706
+      value: -77.999985
       objectReference: {fileID: 0}
     - target: {fileID: 4044127625513878955, guid: 9f76475096b954846b73027e5c424667, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 504.77838
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4044127625513878955, guid: 9f76475096b954846b73027e5c424667, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -229.7154
+      value: 77.00003
       objectReference: {fileID: 0}
     - target: {fileID: 4044127625513878955, guid: 9f76475096b954846b73027e5c424667, type: 3}
       propertyPath: m_LocalRotation.w
@@ -42533,6 +42573,10 @@ PrefabInstance:
     - target: {fileID: 6140092675586947028, guid: 9f76475096b954846b73027e5c424667, type: 3}
       propertyPath: m_Name
       value: CaminoRecto8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6140092675586947028, guid: 9f76475096b954846b73027e5c424667, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -43248,6 +43292,56 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4784822417670516, guid: fe2a94b92b365ca49ae4e79dcfa9b3aa, type: 3}
   m_PrefabInstance: {fileID: 1478108533}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1479216899
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1479216900}
+  m_Layer: 0
+  m_Name: caminos2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1479216900
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479216899}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 798519834}
+  - {fileID: 511721890}
+  - {fileID: 398792295}
+  - {fileID: 1107537998}
+  - {fileID: 691696377}
+  - {fileID: 612743479}
+  - {fileID: 1031605719}
+  - {fileID: 1044032776}
+  - {fileID: 1453024548}
+  - {fileID: 338803230}
+  - {fileID: 2032098150}
+  - {fileID: 1528200173}
+  - {fileID: 1686424990}
+  - {fileID: 690527607}
+  - {fileID: 1625835644}
+  - {fileID: 236332919}
+  - {fileID: 2126935275}
+  - {fileID: 395034705}
+  - {fileID: 1101395634}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1479633137
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45177,19 +45271,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2034314281}
+    m_TransformParent: {fileID: 1479216900}
     m_Modifications:
     - target: {fileID: 152685089607376956, guid: bdd088b76b01a324f84cef6dda41e5f2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 222.01706
+      value: 22.000015
       objectReference: {fileID: 0}
     - target: {fileID: 152685089607376956, guid: bdd088b76b01a324f84cef6dda41e5f2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 504.77838
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 152685089607376956, guid: bdd088b76b01a324f84cef6dda41e5f2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -429.7154
+      value: -122.99997
       objectReference: {fileID: 0}
     - target: {fileID: 152685089607376956, guid: bdd088b76b01a324f84cef6dda41e5f2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -45222,6 +45316,10 @@ PrefabInstance:
     - target: {fileID: 8194716280541721489, guid: bdd088b76b01a324f84cef6dda41e5f2, type: 3}
       propertyPath: m_Name
       value: CaminoCurva4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8194716280541721489, guid: bdd088b76b01a324f84cef6dda41e5f2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -46897,19 +46995,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2034314281}
+    m_TransformParent: {fileID: 1479216900}
     m_Modifications:
     - target: {fileID: 4044127625513878955, guid: 9f76475096b954846b73027e5c424667, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 72.01705
+      value: -128
       objectReference: {fileID: 0}
     - target: {fileID: 4044127625513878955, guid: 9f76475096b954846b73027e5c424667, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 504.77838
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4044127625513878955, guid: 9f76475096b954846b73027e5c424667, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -379.7154
+      value: -72.99997
       objectReference: {fileID: 0}
     - target: {fileID: 4044127625513878955, guid: 9f76475096b954846b73027e5c424667, type: 3}
       propertyPath: m_LocalRotation.w
@@ -46942,6 +47040,10 @@ PrefabInstance:
     - target: {fileID: 6140092675586947028, guid: 9f76475096b954846b73027e5c424667, type: 3}
       propertyPath: m_Name
       value: CaminoRecto2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6140092675586947028, guid: 9f76475096b954846b73027e5c424667, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -52813,19 +52915,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2034314281}
+    m_TransformParent: {fileID: 1479216900}
     m_Modifications:
     - target: {fileID: 152685089607376956, guid: bdd088b76b01a324f84cef6dda41e5f2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 172.01704
+      value: -28
       objectReference: {fileID: 0}
     - target: {fileID: 152685089607376956, guid: bdd088b76b01a324f84cef6dda41e5f2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 504.77838
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 152685089607376956, guid: bdd088b76b01a324f84cef6dda41e5f2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -429.7154
+      value: -122.99997
       objectReference: {fileID: 0}
     - target: {fileID: 152685089607376956, guid: bdd088b76b01a324f84cef6dda41e5f2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -52858,6 +52960,10 @@ PrefabInstance:
     - target: {fileID: 8194716280541721489, guid: bdd088b76b01a324f84cef6dda41e5f2, type: 3}
       propertyPath: m_Name
       value: CaminoCurva3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8194716280541721489, guid: bdd088b76b01a324f84cef6dda41e5f2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -55696,19 +55802,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2034314281}
+    m_TransformParent: {fileID: 1479216900}
     m_Modifications:
     - target: {fileID: 152685089607376956, guid: bdd088b76b01a324f84cef6dda41e5f2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 322.01703
+      value: 121.999985
       objectReference: {fileID: 0}
     - target: {fileID: 152685089607376956, guid: bdd088b76b01a324f84cef6dda41e5f2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 504.77838
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 152685089607376956, guid: bdd088b76b01a324f84cef6dda41e5f2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -379.7154
+      value: -72.99997
       objectReference: {fileID: 0}
     - target: {fileID: 152685089607376956, guid: bdd088b76b01a324f84cef6dda41e5f2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -55741,6 +55847,10 @@ PrefabInstance:
     - target: {fileID: 8194716280541721489, guid: bdd088b76b01a324f84cef6dda41e5f2, type: 3}
       propertyPath: m_Name
       value: CaminoCurva5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8194716280541721489, guid: bdd088b76b01a324f84cef6dda41e5f2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -59014,56 +59124,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7179571103237467684, guid: b3e9e78ef6afc6d48a04aa16d8af214a, type: 3}
   m_PrefabInstance: {fileID: 2033206857}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2034314280
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2034314281}
-  m_Layer: 0
-  m_Name: Caminos
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2034314281
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2034314280}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -200.01704, y: -504.76837, z: 306.71542}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 798519834}
-  - {fileID: 511721890}
-  - {fileID: 398792295}
-  - {fileID: 1107537998}
-  - {fileID: 691696377}
-  - {fileID: 612743479}
-  - {fileID: 1031605719}
-  - {fileID: 1044032776}
-  - {fileID: 1453024548}
-  - {fileID: 338803230}
-  - {fileID: 2032098150}
-  - {fileID: 1528200173}
-  - {fileID: 1686424990}
-  - {fileID: 690527607}
-  - {fileID: 1625835644}
-  - {fileID: 236332919}
-  - {fileID: 2126935275}
-  - {fileID: 395034705}
-  - {fileID: 1101395634}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2035289140
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61822,23 +61882,27 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2034314281}
+    m_TransformParent: {fileID: 1479216900}
     m_Modifications:
     - target: {fileID: 6059732330811372144, guid: d49597b6a979c2b4bb61098edbb0c547, type: 3}
       propertyPath: m_Name
       value: CaminoCruce
       objectReference: {fileID: 0}
+    - target: {fileID: 6059732330811372144, guid: d49597b6a979c2b4bb61098edbb0c547, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7787785802376452413, guid: d49597b6a979c2b4bb61098edbb0c547, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 222.01704
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 7787785802376452413, guid: d49597b6a979c2b4bb61098edbb0c547, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 504.77838
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7787785802376452413, guid: d49597b6a979c2b4bb61098edbb0c547, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -379.7154
+      value: -72.99997
       objectReference: {fileID: 0}
     - target: {fileID: 7787785802376452413, guid: d49597b6a979c2b4bb61098edbb0c547, type: 3}
       propertyPath: m_LocalRotation.w
@@ -62354,19 +62418,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2034314281}
+    m_TransformParent: {fileID: 1479216900}
     m_Modifications:
     - target: {fileID: 152685089607376956, guid: bdd088b76b01a324f84cef6dda41e5f2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 72.01706
+      value: -127.999985
       objectReference: {fileID: 0}
     - target: {fileID: 152685089607376956, guid: bdd088b76b01a324f84cef6dda41e5f2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 504.77838
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 152685089607376956, guid: bdd088b76b01a324f84cef6dda41e5f2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -229.7154
+      value: 77.00003
       objectReference: {fileID: 0}
     - target: {fileID: 152685089607376956, guid: bdd088b76b01a324f84cef6dda41e5f2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -62374,7 +62438,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 152685089607376956, guid: bdd088b76b01a324f84cef6dda41e5f2, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 152685089607376956, guid: bdd088b76b01a324f84cef6dda41e5f2, type: 3}
       propertyPath: m_LocalRotation.y
@@ -62399,6 +62463,10 @@ PrefabInstance:
     - target: {fileID: 8194716280541721489, guid: bdd088b76b01a324f84cef6dda41e5f2, type: 3}
       propertyPath: m_Name
       value: CaminoCurva1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8194716280541721489, guid: bdd088b76b01a324f84cef6dda41e5f2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -62587,23 +62655,27 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2034314281}
+    m_TransformParent: {fileID: 1479216900}
     m_Modifications:
     - target: {fileID: 4111693299988619446, guid: 5d90d87daef2d2742a72113faa9a9f82, type: 3}
       propertyPath: m_Name
       value: CaminoT1
       objectReference: {fileID: 0}
+    - target: {fileID: 4111693299988619446, guid: 5d90d87daef2d2742a72113faa9a9f82, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4500039107016867059, guid: 5d90d87daef2d2742a72113faa9a9f82, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 222.01706
+      value: 22.000015
       objectReference: {fileID: 0}
     - target: {fileID: 4500039107016867059, guid: 5d90d87daef2d2742a72113faa9a9f82, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 504.77838
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4500039107016867059, guid: 5d90d87daef2d2742a72113faa9a9f82, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -279.7154
+      value: 27.00003
       objectReference: {fileID: 0}
     - target: {fileID: 4500039107016867059, guid: 5d90d87daef2d2742a72113faa9a9f82, type: 3}
       propertyPath: m_LocalRotation.w
@@ -62644,19 +62716,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2034314281}
+    m_TransformParent: {fileID: 1479216900}
     m_Modifications:
     - target: {fileID: 4044127625513878955, guid: 9f76475096b954846b73027e5c424667, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 72.017044
+      value: -128
       objectReference: {fileID: 0}
     - target: {fileID: 4044127625513878955, guid: 9f76475096b954846b73027e5c424667, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 504.77838
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4044127625513878955, guid: 9f76475096b954846b73027e5c424667, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -429.7154
+      value: -122.99997
       objectReference: {fileID: 0}
     - target: {fileID: 4044127625513878955, guid: 9f76475096b954846b73027e5c424667, type: 3}
       propertyPath: m_LocalRotation.w
@@ -62689,6 +62761,10 @@ PrefabInstance:
     - target: {fileID: 6140092675586947028, guid: 9f76475096b954846b73027e5c424667, type: 3}
       propertyPath: m_Name
       value: CaminoRecto1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6140092675586947028, guid: 9f76475096b954846b73027e5c424667, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -62766,7 +62842,6 @@ SceneRoots:
   - {fileID: 1811632886}
   - {fileID: 3455548166997879836}
   - {fileID: 394994692}
-  - {fileID: 2034314281}
   - {fileID: 1601688625}
   - {fileID: 968015730}
   - {fileID: 1054043374}
@@ -62788,3 +62863,4 @@ SceneRoots:
   - {fileID: 228440443}
   - {fileID: 1253936495}
   - {fileID: 1266258299}
+  - {fileID: 1479216900}
