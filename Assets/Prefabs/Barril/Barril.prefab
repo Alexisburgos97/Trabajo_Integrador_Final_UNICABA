@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1264503654703983728}
   - component: {fileID: 1404449057674697747}
   - component: {fileID: 8731088844830125712}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Barril
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,6 +129,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_fuel_barrel_a_LOD01
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 197f757513375634894d29781b6a9372, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -147,6 +151,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1264503654703983728}
     m_Modifications:
+    - target: {fileID: 1700001683036918955, guid: 29f4c72f9a1d9d446945740c2819895b, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 3520852371570606446, guid: 29f4c72f9a1d9d446945740c2819895b, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -154,6 +162,10 @@ PrefabInstance:
     - target: {fileID: 5712219488875869251, guid: 29f4c72f9a1d9d446945740c2819895b, type: 3}
       propertyPath: m_Name
       value: VFX_Fire 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5712219488875869251, guid: 29f4c72f9a1d9d446945740c2819895b, type: 3}
+      propertyPath: m_Layer
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7800046302039599656, guid: 29f4c72f9a1d9d446945740c2819895b, type: 3}
       propertyPath: m_LocalScale.x
