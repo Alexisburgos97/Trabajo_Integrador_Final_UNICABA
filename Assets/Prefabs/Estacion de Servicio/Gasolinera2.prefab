@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5490454401447809875}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -38.499992, y: 0.0100101065, z: -53.399994}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
@@ -146,7 +146,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7981090975016768067, guid: ae8ceeaf5d146b147beab1f4ae1da55d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10.199791
+      value: -21.992668
       objectReference: {fileID: 0}
     - target: {fileID: 7981090975016768067, guid: ae8ceeaf5d146b147beab1f4ae1da55d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -315,6 +315,30 @@ PrefabInstance:
     - target: {fileID: 7953648409860314038, guid: bda339a6352bc964793845848649cd45, type: 3}
       propertyPath: m_Name
       value: Operator 's_room_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8710306010915177848, guid: bda339a6352bc964793845848649cd45, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8710306010915177848, guid: bda339a6352bc964793845848649cd45, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8710306010915177848, guid: bda339a6352bc964793845848649cd45, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8710306010915177848, guid: bda339a6352bc964793845848649cd45, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.1347046
+      objectReference: {fileID: 0}
+    - target: {fileID: 8710306010915177848, guid: bda339a6352bc964793845848649cd45, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 14.029678
+      objectReference: {fileID: 0}
+    - target: {fileID: 8710306010915177848, guid: bda339a6352bc964793845848649cd45, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
