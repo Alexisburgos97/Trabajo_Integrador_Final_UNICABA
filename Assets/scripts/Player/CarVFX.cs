@@ -1,17 +1,20 @@
-using Unity.Mathematics;
+using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(TopDownCarController))]
 public class CarVFX : MonoBehaviour
 {
-    public ParticleSystem jumpSmokePrefab; // Prefab del efecto, no lo adjuntes directamente al auto
+    public ParticleSystem jumpSmokePrefab;
+
+    [Header("Raycast para suelo")]
+    [SerializeField] float rayLen = 5f;
+    [SerializeField] float groundOffset = 0.22f;
+
     private TopDownCarController car;
 
     void Awake()
     {
         car = GetComponent<TopDownCarController>();
-
-        // Suscribirse a eventos
         car.onJump.AddListener(OnJump);
         car.onLand.AddListener(OnLand);
     }
@@ -27,36 +30,49 @@ public class CarVFX : MonoBehaviour
     {
         if (!jumpSmokePrefab) return;
 
-        // Calcular la rotación final
-        // Toma la rotación del prefab y reemplaza solo el eje X con el del auto
-        Quaternion finalRotation = car.Get_Rotation();
-        /*
-        Vector3 prefabEuler = finalRotation.eulerAngles;
-        prefabEuler.x = transform.eulerAngles.x;
-        finalRotation = Quaternion.Euler(prefabEuler);
-        */
-        // Instanciar una copia en la posición del auto
-        ParticleSystem jumpSmoke = Instantiate(
-            jumpSmokePrefab,
-            transform.position + Vector3.up * 0.2f, // pequeño offset
-            finalRotation
-        );
+        // 1) RaycastAll para detectar TODOS los colliders debajo del auto
+        Vector3 origin = transform.position + Vector3.up * 1.0f;
+        var hits = Physics.RaycastAll(origin, Vector3.down, rayLen, ~0, QueryTriggerInteraction.Ignore);
 
-        // Reproducir el sistema de partículas
-        jumpSmoke.Play();
+        if (hits.Length == 0)
+        {
+            Debug.LogWarning("[JumpSmoke] No se detectó suelo debajo del auto.");
+            return;
+        }
 
-        // Destruir automáticamente cuando termine
-        Destroy(jumpSmoke.gameObject, jumpSmoke.main.duration + jumpSmoke.main.startLifetime.constantMax);
+        // 2) Tomar el hit con MAYOR altura (más alto en Y)
+        var hit = hits.Aggregate((a, b) => a.point.y > b.point.y ? a : b);
+
+        // 3) Calcular posición y rotación del humo
+        Vector3 spawnPos = hit.point + hit.normal * groundOffset;
+        Vector3 fwd = Vector3.ProjectOnPlane(transform.forward, hit.normal);
+        if (fwd.sqrMagnitude < 1e-4f) fwd = Vector3.forward;
+        Quaternion spawnRot = Quaternion.LookRotation(fwd.normalized, hit.normal);
+
+        // 4) Instanciar el sistema de partículas
+        var ps = Instantiate(jumpSmokePrefab, spawnPos, spawnRot);
+
+        // Simular en espacio mundial para que no siga al auto
+        var main = ps.main;
+        main.simulationSpace = ParticleSystemSimulationSpace.World;
+
+        // Subir prioridad visual
+        var rend = ps.GetComponent<ParticleSystemRenderer>();
+        if (rend)
+        {
+            rend.sortingFudge = 10f;
+            if (rend.material != null)
+                rend.material.renderQueue = 3100; // Transparent+100
+        }
+
+        // Emitir inmediatamente
+        var em = ps.emission; em.enabled = true;
+        ps.Clear(true);
+        ps.Emit(30);
+        ps.Play();
+
+        Destroy(ps.gameObject, main.duration + main.startLifetime.constantMax + 0.5f);
     }
 
-    void OnLand()
-    {
-        /*
-        if (!jumpSmoke) return;
-
-        // Cortar emisión al aterrizar
-        var em = jumpSmoke.emission;
-        em.enabled = false;
-        */
-    }
+    void OnLand() { }
 }

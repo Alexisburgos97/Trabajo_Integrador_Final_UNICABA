@@ -57,12 +57,6 @@ public class DriftVFXAuto : MonoBehaviour
         }
 
         // Crear/ubicar puntos:
-        // if (haveRL)
-        // {
-        //     pRL = Instantiate(wheelRL_Prefab, transform).transform;
-        //     // ¡No tocar localPosition! Usá la del prefab.
-        //     rlLocal = pRL.localPosition; // guardo por si dibujo gizmos
-        // }
         if (haveRL)
         {
             var rl = Instantiate(wheelRL_Prefab, transform);
@@ -75,11 +69,6 @@ public class DriftVFXAuto : MonoBehaviour
             pRL = CreatePoint("FX_RL", rlLocal);
         }
 
-        // if (haveRR)
-        // {
-        //     pRR = Instantiate(wheelRR_Prefab, transform).transform;
-        //     rrLocal = pRR.localPosition;
-        // }
         if (haveRR)
         {
             var rr = Instantiate(wheelRR_Prefab, transform);
@@ -91,6 +80,9 @@ public class DriftVFXAuto : MonoBehaviour
         {
             pRR = CreatePoint("FX_RR", rrLocal);
         }
+        
+        rlLocal = pRL.localPosition;
+        rrLocal = pRR.localPosition;
 
         // Efectos
         trRL = CreateTrail(pRL);   trRR = CreateTrail(pRR);
@@ -104,6 +96,20 @@ public class DriftVFXAuto : MonoBehaviour
         audioSrc.spatialBlend = 1f;
         audioSrc.minDistance = 6f;
         audioSrc.maxDistance = 40f;
+    }
+    
+    void LateUpdate()
+    {
+        if (pRL)
+        {
+            pRL.localPosition = rlLocal;
+            pRL.localRotation = Quaternion.identity;
+        }
+        if (pRR)
+        {
+            pRR.localPosition = rrLocal;
+            pRR.localRotation = Quaternion.identity;
+        }
     }
 
     Bounds CalcWorldBounds()
@@ -216,12 +222,15 @@ public class DriftVFXAuto : MonoBehaviour
     {
         if (!anchor) return;
 
-        // Raycast vertical desde la posición local del anchor (no la prefab original)
-        Vector3 rayOrigin = anchor.position + transform.up * 0.25f;
-        Vector3 rayDir = -transform.up;
-        bool grounded = Physics.Raycast(rayOrigin, rayDir, out var hit, rayLen, groundMask, QueryTriggerInteraction.Ignore);
+        // --- usar mundo, no el "up" del auto ---
+        Vector3 rayOrigin = anchor.position + Vector3.up * 0.5f; // subir un poco en MUNDO
+        Vector3 rayDir    = Vector3.down;                        // bajar en MUNDO
 
-        // Mantener trail siempre fijo a la posición local del anchor
+        // más tolerante que Raycast cuando hay pequeñas inclinaciones
+        bool grounded = Physics.SphereCast(rayOrigin, 0.15f, rayDir, out var hit, rayLen,
+            groundMask, QueryTriggerInteraction.Ignore);
+
+        // trail pegado al anchor
         if (tr)
         {
             tr.transform.position = anchor.position;
@@ -234,27 +243,21 @@ public class DriftVFXAuto : MonoBehaviour
             var em = ps.emission;
             em.enabled = shouldEmit;
 
-            if (shouldEmit && !ps.isPlaying)
-                ps.Play();
-            else if (!shouldEmit && ps.isPlaying)
-                ps.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+            if (shouldEmit && !ps.isPlaying) ps.Play();
+            else if (!shouldEmit && ps.isPlaying) ps.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
 
             if (grounded)
             {
-                // Posicionar el humo un poquito sobre el suelo, sin moverlo lateralmente
+                // colocar justo debajo de la rueda
                 Vector3 targetPos = anchor.position;
-                targetPos.y = hit.point.y + 0.06f; // ajusta la altura solamente
+                targetPos.y = hit.point.y + 0.06f;
                 ps.transform.position = targetPos;
 
-                // Apuntar hacia adelante según la normal del terreno
                 ps.transform.rotation = Quaternion.LookRotation(
                     Vector3.ProjectOnPlane(transform.forward, hit.normal), hit.normal);
 
-                // Ajustar la cantidad de partículas según el deslizamiento
                 float t = Mathf.InverseLerp(slipThreshold, slipForMax, slip);
-                var rate = em.rateOverTime;
-                rate.constant = Mathf.Lerp(25f, 90f, t);
-                em.rateOverTime = rate;
+                var rate = em.rateOverTime; rate.constant = Mathf.Lerp(25f, 90f, t); em.rateOverTime = rate;
             }
         }
     }
