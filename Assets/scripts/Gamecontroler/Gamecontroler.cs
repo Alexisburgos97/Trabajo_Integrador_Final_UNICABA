@@ -8,27 +8,27 @@ namespace Simplon {
     {
         public static GameControler Instance => instance;
         public static GameControler instance;
-        private int Speed;
+        private int _Speed;
         //Variables para manejar las vidas
-        [SerializeField] private int ConfLife=3;
+        [SerializeField] private int _ConfLife=3;
 
-        public int Life { get; set; }
+        public int _Life { get; set; }
 
         // //variables para manejar el combustible, default 200
-        [SerializeField] float ConfCombustible=200f;
+        [SerializeField] float _ConfCombustible=200f;
         public float ObtenerMaxFuel() {
-            return ConfCombustible;
+            return _ConfCombustible;
         }
         public float Combustible { get; set; }
 
         //seteo las cantidad de vueltas por defect a 3
-        [SerializeField] private int totalVueltas = 3;
+        [SerializeField] private int _total_a_rescatar = 3;
 
-        //guarda en que vuelta va la carrera
-        private int vuelta_actual;
+        //guarda cuantos rescate se llevan
+        private int _rescate_actual;
        
         //variable que gurda la distancia recorrida
-        public float distancia { get; set; }
+        public float _distancia { get; set; }
         
         //--------
         /*-------------------------------------------*/
@@ -57,86 +57,86 @@ namespace Simplon {
             //Funcion para renicicializar las variables
 
             //setear las vidas a 3           
-            Life = ConfLife;
+            _Life = _ConfLife;
             
             //setear combustible a 200           
-            Combustible = ConfCombustible;
+            Combustible = _ConfCombustible;
 
             //setear vuelta actual a 1
-            vuelta_actual = 1;
+            _rescate_actual = 0;
       
         }
         //cambiar de a la pista2
-        public void pasarNivel(string nombre)
+        public void PasarNivel(string nombre)
         {
             //metodo para cambiar de nivel en el parametro nombre se indica el
             //nombre de la escena a cargar
             SceneManager.LoadScene(nombre);
         }
-        public void agregarnEscena(string nombre)
+        public void AgregarnEscena(string nombre)
         {
             //metodo para agregar una escena a la escena actual
             //En el parametro nombre se indica el
             //nombre de la escena a cargar
             SceneManager.LoadScene(nombre, LoadSceneMode.Additive);
         }
-        public void actualizarSpeed(float speed)
+        public void ActualizarSpeed(float speed)
         {
             //este metodo mantien actualizada la velocidad del auto
             //el parametro speed recibe un numero flotante y lo alamacena 
             //en la variable speed del GameControler
-            Speed = Mathf.FloorToInt(speed * 100); // como la velocidad estaba en porcentaje multiplico por 100   
+            _Speed = Mathf.FloorToInt(speed * 100); // como la velocidad estaba en porcentaje multiplico por 100   
         }
         public int ObtnerSpeed()
         {
             //medoto que devuelve la velocidad indicada en la
             //variable Speed
-            return Speed;
+            return _Speed;
         }
 
         //suma 1 a la variable vuelta actual
-        public void Sumar_vuelta() => vuelta_actual++;
+        public void Sumar_rescate() => _rescate_actual++;
 
 
-        public int Obtener_vuelta()
+        public int Obtener_rescate()
         {
-            //devuelve en que vualta va la carrera
-            return vuelta_actual;
+            //devuelve cuantos rescatados lleva
+            return _rescate_actual;
         }
-        public void Setear_totalVueltas(int vueltas) { 
-            //setea otro valor para el total de vueltas
+        public void Setear_total_a_rescatar(int total) { 
+            //setea otro valor para el total a rescatar
 
-            totalVueltas=vueltas; 
+            _total_a_rescatar=total; 
         }
-        public int Obtener_totalVueltas() { 
-            //devuelve el total de vueltas de la carrera
-            return totalVueltas; 
+        public int Obtener_total_a_rescatar() { 
+            //devuelve el total de rescates a hacer
+            return _total_a_rescatar; 
         }
 
-        public int ObtenerTotalVidas() {
+        public int Obtener_Total_Vidas() {
             //devuelve las vidas disponibles
-            return Life;
+            return _Life;
         }
 
-        public void QuitarVida(int Cantidad) {
+        public void Quitar_Vida(int Cantidad) {
             //quita la cantidad de vidas indicadas en el parametro
             //y si llega a 0 rinicia la carrera
-            Life -= Cantidad;
-            if (Life < 1) {
+            _Life -= Cantidad;
+            if (_Life < 1) {
                 //perdio y vuelve a reiniciar el juego
-                pasarNivel("Lose_Screen");
+                PasarNivel("Perdiste");
                 ResetVariables();
             }
         }
 
         public void ActualizarDistancia(float dist) {
             //guarda la distancia recorrida
-            distancia = dist;
+            _distancia = dist;
         }
 
         public void ResetCombustible() {
             //resetear el combustible
-            Combustible = ConfCombustible;
+            Combustible = _ConfCombustible;
         }
     }
 
