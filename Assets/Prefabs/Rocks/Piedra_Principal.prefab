@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 4784822417670516}
   - component: {fileID: 33211678536095320}
   - component: {fileID: 23704297397675058}
-  - component: {fileID: 65667236915483500}
-  m_Layer: 0
+  - component: {fileID: 4446742062498703347}
+  m_Layer: 3
   m_Name: Piedra_Principal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,8 +87,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &65667236915483500
-BoxCollider:
+--- !u!135 &4446742062498703347
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -106,5 +106,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.2763672, y: 0.19149005, z: 0.2144599}
-  m_Center: {x: 0.0000011324883, y: 0.0000000037252903, z: 0.00000032782555}
+  m_Radius: 0.13192162
+  m_Center: {x: 0.0000011285147, y: -0.04, z: 0.00000033378603}

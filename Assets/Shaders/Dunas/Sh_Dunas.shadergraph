@@ -38,6 +38,12 @@
         },
         {
             "m_Id": "e3441563b0ca4a4c947a31c82c9cdee6"
+        },
+        {
+            "m_Id": "93f254dd3fd0452d81efcf50885a231f"
+        },
+        {
+            "m_Id": "72d636575d2b43d7a8a9c48311674a6b"
         }
     ],
     "m_Keywords": [],
@@ -164,6 +170,9 @@
         },
         {
             "m_Id": "8d6fea8b036c46788a22f43d55a8cae3"
+        },
+        {
+            "m_Id": "dd134d72af934ecb90c2a181d203787b"
         }
     ],
     "m_GroupDatas": [],
@@ -1515,6 +1524,12 @@
         },
         {
             "m_Id": "e3441563b0ca4a4c947a31c82c9cdee6"
+        },
+        {
+            "m_Id": "93f254dd3fd0452d81efcf50885a231f"
+        },
+        {
+            "m_Id": "72d636575d2b43d7a8a9c48311674a6b"
         }
     ]
 }
@@ -1755,6 +1770,19 @@
         "e32": 0.0,
         "e33": 1.0
     }
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Texture2DMaterialSlot",
+    "m_ObjectId": "3f82f96947924ba1a84a8ab898c1bb72",
+    "m_Id": 0,
+    "m_DisplayName": "Oclusion MAp",
+    "m_SlotType": 1,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Out",
+    "m_StageCapability": 3,
+    "m_BareResource": false
 }
 
 {
@@ -2686,6 +2714,36 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Texture2DShaderProperty",
+    "m_ObjectId": "72d636575d2b43d7a8a9c48311674a6b",
+    "m_Guid": {
+        "m_GuidSerialized": "20920518-8df0-48f2-bc89-7b8fb3bb3e9f"
+    },
+    "m_Name": "MEtallic",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "MEtallic",
+    "m_DefaultReferenceName": "_MEtallic",
+    "m_OverrideReferenceName": "",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_DismissedVersion": 0,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Value": {
+        "m_SerializedTexture": "",
+        "m_Guid": ""
+    },
+    "isMainTexture": false,
+    "useTilingAndOffset": false,
+    "m_Modifiable": true,
+    "m_DefaultType": 0
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.SampleTexture2DNode",
     "m_ObjectId": "76eb058212e14c6eaed48461686f7cd6",
     "m_Group": {
@@ -3108,6 +3166,36 @@
         "z": 0.0,
         "w": 0.0
     }
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Texture2DShaderProperty",
+    "m_ObjectId": "93f254dd3fd0452d81efcf50885a231f",
+    "m_Guid": {
+        "m_GuidSerialized": "11e9aa7f-c3b9-48a3-9ffd-9c4ded89f903"
+    },
+    "m_Name": "Oclusion MAp",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "Oclusion MAp",
+    "m_DefaultReferenceName": "_Oclusion_MAp",
+    "m_OverrideReferenceName": "",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_DismissedVersion": 0,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Value": {
+        "m_SerializedTexture": "",
+        "m_Guid": ""
+    },
+    "isMainTexture": false,
+    "useTilingAndOffset": false,
+    "m_Modifiable": true,
+    "m_DefaultType": 0
 }
 
 {
@@ -4577,6 +4665,42 @@
         "y": 0.0,
         "z": 0.0,
         "w": 0.0
+    }
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
+    "m_ObjectId": "dd134d72af934ecb90c2a181d203787b",
+    "m_Group": {
+        "m_Id": ""
+    },
+    "m_Name": "Property",
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": -356.0000305175781,
+            "y": 392.0000305175781,
+            "width": 156.00001525878907,
+            "height": 33.5999755859375
+        }
+    },
+    "m_Slots": [
+        {
+            "m_Id": "3f82f96947924ba1a84a8ab898c1bb72"
+        }
+    ],
+    "synonyms": [],
+    "m_Precision": 0,
+    "m_PreviewExpanded": true,
+    "m_DismissedVersion": 0,
+    "m_PreviewMode": 0,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    },
+    "m_Property": {
+        "m_Id": "93f254dd3fd0452d81efcf50885a231f"
     }
 }
 
