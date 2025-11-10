@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
 
-public class UIButtonSoundController : MonoBehaviour
+public class Efecto_sonido_boton : MonoBehaviour
 {
     [Header("Fuentes de Audio")]
     [SerializeField] private AudioSource hoverAudioSource; // Sonido mouse over

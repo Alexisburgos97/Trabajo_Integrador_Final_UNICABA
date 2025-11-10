@@ -78,7 +78,8 @@ public class MenuLoader : MonoBehaviour
         //hudInfo?.gameObject.SetActive(false);//ya no se usa
     }
     public void OpenControls() {
-       //controlPanel?.SetActive(true);
+        //controlPanel?.SetActive(true);
+        GameControler.Instance.PasarNivel("Opciones");
     }
 
     public void LoadFirstLevel() {
