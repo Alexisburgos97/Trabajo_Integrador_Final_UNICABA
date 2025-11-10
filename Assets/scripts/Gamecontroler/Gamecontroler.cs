@@ -31,13 +31,20 @@ namespace Simplon {
        
         //variable que gurda la distancia recorrida
         public float _distancia { get; set; }
-        
+
         //--------
         /*-------------------------------------------*/
         //--------
 
+        //CONTROLES DE VOLUMEN
+        [SerializeField] private float MusicVolume = 0.3f;
+        [SerializeField] private float SFXVolume = 0.3f;
+
         private void Awake()
         {
+            MusicVolume = PlayerPrefs.GetFloat("MusicVolume", 0.3f);
+            SFXVolume = PlayerPrefs.GetFloat("SFXVolume", 0.3f);
+
             if (instance == null)
             {
                 instance = this;
@@ -54,6 +61,27 @@ namespace Simplon {
             //inicializar variables
             ResetVariables();
         }
+
+        //CONTROLES DE AUDIO
+        public float GetMusicVolume()
+        {
+            return MusicVolume;
+        }
+        public float GetSFXVolume()
+        {
+            return SFXVolume;
+        }
+
+        public void SetMusicVolume(float newVol)
+        {
+            MusicVolume = newVol;
+        }
+        public void SetSFXVolume(float newVol)
+        {
+            SFXVolume = newVol;
+        }
+        //FIN CONTROLES DE AUDIO
+
 
         public float ObtenerMaxFuel()
         {
@@ -87,6 +115,7 @@ namespace Simplon {
             //nombre de la escena a cargar
             SceneManager.LoadScene(nombre);
         }
+
         public void AgregarnEscena(string nombre)
         {
             //metodo para agregar una escena a la escena actual
