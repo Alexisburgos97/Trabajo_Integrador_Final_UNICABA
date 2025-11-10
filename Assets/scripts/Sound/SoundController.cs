@@ -20,7 +20,6 @@ public class SoundController : MonoBehaviour, ISoundController
         {
             audioSourceSFXLoop.volume = PlayerPrefs.GetFloat("SFX", 0.3f);
         }
-
         //MUSIC
         if (audioSourceMusicLoop != null)
         {
@@ -30,11 +29,18 @@ public class SoundController : MonoBehaviour, ISoundController
 
     private void Update()
     {
-        /*
-        audioSourceSFXOnce.volume = PlayerPrefs.GetFloat("SFX", 0.3f);
-        audioSourceSFXLoop.volume = PlayerPrefs.GetFloat("SFX", 0.3f);
-        audiosourceMusic.volume = PlayerPrefs.GetFloat("Music", 0.3f);
-        audioSourceMusicLoop.volume = PlayerPrefs.GetFloat("Music", 0.3f);*/
+        if (audioSourceSFXOnce != null)
+        {
+            audioSourceSFXOnce.volume = PlayerPrefs.GetFloat("SFX", 0.3f);
+        }
+        if (audioSourceSFXLoop != null)
+        {
+            audioSourceSFXLoop.volume = PlayerPrefs.GetFloat("SFX", 0.3f);
+        }
+        if (audioSourceMusicLoop != null)
+        {
+            audioSourceMusicLoop.volume = PlayerPrefs.GetFloat("Music", 0.3f);
+        }
     }
 
     public void PlaySFX(AudioClip clip)
