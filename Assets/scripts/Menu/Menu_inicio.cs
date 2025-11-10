@@ -39,7 +39,10 @@ public class MenuLoader : MonoBehaviour
     private void Start()
     {
         soundController = GetComponent<SoundController>();
-        soundController.PlayMusic(Music);
+        if (Music != null)
+        {
+            soundController.PlayMusic(Music);
+        }
     }
 
     private void OnDestroy()
