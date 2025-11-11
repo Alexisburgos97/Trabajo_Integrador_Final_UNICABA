@@ -19,7 +19,11 @@ public class MenuLoader : MonoBehaviour
 
     [SerializeField] private Button _playButton;
     [SerializeField] private Button _Pausa;
-    [SerializeField] private Button _controlsButton;
+    [SerializeField] private Button _OpcionesButton;
+    [SerializeField] private Button _ControlButton;
+    [SerializeField] private Button _SonidoButton;
+    [SerializeField] private Button _AccesibilidadButton;
+    [SerializeField] private Button _CreditoButton;
     [SerializeField] private Button _quitButton;
     [SerializeField] private Button _toMainMenuButton;
 
@@ -30,7 +34,11 @@ public class MenuLoader : MonoBehaviour
     private void Awake()
     {
         _playButton?.onClick.AddListener(LoadFirstLevel);
-        _controlsButton?.onClick.AddListener(OpenControls);
+        _OpcionesButton?.onClick.AddListener(OpenOpciones);
+        _ControlButton?.onClick.AddListener(OpenControles);
+        _SonidoButton?.onClick.AddListener(OpenSonido);
+        _AccesibilidadButton?.onClick.AddListener(OpenAccesibilidad);
+        _CreditoButton?.onClick.AddListener(OpenCretido);
         _quitButton?.onClick.AddListener(OnQuit);
         _toMainMenuButton?.onClick.AddListener(ToMainMenu);
         _Pausa?.onClick.AddListener(check_pausa);
@@ -48,7 +56,11 @@ public class MenuLoader : MonoBehaviour
     private void OnDestroy()
     {
         _playButton?.onClick.RemoveAllListeners();
-        _controlsButton?.onClick.RemoveAllListeners();
+        _OpcionesButton?.onClick.RemoveAllListeners();
+        _ControlButton?.onClick.RemoveAllListeners();
+        _SonidoButton?.onClick.RemoveAllListeners();
+        _AccesibilidadButton?.onClick.RemoveAllListeners();
+        _CreditoButton?.onClick.RemoveAllListeners();
         _quitButton?.onClick.RemoveAllListeners();
         _toMainMenuButton?.onClick.RemoveAllListeners();
         _Pausa?.onClick.RemoveAllListeners();
@@ -73,10 +85,26 @@ public class MenuLoader : MonoBehaviour
         GameControler.Instance.ResetVariables();
         Time.timeScale = 1.0f;
     }
-    public void OpenControls() {
+    public void OpenOpciones() {
         GameControler.Instance.PasarNivel("Opciones");
     }
+    public void OpenControles()
+    {
+        GameControler.instance.PasarNivel("Controles");
+    }
 
+    public void OpenSonido()
+    {
+        GameControler.instance.PasarNivel("Sonido");
+    }
+    public void OpenAccesibilidad()
+    {
+        //GameControler.instance.PasarNivel("Controles");
+    }
+    public void OpenCretido()
+    {
+        GameControler.instance.PasarNivel("Creditos");
+    }
     public void LoadFirstLevel() {
         //craga la primer pista de carreras
         GameControler.Instance.PasarNivel("Nivel1");
