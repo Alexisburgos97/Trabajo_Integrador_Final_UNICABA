@@ -13,17 +13,17 @@ public class SoundController : MonoBehaviour, ISoundController
         //SFX
         if (audioSourceSFXOnce != null)
         {
-            audioSourceSFXOnce.volume = PlayerPrefs.GetFloat("SFX", 0.3f);
+            audioSourceSFXOnce.volume = PlayerPrefs.GetFloat("SFXVolume", 0.3f);
         }
         //--LOOP SFX (Esto no se usa ni en pedo)
         if (audioSourceSFXLoop != null)
         {
-            audioSourceSFXLoop.volume = PlayerPrefs.GetFloat("SFX", 0.3f);
+            audioSourceSFXLoop.volume = PlayerPrefs.GetFloat("SFXVolume", 0.3f);
         }
         //MUSIC
         if (audioSourceMusicLoop != null)
         {
-            audioSourceMusicLoop.volume = PlayerPrefs.GetFloat("Music", 0.3f);
+            audioSourceMusicLoop.volume = PlayerPrefs.GetFloat("MusicVolume", 0.3f);
         }
     }
 
@@ -31,15 +31,15 @@ public class SoundController : MonoBehaviour, ISoundController
     {
         if (audioSourceSFXOnce != null)
         {
-            audioSourceSFXOnce.volume = PlayerPrefs.GetFloat("SFX", 0.3f);
+            audioSourceSFXOnce.volume = PlayerPrefs.GetFloat("SFXVolume", 0.3f);
         }
         if (audioSourceSFXLoop != null)
         {
-            audioSourceSFXLoop.volume = PlayerPrefs.GetFloat("SFX", 0.3f);
+            audioSourceSFXLoop.volume = PlayerPrefs.GetFloat("SFXVolume", 0.3f);
         }
         if (audioSourceMusicLoop != null)
         {
-            audioSourceMusicLoop.volume = PlayerPrefs.GetFloat("Music", 0.3f);
+            audioSourceMusicLoop.volume = PlayerPrefs.GetFloat("MusicVolume", 0.3f);
         }
     }
 
@@ -58,6 +58,12 @@ public class SoundController : MonoBehaviour, ISoundController
 
     public void PlayMusic(AudioClip clip)
     {
+        if (!clip || audioSourceMusicLoop == null)
+            return;
+
+        if (audioSourceMusicLoop.isPlaying && audioSourceMusicLoop.clip == clip)
+            return;
+
         audioSourceMusicLoop.loop = true;
         audioSourceMusicLoop.clip = clip;
         audioSourceMusicLoop.Play();

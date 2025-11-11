@@ -267,6 +267,7 @@ GameObject:
   - component: {fileID: 656998289}
   - component: {fileID: 656998288}
   - component: {fileID: 656998287}
+  - component: {fileID: 656998292}
   - component: {fileID: 656998291}
   m_Layer: 5
   m_Name: Canvas
@@ -375,9 +376,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playButton: {fileID: 0}
   _Pausa: {fileID: 0}
-  _controlsButton: {fileID: 0}
+  _OpcionesButton: {fileID: 0}
+  _ControlButton: {fileID: 0}
+  _SonidoButton: {fileID: 0}
+  _AccesibilidadButton: {fileID: 0}
+  _CreditoButton: {fileID: 0}
   _quitButton: {fileID: 0}
   _toMainMenuButton: {fileID: 1095847446}
+  botones: []
+--- !u!114 &656998292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 656998286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b28396319a9a671488073d4c060be9f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  music: {fileID: 8300000, guid: 6c0e63980f06fb54488b6b5230fd284a, type: 3}
+  persistentSoundPrefab: {fileID: 2001157541667889433, guid: 34384962db045614fb18425d3424091e, type: 3}
 --- !u!1 &796230518
 GameObject:
   m_ObjectHideFlags: 0

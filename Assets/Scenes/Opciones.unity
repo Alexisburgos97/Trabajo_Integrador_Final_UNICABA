@@ -528,13 +528,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c88ef70524590c42b40c62fdf04ed52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Music: {fileID: 8300000, guid: 663ccf51a15fb2a4c984d47bdd863cfc, type: 3}
   _playButton: {fileID: 0}
   _Pausa: {fileID: 0}
   _OpcionesButton: {fileID: 0}
   _ControlButton: {fileID: 271503749}
   _SonidoButton: {fileID: 1576458058}
   _AccesibilidadButton: {fileID: 1914766989}
+  _CreditoButton: {fileID: 0}
   _quitButton: {fileID: 0}
   _toMainMenuButton: {fileID: 472133833}
   botones: []
@@ -547,12 +547,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 230789491}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51c6d8781c55f104a8d2a96ce4f48a7b, type: 3}
+  m_Script: {fileID: 11500000, guid: b28396319a9a671488073d4c060be9f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSourceSFXOnce: {fileID: 0}
-  audioSourceSFXLoop: {fileID: 0}
-  audioSourceMusicLoop: {fileID: 891234916}
+  music: {fileID: 8300000, guid: 663ccf51a15fb2a4c984d47bdd863cfc, type: 3}
+  persistentSoundPrefab: {fileID: 2001157541667889433, guid: 34384962db045614fb18425d3424091e, type: 3}
 --- !u!1 &271503747
 GameObject:
   m_ObjectHideFlags: 0
@@ -692,6 +691,10 @@ MonoBehaviour:
   hoverSprite: {fileID: 21300000, guid: 790d50b6e489a5a40ac9ef91b3395d49, type: 3}
   clickSprite: {fileID: 21300000, guid: 1b1f9c3e7e871014fbb93b2ccda0f54d, type: 3}
   baseImage: {fileID: 108440810}
+  buttonText: {fileID: 0}
+  normalTextColor: {r: 0.99215686, g: 0.8117647, b: 0.5372549, a: 1}
+  hoverTextColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  clickTextColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!1 &277001502
 GameObject:
   m_ObjectHideFlags: 0
@@ -1103,6 +1106,10 @@ MonoBehaviour:
   hoverSprite: {fileID: 21300000, guid: 30175b05a4514d849917cc8825958f69, type: 3}
   clickSprite: {fileID: 21300000, guid: 7464fc29345513944b166e99dfed96b5, type: 3}
   baseImage: {fileID: 964130506}
+  buttonText: {fileID: 0}
+  normalTextColor: {r: 0.99215686, g: 0.8117647, b: 0.5372549, a: 1}
+  hoverTextColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  clickTextColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!1 &495981384
 GameObject:
   m_ObjectHideFlags: 0
@@ -1299,68 +1306,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 576099078}
   m_CullTransparentMesh: 1
---- !u!1001 &891234915
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 6419922358657545721, guid: 5390765b95562c64a9d258ad39ef670f, type: 3}
-      propertyPath: m_Name
-      value: AudioSorceMusic
-      objectReference: {fileID: 0}
-    - target: {fileID: 7907539779318407700, guid: 5390765b95562c64a9d258ad39ef670f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 890.4651
-      objectReference: {fileID: 0}
-    - target: {fileID: 7907539779318407700, guid: 5390765b95562c64a9d258ad39ef670f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 594.51184
-      objectReference: {fileID: 0}
-    - target: {fileID: 7907539779318407700, guid: 5390765b95562c64a9d258ad39ef670f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -869.97064
-      objectReference: {fileID: 0}
-    - target: {fileID: 7907539779318407700, guid: 5390765b95562c64a9d258ad39ef670f, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7907539779318407700, guid: 5390765b95562c64a9d258ad39ef670f, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7907539779318407700, guid: 5390765b95562c64a9d258ad39ef670f, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7907539779318407700, guid: 5390765b95562c64a9d258ad39ef670f, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7907539779318407700, guid: 5390765b95562c64a9d258ad39ef670f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7907539779318407700, guid: 5390765b95562c64a9d258ad39ef670f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7907539779318407700, guid: 5390765b95562c64a9d258ad39ef670f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5390765b95562c64a9d258ad39ef670f, type: 3}
---- !u!82 &891234916 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 1234431248456112718, guid: 5390765b95562c64a9d258ad39ef670f, type: 3}
-  m_PrefabInstance: {fileID: 891234915}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &893717270
 GameObject:
   m_ObjectHideFlags: 0
@@ -2276,6 +2221,10 @@ MonoBehaviour:
   hoverSprite: {fileID: 21300000, guid: 790d50b6e489a5a40ac9ef91b3395d49, type: 3}
   clickSprite: {fileID: 21300000, guid: 1b1f9c3e7e871014fbb93b2ccda0f54d, type: 3}
   baseImage: {fileID: 576099080}
+  buttonText: {fileID: 0}
+  normalTextColor: {r: 0.99215686, g: 0.8117647, b: 0.5372549, a: 1}
+  hoverTextColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  clickTextColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!1 &1914766987
 GameObject:
   m_ObjectHideFlags: 0
@@ -2415,6 +2364,10 @@ MonoBehaviour:
   hoverSprite: {fileID: 21300000, guid: 790d50b6e489a5a40ac9ef91b3395d49, type: 3}
   clickSprite: {fileID: 21300000, guid: 1b1f9c3e7e871014fbb93b2ccda0f54d, type: 3}
   baseImage: {fileID: 208399068}
+  buttonText: {fileID: 0}
+  normalTextColor: {r: 0.99215686, g: 0.8117647, b: 0.5372549, a: 1}
+  hoverTextColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  clickTextColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!1 &2063765541
 GameObject:
   m_ObjectHideFlags: 0
@@ -2559,6 +2512,5 @@ SceneRoots:
   - {fileID: 495981386}
   - {fileID: 230789495}
   - {fileID: 5802643252428689245}
-  - {fileID: 891234915}
   - {fileID: 2063765544}
   - {fileID: 1323506460}

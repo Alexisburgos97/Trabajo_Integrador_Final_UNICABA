@@ -10,10 +10,6 @@ public class MenuLoader : MonoBehaviour
     //SOUND CONTROLLER
     SoundController soundController;
 
-    //SOUNDS
-    [SerializeField] private AudioClip Music;
-    //[SerializeField] private AudioClip ClickSound;
-
     //[SerializeField] GameObject _PauseMenu;
     bool _isPaused;
 
@@ -42,15 +38,6 @@ public class MenuLoader : MonoBehaviour
         _quitButton?.onClick.AddListener(OnQuit);
         _toMainMenuButton?.onClick.AddListener(ToMainMenu);
         _Pausa?.onClick.AddListener(check_pausa);
-    }
-
-    private void Start()
-    {
-        soundController = GetComponent<SoundController>();
-        if (Music != null)
-        {
-            soundController.PlayMusic(Music);
-        }
     }
 
     private void OnDestroy()

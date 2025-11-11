@@ -1,15 +1,15 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class LevelMusic : MonoBehaviour
 {
-    //SOUND CONTROLLER
-    SoundController soundController;
+    [SerializeField] private AudioClip music;
+    [SerializeField] private GameObject persistentSoundPrefab;
 
-    [SerializeField] private AudioClip Music;
-
-    private void Start()
+    void Start()
     {
-        soundController = GetComponent<SoundController>();
-        soundController.PlayMusic(Music);
+        if (!PersistentSound.Exists && persistentSoundPrefab != null)
+            Instantiate(persistentSoundPrefab);
+
+        PersistentSound.PlayMusic(music);
     }
 }

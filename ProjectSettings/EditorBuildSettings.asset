@@ -23,6 +23,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Pausa.unity
     guid: f5c4ee265572a484d82c892c0cc26444
+  - enabled: 1
+    path: Assets/Scenes/Opciones.unity
+    guid: 779af3e641f09854d828f783008ef2ad
+  - enabled: 1
+    path: Assets/Scenes/Creditos.unity
+    guid: 42f384b8ba23f54499b5b9a3ac2fbece
+  - enabled: 1
+    path: Assets/Scenes/Controles.unity
+    guid: fa55c29c2e430e845850e9685e352fb0
+  - enabled: 1
+    path: Assets/Scenes/Sonido.unity
+    guid: f42058069d3dc994e9cb732f76ecb210
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
