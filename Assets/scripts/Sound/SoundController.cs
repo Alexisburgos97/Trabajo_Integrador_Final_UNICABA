@@ -27,7 +27,7 @@ public class SoundController : MonoBehaviour, ISoundController
         }
     }
 
-    private void Update()
+    private void Update() //CAMBIARLO PARA QUE SE EJECUTE CUANDO OCURRE CIERTO EVENTO.
     {
         if (audioSourceSFXOnce != null)
         {
