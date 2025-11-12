@@ -527,7 +527,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c88ef70524590c42b40c62fdf04ed52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Music: {fileID: 8300000, guid: 663ccf51a15fb2a4c984d47bdd863cfc, type: 3}
   _playButton: {fileID: 472133833}
   _Pausa: {fileID: 0}
   _OpcionesButton: {fileID: 1141354880}
@@ -545,7 +544,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 230789491}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51c6d8781c55f104a8d2a96ce4f48a7b, type: 3}
   m_Name: 
@@ -1583,6 +1582,67 @@ MonoBehaviour:
   normalTextColor: {r: 0.99215686, g: 0.8117647, b: 0.5372549, a: 1}
   hoverTextColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   clickTextColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+--- !u!1001 &1158007939
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 107885650891177125, guid: 311bc660b9b3a3541b234baad1c33ccc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 16.430605
+      objectReference: {fileID: 0}
+    - target: {fileID: 107885650891177125, guid: 311bc660b9b3a3541b234baad1c33ccc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1338.3378
+      objectReference: {fileID: 0}
+    - target: {fileID: 107885650891177125, guid: 311bc660b9b3a3541b234baad1c33ccc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2141.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 107885650891177125, guid: 311bc660b9b3a3541b234baad1c33ccc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 107885650891177125, guid: 311bc660b9b3a3541b234baad1c33ccc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 107885650891177125, guid: 311bc660b9b3a3541b234baad1c33ccc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 107885650891177125, guid: 311bc660b9b3a3541b234baad1c33ccc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 107885650891177125, guid: 311bc660b9b3a3541b234baad1c33ccc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 107885650891177125, guid: 311bc660b9b3a3541b234baad1c33ccc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 107885650891177125, guid: 311bc660b9b3a3541b234baad1c33ccc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 143713688654763399, guid: 311bc660b9b3a3541b234baad1c33ccc, type: 3}
+      propertyPath: music
+      value: 
+      objectReference: {fileID: 8300000, guid: 663ccf51a15fb2a4c984d47bdd863cfc, type: 3}
+    - target: {fileID: 3753622159817445703, guid: 311bc660b9b3a3541b234baad1c33ccc, type: 3}
+      propertyPath: m_Name
+      value: MusicControler
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 311bc660b9b3a3541b234baad1c33ccc, type: 3}
 --- !u!82 &1404746834 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 1234431248456112718, guid: 5390765b95562c64a9d258ad39ef670f, type: 3}
@@ -2539,6 +2599,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioSorceMusic
       objectReference: {fileID: 0}
+    - target: {fileID: 6419922358657545721, guid: 5390765b95562c64a9d258ad39ef670f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7907539779318407700, guid: 5390765b95562c64a9d258ad39ef670f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 890.4651
@@ -2664,3 +2728,4 @@ SceneRoots:
   - {fileID: 5802643252428689245}
   - {fileID: 1738765040140592897}
   - {fileID: 3626757241785543743}
+  - {fileID: 1158007939}
