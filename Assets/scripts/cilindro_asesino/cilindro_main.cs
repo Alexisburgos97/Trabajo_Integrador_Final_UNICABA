@@ -1,5 +1,6 @@
 using UnityEngine;
 using Simplon;
+using System.Collections;
 
 public class Cilindro_main : MonoBehaviour
 {
@@ -46,7 +47,7 @@ public class Cilindro_main : MonoBehaviour
         {
             DispararPinchos();
             Explode();
-            Destroy(gameObject);
+            StartCoroutine(DestruirConDelay());
         }
     }
 
@@ -75,7 +76,7 @@ public class Cilindro_main : MonoBehaviour
                 );
 
                 // Debug opcional (ver en escena)
-                Debug.DrawLine(explosionPos, rbPlayer.worldCenterOfMass, Color.red, 1f);
+                //Debug.DrawLine(explosionPos, rbPlayer.worldCenterOfMass, Color.red, 1f);
                 // ⚠️ Solo se bloquea el daño, no el resto
                 //if (!EscudoJugador.EscudoActivoGlobal)
                // {
@@ -90,7 +91,7 @@ public class Cilindro_main : MonoBehaviour
                 //}
             }
 
-            Destroy(gameObject);
+            StartCoroutine(DestruirConDelay());
         }
     }
 
@@ -144,7 +145,7 @@ public class Cilindro_main : MonoBehaviour
             script.ActivarPincho();
         }
     }
-    
+
     void Explode()
     {
         // Instanciar explosión
@@ -155,5 +156,11 @@ public class Cilindro_main : MonoBehaviour
         if (_explosionSound != null)
             AudioSource.PlayClipAtPoint(_explosionSound, transform.position, _volumenExplosion);
         //Destroy(gameObject);
+    }
+    
+    IEnumerator DestruirConDelay()
+    {
+        yield return new WaitForFixedUpdate(); // espera al final del frame de física
+        Destroy(gameObject);
     }
 }
