@@ -212,7 +212,7 @@ MonoBehaviour:
   _separationRadius: 5
   _separationForce: 60
   _dashDistance: 15
-  _dashSpeed: 45
+  _dashSpeed: 30
   _dashCooldown: 3
   _teleportDistance: 40
   _teleportRadiusAroundPlayer: 10
@@ -222,7 +222,7 @@ MonoBehaviour:
   _portalLifetime: 0.7
   _rushMultiplier: 2
   _rushStopDistance: 40
-  _rushMaxTime: 6
+  _rushMaxTime: 4
 --- !u!82 &-2298117446679193406
 AudioSource:
   m_ObjectHideFlags: 0

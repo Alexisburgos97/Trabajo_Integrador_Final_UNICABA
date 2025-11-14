@@ -48,7 +48,10 @@ MonoBehaviour:
   _cilindroPrefab: {fileID: 5211514230792277621, guid: 1b56dadc63f284248a5c598c2a04c2da, type: 3}
   _spawnPoint: {fileID: 7767539508272092437}
   _usarUnaVez: 0
+  _cantidadEnemigos: 10
   _cool_down: 30
+  _tiempoMin: 0.5
+  _tiempoMax: 1.2
 --- !u!135 &6000529442896066748
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -68,5 +71,5 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 20
+  m_Radius: 60
   m_Center: {x: 0, y: 0, z: 0}
