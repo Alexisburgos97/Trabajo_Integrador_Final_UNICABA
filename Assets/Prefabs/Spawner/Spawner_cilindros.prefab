@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6176508352920526129}
   - component: {fileID: 3408534576469460206}
   - component: {fileID: 3795885462903542790}
+  - component: {fileID: 729748605333915280}
   m_Layer: 0
   m_Name: Spawner_cilindros
   m_TagString: Untagged
@@ -30,7 +31,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 914439272422765705}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3408534576469460206
@@ -46,9 +48,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cilindroPrefab: {fileID: 5994739313595460224, guid: 5fd4f33e888f55c4c99413981c451809, type: 3}
-  _spawnPoint: {fileID: 6176508352920526129}
+  _spawnPoint: {fileID: 914439272422765705}
   _usarUnaVez: 1
+  _cantidadEnemigos: 1
   _cool_down: 30
+  _tiempoMin: 1
+  _tiempoMax: 3
 --- !u!135 &3795885462903542790
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -66,7 +71,59 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Radius: 20
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &729748605333915280
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1246599053497509321}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10, y: 10, z: 45}
+  m_Center: {x: 0, y: 0, z: -1}
+--- !u!1 &2275466225632083747
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 914439272422765705}
+  m_Layer: 0
+  m_Name: Punto_salida
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &914439272422765705
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2275466225632083747}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6176508352920526129}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

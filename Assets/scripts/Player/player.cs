@@ -1,5 +1,7 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody))]
 public class TopDownCarController : MonoBehaviour
@@ -50,6 +52,8 @@ public class TopDownCarController : MonoBehaviour
     [SerializeField] float brakeStrength = 250f;
     [SerializeField] KeyCode brakeKey = KeyCode.LeftControl;
     [SerializeField] KeyCode handbrakeKey = KeyCode.Space;
+    [SerializeField] MouseButton _brakeKey_mouse = MouseButton.Right;
+    [SerializeField] MouseButton _handbrakeKey_mouse = MouseButton.Left;
 
     [Header("Rigidbody")]
     [SerializeField] float baseDrag = 0.15f;
@@ -110,8 +114,8 @@ public class TopDownCarController : MonoBehaviour
         {
             throttleInput = Input.GetAxisRaw("Vertical");
             steerInput = Input.GetAxisRaw("Horizontal");
-            braking = Input.GetKey(brakeKey);
-            handbrake = Input.GetKey(handbrakeKey) || Input.GetKey(KeyCode.RightShift);
+            braking = Input.GetKey(brakeKey) || Input.GetMouseButton((int)_brakeKey_mouse);
+            handbrake = Input.GetKey(handbrakeKey) || Input.GetKey(KeyCode.RightShift) || Input.GetMouseButton((int)_handbrakeKey_mouse);
         }
 
         if (Input.GetKeyDown(jumpKey)) jumpBufferTimer = jumpBuffer;

@@ -506,8 +506,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3549d7a99cd8d34b8412a281156871b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  accelForward: 90
-  accelReverse: 90
+  accelForward: 70
+  accelReverse: 60
   maxSpeedForward: 40
   maxSpeedReverse: 40
   steerAngleAt0: 70
@@ -527,7 +527,7 @@ MonoBehaviour:
   jumpCooldown: 0
   coyoteTime: 0.1
   jumpBuffer: 0.1
-  extraGravity: 200
+  extraGravity: 250
   jumpCutGravity: 0
   groundCheckDistance: 1
   groundProbeRadius: 0

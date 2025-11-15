@@ -47,10 +47,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0697ec3f0f4e704a8a255908e42ce89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 15
-  _maxDistance: 20
+  _moveSpeed: 18
+  _maxDistance: 45
   _fuelDrainPerTouch: 5
-  _fuerzaMinPincho: 20
+  _fuerzaMinPincho: 15
   _fuerzaMaxPincho: 30
   _pinchos:
   - {fileID: 4793848589382075734}
@@ -146,9 +146,25 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 583498978538224138, guid: 23e4a6f253976734e8db06cf9adc64e8, type: 3}
+      propertyPath: _maxDistance
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 892042354839296381, guid: 23e4a6f253976734e8db06cf9adc64e8, type: 3}
+      propertyPath: _maxDistance
+      value: 45
+      objectReference: {fileID: 0}
     - target: {fileID: 939660483536735060, guid: 23e4a6f253976734e8db06cf9adc64e8, type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1364524406458187104, guid: 23e4a6f253976734e8db06cf9adc64e8, type: 3}
+      propertyPath: _maxDistance
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1476049390919297735, guid: 23e4a6f253976734e8db06cf9adc64e8, type: 3}
+      propertyPath: _maxDistance
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 1650556524579371003, guid: 23e4a6f253976734e8db06cf9adc64e8, type: 3}
       propertyPath: m_Layer
@@ -162,9 +178,17 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1889903129990009418, guid: 23e4a6f253976734e8db06cf9adc64e8, type: 3}
+      propertyPath: _maxDistance
+      value: 45
+      objectReference: {fileID: 0}
     - target: {fileID: 1966776644212147127, guid: 23e4a6f253976734e8db06cf9adc64e8, type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2156893613196353015, guid: 23e4a6f253976734e8db06cf9adc64e8, type: 3}
+      propertyPath: _maxDistance
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 2467500941504508335, guid: 23e4a6f253976734e8db06cf9adc64e8, type: 3}
       propertyPath: m_Layer
@@ -186,9 +210,25 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 3102300235749817662, guid: 23e4a6f253976734e8db06cf9adc64e8, type: 3}
+      propertyPath: _maxDistance
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 3148045775328553306, guid: 23e4a6f253976734e8db06cf9adc64e8, type: 3}
+      propertyPath: _maxDistance
+      value: 45
+      objectReference: {fileID: 0}
     - target: {fileID: 3881603703567328148, guid: 23e4a6f253976734e8db06cf9adc64e8, type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256349510585445085, guid: 23e4a6f253976734e8db06cf9adc64e8, type: 3}
+      propertyPath: _maxDistance
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 4372684814989157523, guid: 23e4a6f253976734e8db06cf9adc64e8, type: 3}
+      propertyPath: _maxDistance
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 4538079643153715806, guid: 23e4a6f253976734e8db06cf9adc64e8, type: 3}
       propertyPath: m_Layer
@@ -198,9 +238,21 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 4623504251126610051, guid: 23e4a6f253976734e8db06cf9adc64e8, type: 3}
+      propertyPath: _maxDistance
+      value: 45
+      objectReference: {fileID: 0}
     - target: {fileID: 4718191630981746066, guid: 23e4a6f253976734e8db06cf9adc64e8, type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4743665563957137011, guid: 23e4a6f253976734e8db06cf9adc64e8, type: 3}
+      propertyPath: _maxDistance
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 4892924592774287409, guid: 23e4a6f253976734e8db06cf9adc64e8, type: 3}
+      propertyPath: _maxDistance
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 5084065660882459548, guid: 23e4a6f253976734e8db06cf9adc64e8, type: 3}
       propertyPath: m_Layer
@@ -213,6 +265,14 @@ PrefabInstance:
     - target: {fileID: 5609685218195240138, guid: 23e4a6f253976734e8db06cf9adc64e8, type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5683917130095170034, guid: 23e4a6f253976734e8db06cf9adc64e8, type: 3}
+      propertyPath: _maxDistance
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 5754408796949848569, guid: 23e4a6f253976734e8db06cf9adc64e8, type: 3}
+      propertyPath: _maxDistance
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 6004547910649225173, guid: 23e4a6f253976734e8db06cf9adc64e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -254,6 +314,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6210127853343702899, guid: 23e4a6f253976734e8db06cf9adc64e8, type: 3}
+      propertyPath: _maxDistance
+      value: 45
+      objectReference: {fileID: 0}
     - target: {fileID: 6349970121087239535, guid: 23e4a6f253976734e8db06cf9adc64e8, type: 3}
       propertyPath: m_Name
       value: cilindroasesino_na
@@ -262,9 +326,29 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 6607608321351573287, guid: 23e4a6f253976734e8db06cf9adc64e8, type: 3}
+      propertyPath: _maxDistance
+      value: 45
+      objectReference: {fileID: 0}
     - target: {fileID: 6691117623284147023, guid: 23e4a6f253976734e8db06cf9adc64e8, type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7189784060605491579, guid: 23e4a6f253976734e8db06cf9adc64e8, type: 3}
+      propertyPath: _maxDistance
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 7210072173902949366, guid: 23e4a6f253976734e8db06cf9adc64e8, type: 3}
+      propertyPath: _maxDistance
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 7249529617174212180, guid: 23e4a6f253976734e8db06cf9adc64e8, type: 3}
+      propertyPath: _maxDistance
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 7307307478466821286, guid: 23e4a6f253976734e8db06cf9adc64e8, type: 3}
+      propertyPath: _maxDistance
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 7542917398520828119, guid: 23e4a6f253976734e8db06cf9adc64e8, type: 3}
       propertyPath: m_Layer
@@ -273,6 +357,14 @@ PrefabInstance:
     - target: {fileID: 7621017798489653800, guid: 23e4a6f253976734e8db06cf9adc64e8, type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8155071239021213966, guid: 23e4a6f253976734e8db06cf9adc64e8, type: 3}
+      propertyPath: _maxDistance
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 8155639937115162325, guid: 23e4a6f253976734e8db06cf9adc64e8, type: 3}
+      propertyPath: _maxDistance
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 8377211173679488739, guid: 23e4a6f253976734e8db06cf9adc64e8, type: 3}
       propertyPath: m_Layer
@@ -285,6 +377,10 @@ PrefabInstance:
     - target: {fileID: 8588520164043041704, guid: 23e4a6f253976734e8db06cf9adc64e8, type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8680298107266090436, guid: 23e4a6f253976734e8db06cf9adc64e8, type: 3}
+      propertyPath: _maxDistance
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 8733117130536055937, guid: 23e4a6f253976734e8db06cf9adc64e8, type: 3}
       propertyPath: m_Layer
