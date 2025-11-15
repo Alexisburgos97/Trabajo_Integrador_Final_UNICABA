@@ -116,8 +116,10 @@ public class FracturedObject : MonoBehaviour
         if (_usarUnaVez)
         {
             Destroy(originalObject);
+            StartCoroutine(DestruirConDelay(originalObject));
             //destruir el contenedor tambien
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            StartCoroutine(DestruirConDelay(gameObject));
         }
     }
 
@@ -176,4 +178,11 @@ public class FracturedObject : MonoBehaviour
             yield return new WaitForSeconds(0.05f);
         }
     }
+
+     IEnumerator DestruirConDelay(GameObject objeto_a_destruir)
+    {
+        yield return new WaitForFixedUpdate(); // espera al final del frame de física
+        Destroy(objeto_a_destruir);
+    }
+ 
 }

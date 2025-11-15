@@ -127,7 +127,7 @@ public class EnemyTouchDamage : MonoBehaviour
         }
 
         // Explosión con física hacia objetos cercanos (similar a Apply)
-        Vector3 explosionPos = transform.position;
+        /*Vector3 explosionPos = transform.position;
         Collider[] cols = Physics.OverlapSphere(explosionPos, _explosionRadius);
         foreach (var c in cols)
         {
@@ -136,7 +136,7 @@ public class EnemyTouchDamage : MonoBehaviour
             {
                 rb.AddExplosionForce(_explosionForce, explosionPos, _explosionRadius, _upwardsModifier, ForceMode.Impulse);
             }
-        }
+        }*/
 
         // destruir el enemigo
         StartCoroutine(DestruirConDelay());
