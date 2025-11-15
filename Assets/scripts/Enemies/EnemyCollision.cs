@@ -35,15 +35,16 @@ public class EnemyTouchDamage : MonoBehaviour
     void Apply(Component other, Collision col, bool isFirstTouch)
     {
         // ¿Es el player?
-        var player = other.GetComponentInParent<TopDownCarController>();
+        TopDownCarController player = other.GetComponentInParent<TopDownCarController>();
+        EscudoJugador escudo = other.GetComponentInParent<EscudoJugador>();
         if (player == null) return;
 
         if (isFirstTouch)
         {
-            float before = _controller.Combustible;
+            //float before = _controller.Combustible;
 
             // ⚠️ Solo se bloquea el daño, no el resto
-            if (!EscudoJugador.EscudoActivoGlobal)
+            if (!escudo.EscudoActivoGlobal)
             {
                 // ✅ Solo aplica daño si el escudo NO está activo
                 _controller.Combustible = Mathf.Max(0f, _controller.Combustible - _fuelDrainPerTouch);

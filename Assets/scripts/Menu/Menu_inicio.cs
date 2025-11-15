@@ -68,21 +68,21 @@ public class MenuLoader : MonoBehaviour
 }
     public void ToMainMenu() {
         //carga el menu
-        GameControler.Instance.PasarNivel("Inicio");
+        GameControler.Instance.mostrar_menu_inicial();
         GameControler.Instance.ResetVariables();
         Time.timeScale = 1.0f;
     }
     public void OpenOpciones() {
-        GameControler.Instance.PasarNivel("Opciones");
+        GameControler.Instance.mostrar_menu("Opciones");
     }
     public void OpenControles()
     {
-        GameControler.instance.PasarNivel("Controles");
+        GameControler.instance.mostrar_menu("Controles");
     }
 
     public void OpenSonido()
     {
-        GameControler.instance.PasarNivel("Sonido");
+        GameControler.instance.mostrar_menu("Sonido");
     }
     public void OpenAccesibilidad()
     {
@@ -90,11 +90,11 @@ public class MenuLoader : MonoBehaviour
     }
     public void OpenCretido()
     {
-        GameControler.instance.PasarNivel("Creditos");
+        GameControler.instance.mostrar_menu("Creditos");
     }
     public void LoadFirstLevel() {
         //craga la primer pista de carreras
-        GameControler.Instance.PasarNivel("Nivel1");
+        GameControler.Instance.PasarNivel();
         GameControler.Instance.AgregarnEscena("Hud");
     }
 

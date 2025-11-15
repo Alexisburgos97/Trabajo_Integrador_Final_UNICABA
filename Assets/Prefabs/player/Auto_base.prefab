@@ -522,7 +522,7 @@ MonoBehaviour:
   driftMinSpeed: 1
   steerDeadZone: 0.5
   driftHoldSeconds: 0.5
-  jumpKey: 101
+  jumpKey: 32
   jumpVelocity: 120
   jumpCooldown: 0
   coyoteTime: 0.1
@@ -536,9 +536,13 @@ MonoBehaviour:
     m_Bits: 8
   airSteerMultiplier: 0.45
   airAccelMultiplier: 0.65
+  maxFallSpeed: 50
+  groundSnapExtra: 1
   brakeStrength: 250
-  brakeKey: 32
+  brakeKey: 306
   handbrakeKey: 304
+  _brakeKey_mouse: 1
+  _handbrakeKey_mouse: 0
   baseDrag: 0.15
   centerOfMassOffset: {x: 0, y: -0.35, z: 0}
   defaultLockSeconds: 0.25
@@ -711,6 +715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c99ae51afaab65a49be5ebb591004eac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EscudoActivoGlobal: 0
   visual: {fileID: 63986571186851124}
   audioActivacion: {fileID: 3303964001547766714}
   duracionEscudo: 5

@@ -47,11 +47,15 @@ public class TopDownCarController : MonoBehaviour
     [Header("Control en el aire")]
     [SerializeField] float airSteerMultiplier = 0.45f;
     [SerializeField] float airAccelMultiplier = 0.65f;
+    
+    [Header("Caída / Snap")]
+    [SerializeField] float maxFallSpeed = 50f;
+    [SerializeField] float groundSnapExtra = 0.3f;
 
     [Header("Frenos")]
     [SerializeField] float brakeStrength = 250f;
     [SerializeField] KeyCode brakeKey = KeyCode.LeftControl;
-    [SerializeField] KeyCode handbrakeKey = KeyCode.Space;
+    [SerializeField] KeyCode handbrakeKey = KeyCode.LeftShift;
     [SerializeField] MouseButton _brakeKey_mouse = MouseButton.Right;
     [SerializeField] MouseButton _handbrakeKey_mouse = MouseButton.Left;
 
@@ -208,13 +212,52 @@ public class TopDownCarController : MonoBehaviour
         // ====== Gravedad extra ======
         if (!grounded)
         {
+            // Gravedad fuerte hacia abajo
             rb.AddForce(Vector3.down * extraGravity, ForceMode.Acceleration);
+
+            // Si no mantenés el salto, cortamos la subida más rápido
             if (!jumpHeld && rb.linearVelocity.y > 0f)
                 rb.AddForce(Vector3.down * jumpCutGravity, ForceMode.Acceleration);
+
+            // Limitar velocidad máxima de caída (para que no se descontrole)
+            Vector3 v = rb.linearVelocity;
+            if (v.y < -maxFallSpeed)
+            {
+                v.y = -maxFallSpeed;
+                rb.linearVelocity = v;
+            }
+
+            // SNAP: si estamos muy cerca del suelo, pegamos el auto al piso
+            RaycastHit snapHit;
+            Vector3 snapOrigin = transform.position + Vector3.up * 0.2f;
+            float snapDist = groundCheckDistance + groundProbeRadius + groundSnapExtra;
+
+            if (Physics.SphereCast(snapOrigin, groundProbeRadius, Vector3.down,
+                    out snapHit, snapDist, groundMask, QueryTriggerInteraction.Ignore))
+            {
+                // Si estamos cayendo y la distancia es chica -> pegamos al piso
+                if (rb.linearVelocity.y <= 0f && snapHit.distance <= groundSnapExtra + groundCheckDistance)
+                {
+                    Vector3 pos = rb.position;
+                    // apoyamos el auto justo sobre el punto de contacto
+                    float desiredY = snapHit.point.y + 0.05f;
+                    pos.y = desiredY;
+                    rb.position = pos;
+
+                    // eliminamos velocidad vertical
+                    v = rb.linearVelocity;
+                    v.y = 0f;
+                    rb.linearVelocity = v;
+
+                    grounded = true;
+                    coyoteTimer = coyoteTime;
+                }
+            }
         }
 
+
         // ====== Frenos ======
-        if (Input.GetKey(brakeKey))
+        if (Input.GetKey(brakeKey) || Input.GetMouseButton((int)_brakeKey_mouse))
             rb.AddForce(-rb.linearVelocity.normalized * brakeStrength, ForceMode.Acceleration);
         else if (Mathf.Approximately(throttleInput, 0f))
             rb.linearVelocity *= (1f - (extraDragWhenNoThrottle * Time.fixedDeltaTime));

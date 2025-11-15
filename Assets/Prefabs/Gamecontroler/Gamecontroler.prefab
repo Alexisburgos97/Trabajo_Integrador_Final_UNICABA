@@ -44,6 +44,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 831c782a6d0fab048b0cd5ce5c170c7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ConfLife: 3
-  ConfCombustible: 200
-  totalVueltas: 3
+  _ConfLife: 3
+  _ConfCombustible: 200
+  _tiempo_Restante: 60
+  _total_a_rescatar: 3
+  _Hud: Hud
+  _Menu_muerte: Perdiste
+  _Menu_ganar: Ganaste
+  _Menu_inicio: Inicio
+  _Menu_opciones: Opciones
+  _Menu_sonido: Sonido
+  _Menu_controles: Controles
+  _Menu_creditos: Creditos
+  _Menu_pausa: Pausa
+  _Nivel:
+  - Nivel1
+  - Nivel2
+  MusicVolume: 0.3
+  SFXVolume: 0.3

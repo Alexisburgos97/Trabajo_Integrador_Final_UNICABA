@@ -82,6 +82,7 @@ public class HomingProjectile : MonoBehaviour
 
         // ¿Golpeó al Player?
         var player = other.GetComponentInParent<TopDownCarController>();
+        EscudoJugador escudo= other.GetComponent<EscudoJugador>();
         if (player)
         {
             // Empuje estilo explosión (suave y local)
@@ -91,7 +92,7 @@ public class HomingProjectile : MonoBehaviour
 
             // Daño a combustible (respetando escudo)
             var gc = GameControler.Instance;
-            if (gc && !EscudoJugador.EscudoActivoGlobal)
+            if (gc && !escudo.EscudoActivoGlobal)
             {
                 float before = gc.Combustible;
                 gc.Combustible = Mathf.Max(0f, before - fuelDrain);

@@ -283,10 +283,11 @@ IEnumerator TelegraphAndMaybeExplode()
 
         // empuje + daño
         var playerRb = target ? target.GetComponent<Rigidbody>() : null;
+        EscudoJugador escudo= target.GetComponent<EscudoJugador>();
         if (playerRb)
             playerRb.AddExplosionForce(explosionForce, p, explosionRadius, upwardsModifier, ForceMode.Impulse);
 
-        if (gc && !EscudoJugador.EscudoActivoGlobal)
+        if (gc && !escudo.EscudoActivoGlobal)
         {
             float before = gc.Combustible;
             gc.Combustible = Mathf.Max(0f, before - fuelDrain);

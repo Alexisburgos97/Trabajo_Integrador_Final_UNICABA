@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static Constantes;
 /* este es el controlador del juego
  hasta el momento contola la carga de escenas y la velocidad del vehiculo*/
 namespace Simplon {
@@ -22,21 +24,39 @@ namespace Simplon {
 
         [Header("Setear tiempo del nivel")]
         [SerializeField] private float _tiempo_Restante = 60f; // Temporizador de 60 segundos (puedes ajustar este valor)
-
         //seteo las cantidad de vueltas por defect a 3
         [SerializeField] private int _total_a_rescatar = 3;
 
+        [Header("Configuracion de Menues")]
+        [SerializeField] string _Hud, 
+                        _Menu_muerte,
+                        _Menu_ganar,
+                        _Menu_inicio,
+                        _Menu_opciones,
+                        _Menu_sonido,
+                        _Menu_controles,
+                        _Menu_creditos,
+                        _Menu_pausa;
+        //[SerializeField] string[] _Menues;
+
+        [Header("Configuracion de niveles")]
+        [SerializeField] string[] _Nivel;
         //guarda cuantos rescate se llevan
         private int _rescate_actual;
        
         //variable que gurda la distancia recorrida
         public float _distancia { get; set; }
 
+        //configuracion nivel inicial;
+        int _nivel_actual = _NIVEL_1;
+
+
         //--------
         /*-------------------------------------------*/
         //--------
 
         //CONTROLES DE VOLUMEN
+        [Header("Controles de volumen globales")]
         [SerializeField] private float MusicVolume = 0.3f;
         [SerializeField] private float SFXVolume = 0.3f;
 
@@ -109,19 +129,61 @@ namespace Simplon {
       
         }
         //cambiar de a la pista2
-        public void PasarNivel(string nombre)
+        public void PasarNivel(bool next = false)
         {
+            if (!next)
+        {
+            //por defecto se carga el nivel 1
+            SceneManager.LoadScene(_Nivel[_NIVEL_1], LoadSceneMode.Single);
+            SceneManager.LoadScene(_Hud, LoadSceneMode.Additive);
+            ResetVariables();
+            //Reset_inventario();
+        }
+        else { 
+            _nivel_actual++;
+            if (_nivel_actual < _Nivel.Length)
+            {
+                SceneManager.LoadScene(_Nivel[_nivel_actual], LoadSceneMode.Single);
+                SceneManager.LoadScene(_Hud, LoadSceneMode.Additive);
+                //_Iplayer = Instantiate(_Player, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+            }
+            else {
+                ResetVariables();
+                //Reset_inventario();
+                mostrar_menu_ganar();
+            }
+        }
             //metodo para cambiar de nivel en el parametro nombre se indica el
             //nombre de la escena a cargar
-            SceneManager.LoadScene(nombre);
+            //SceneManager.LoadScene(nombre);
+        }
+        //mostrar menu muerte
+        public void mostrar_menu_muerte() {
+            ResetVariables();
+            //Reset_inventario();
+            SceneManager.LoadScene(_Menu_muerte, LoadSceneMode.Single);
         }
 
+        //mostrar menu ganar
+        public void mostrar_menu_ganar() {
+            ResetVariables();
+            //Reset_inventario();
+            SceneManager.LoadScene(_Menu_ganar, LoadSceneMode.Single);
+        }
         public void AgregarnEscena(string nombre)
         {
             //metodo para agregar una escena a la escena actual
             //En el parametro nombre se indica el
             //nombre de la escena a cargar
             SceneManager.LoadScene(nombre, LoadSceneMode.Additive);
+        }
+        public void mostrar_menu_inicial()
+        {
+            SceneManager.LoadScene(_Menu_inicio,LoadSceneMode.Single);
+        }
+        public void mostrar_menu(string menu)
+        {
+            SceneManager.LoadScene(menu,LoadSceneMode.Single);
         }
         public void ActualizarSpeed(float speed)
         {
@@ -167,7 +229,7 @@ namespace Simplon {
             _Life -= Cantidad;
             if (_Life < 1) {
                 //perdio y vuelve a reiniciar el juego
-                PasarNivel("Perdiste");
+                mostrar_menu_muerte();
                 ResetVariables();
             }
         }

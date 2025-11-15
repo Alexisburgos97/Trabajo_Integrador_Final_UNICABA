@@ -19,7 +19,7 @@ public class Win_control : MonoBehaviour
         //controlar si ya se rescataron a todas las personas
         if (_controler.Obtener_rescate() >= _controler.Obtener_total_a_rescatar())
         {
-            _controler.PasarNivel(_Escena_ganar);
+            _controler.PasarNivel(true);
         }
     }
 }

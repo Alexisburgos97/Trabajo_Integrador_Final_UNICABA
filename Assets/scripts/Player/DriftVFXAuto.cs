@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -13,7 +14,8 @@ public class DriftVFXAuto : MonoBehaviour
 
     [Header("Activación adicional")]
     public bool triggerOnHandbrake = true;
-    public KeyCode handbrakeKey = KeyCode.Space;
+    public KeyCode handbrakeKey = KeyCode.LeftShift;
+    [SerializeField] MouseButton _handbrakeKey_mouse = MouseButton.Left;
 
     [Header("Tuning")]
     public float minSpeed = 6f;
@@ -198,7 +200,7 @@ public class DriftVFXAuto : MonoBehaviour
         bool drifting = false;
         if (car != null) drifting |= car.IsDrifting;
         drifting |= speed > minSpeed && slip > slipThreshold;
-        if (triggerOnHandbrake && Input.GetKey(handbrakeKey))
+        if (triggerOnHandbrake && Input.GetKey(handbrakeKey) || Input.GetMouseButton((int)_handbrakeKey_mouse))
             drifting |= speed > (minSpeed * 0.4f);
 
         UpdateWheelFXAt(pRL, trRL, psRL, drifting, slip);

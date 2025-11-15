@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using System.Collections;
 public class PowerUpEscudo : MonoBehaviour
 {
     [Header("Duraci�n extra del escudo")]
@@ -46,7 +46,14 @@ public class PowerUpEscudo : MonoBehaviour
             //if (recogerSFX)
             //    AudioSource.PlayClipAtPoint(recogerSFX, transform.position, volumen);
 
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            StartCoroutine(DestruirConDelay());
         }
+    }
+
+    IEnumerator DestruirConDelay()
+    {
+        yield return new WaitForFixedUpdate(); // espera al final del frame de física
+        Destroy(gameObject);
     }
 }

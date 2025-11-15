@@ -3,7 +3,7 @@ using System.Collections;
 
 public class EscudoJugador : MonoBehaviour
 {
-    public static bool EscudoActivoGlobal = false; // 🔥 NUEVO: visible para todos
+    public bool EscudoActivoGlobal = false; // 🔥 NUEVO: visible para todos
 
     [Header("Configuración del Escudo")]
     public GameObject visual;

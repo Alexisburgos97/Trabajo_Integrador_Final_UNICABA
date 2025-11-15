@@ -59,6 +59,7 @@ public class Pincho : MonoBehaviour
 
             // Knockback tipo explosión
             var rbPlayer = other.GetComponentInParent<Rigidbody>();
+            EscudoJugador escudo=other.GetComponent<EscudoJugador>();
             if (rbPlayer != null)
             {
                 Vector3 explosionPos = transform.position;
@@ -76,7 +77,7 @@ public class Pincho : MonoBehaviour
                 Debug.DrawLine(explosionPos, rbPlayer.worldCenterOfMass, Color.red, 1f);
 
                 // ⚠️ Solo se bloquea el daño, no el resto
-                if (!EscudoJugador.EscudoActivoGlobal)
+                if (!escudo.EscudoActivoGlobal)
                 {
                     // ✅ Solo aplica daño si el escudo NO está activo
                     _controler.Combustible = Mathf.Max(0f, _controler.Combustible - _fuelDrainPerTouch);
