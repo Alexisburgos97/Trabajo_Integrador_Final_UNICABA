@@ -190,16 +190,38 @@ public class DriftVFXAuto : MonoBehaviour
         return ps;
     }
 
+    // void Update()
+    // {
+    //     float speed = new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z).magnitude; // <- velocity
+    //     float slip = ComputeSlip();
+    //
+    //     bool drifting = false;
+    //     if (car != null) drifting |= car.IsDrifting;
+    //     drifting |= speed > minSpeed && slip > slipThreshold;
+    //     if (triggerOnHandbrake && Input.GetKey(handbrakeKey))
+    //         drifting |= speed > (minSpeed * 0.4f);
+    //
+    //     UpdateWheelFXAt(pRL, trRL, psRL, drifting, slip);
+    //     UpdateWheelFXAt(pRR, trRR, psRR, drifting, slip);
+    //     UpdateAudio(drifting, slip);
+    // }
+    
     void Update()
     {
-        float speed = new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z).magnitude; // <- velocity
-        float slip = ComputeSlip();
+        if (rb == null) return;
 
-        bool drifting = false;
-        if (car != null) drifting |= car.IsDrifting;
-        drifting |= speed > minSpeed && slip > slipThreshold;
+        float slip = ComputeSlip();   // lo usamos solo para la cantidad de humo
+
+        // 🔥 ESTE es el flag principal: si el auto dice que está en drift
+        bool drifting = (car != null && car.IsDrifting);
+
+        // 🔥 Opcional: si mantenés el handbrake, forzamos drifting aunque el IsDrifting
+        // todavía no se haya activado (por ejemplo, justo al caer de un salto)
         if (triggerOnHandbrake && Input.GetKey(handbrakeKey))
-            drifting |= speed > (minSpeed * 0.4f);
+            drifting = true;
+
+        // NO usamos más speed ni slip para decidir si hay drift.
+        // Solo usamos slip para intensidad visual / sonido.
 
         UpdateWheelFXAt(pRL, trRL, psRL, drifting, slip);
         UpdateWheelFXAt(pRR, trRR, psRR, drifting, slip);

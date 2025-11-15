@@ -22,32 +22,29 @@ public class CarVFX : MonoBehaviour
         car.onJump.RemoveListener(OnJump);
         car.onLand.RemoveListener(OnLand);
     }
-
     void OnJump()
     {
         if (!jumpSmokePrefab) return;
 
-        // Calcular la rotación final
-        // Toma la rotación del prefab y reemplaza solo el eje X con el del auto
+        Vector3 spawnPos = transform.position;
+
+        if (Physics.Raycast(transform.position + Vector3.up * 0.5f, Vector3.down, out var hit, 3f))
+            spawnPos = hit.point + Vector3.up * 0.1f;
+
         Quaternion finalRotation = car.Get_Rotation();
-        /*
-        Vector3 prefabEuler = finalRotation.eulerAngles;
-        prefabEuler.x = transform.eulerAngles.x;
-        finalRotation = Quaternion.Euler(prefabEuler);
-        */
-        // Instanciar una copia en la posición del auto
+        
         ParticleSystem jumpSmoke = Instantiate(
             jumpSmokePrefab,
-            transform.position + Vector3.up * 0.2f, // pequeño offset
+            spawnPos,
             finalRotation
         );
 
-        // Reproducir el sistema de partículas
         jumpSmoke.Play();
 
-        // Destruir automáticamente cuando termine
-        Destroy(jumpSmoke.gameObject, jumpSmoke.main.duration + jumpSmoke.main.startLifetime.constantMax);
+        Destroy(jumpSmoke.gameObject,
+            jumpSmoke.main.duration + jumpSmoke.main.startLifetime.constantMax);
     }
+
 
     void OnLand()
     {

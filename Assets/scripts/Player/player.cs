@@ -84,6 +84,10 @@ public class TopDownCarController : MonoBehaviour
     float jumpBufferTimer = 0f;
     float nextJumpTime = 0f;
     bool jumpHeld = false;
+    
+    [Header("Caída / Snap")]
+    [SerializeField] float maxFallSpeed = 50f;
+    [SerializeField] float groundSnapExtra = 0.3f; // margen para hacer snap
 
     public float GetMaxSpeed() => Mathf.Max(maxSpeedForward, maxSpeedReverse);
     public Quaternion Get_Rotation() => transform.rotation;
@@ -202,11 +206,57 @@ public class TopDownCarController : MonoBehaviour
         rb.MoveRotation(Quaternion.Slerp(rb.rotation, targetRot, slopeAlignSpeed * Time.fixedDeltaTime));
 
         // ====== Gravedad extra ======
+        // if (!grounded)
+        // {
+        //     rb.AddForce(Vector3.down * extraGravity, ForceMode.Acceleration);
+        //     if (!jumpHeld && rb.linearVelocity.y > 0f)
+        //         rb.AddForce(Vector3.down * jumpCutGravity, ForceMode.Acceleration);
+        // }
+        
+        // ====== Gravedad extra + Snap al suelo ======
         if (!grounded)
         {
+            // Gravedad fuerte hacia abajo
             rb.AddForce(Vector3.down * extraGravity, ForceMode.Acceleration);
+
+            // Si no mantenés el salto, cortamos la subida más rápido
             if (!jumpHeld && rb.linearVelocity.y > 0f)
                 rb.AddForce(Vector3.down * jumpCutGravity, ForceMode.Acceleration);
+
+            // Limitar velocidad máxima de caída (para que no se descontrole)
+            Vector3 v = rb.linearVelocity;
+            if (v.y < -maxFallSpeed)
+            {
+                v.y = -maxFallSpeed;
+                rb.linearVelocity = v;
+            }
+
+            // SNAP: si estamos muy cerca del suelo, pegamos el auto al piso
+            RaycastHit snapHit;
+            Vector3 snapOrigin = transform.position + Vector3.up * 0.2f;
+            float snapDist = groundCheckDistance + groundProbeRadius + groundSnapExtra;
+
+            if (Physics.SphereCast(snapOrigin, groundProbeRadius, Vector3.down,
+                    out snapHit, snapDist, groundMask, QueryTriggerInteraction.Ignore))
+            {
+                // Si estamos cayendo y la distancia es chica -> pegamos al piso
+                if (rb.linearVelocity.y <= 0f && snapHit.distance <= groundSnapExtra + groundCheckDistance)
+                {
+                    Vector3 pos = rb.position;
+                    // apoyamos el auto justo sobre el punto de contacto
+                    float desiredY = snapHit.point.y + 0.05f;
+                    pos.y = desiredY;
+                    rb.position = pos;
+
+                    // eliminamos velocidad vertical
+                    v = rb.linearVelocity;
+                    v.y = 0f;
+                    rb.linearVelocity = v;
+
+                    grounded = true;
+                    coyoteTimer = coyoteTime;
+                }
+            }
         }
 
         // ====== Frenos ======
