@@ -1,13 +1,17 @@
 using System.Collections;
 using UnityEngine;
+using TMPro;
 
 public class AutoCloseCanvasFade : MonoBehaviour
 {
-    [Header("Tiempo total visible antes de empezar el fade")]
+    [Header("Tiempo visible antes del fade")]
     [SerializeField] private float _tiempoVisible = 3f;
 
     [Header("Duración del fade out")]
     [SerializeField] private float _duracionFade = 1f;
+
+    [Header("Texto opcional para mostrar cuenta regresiva")]
+    [SerializeField] private TextMeshProUGUI _textoTemporizador;
 
     private CanvasGroup _canvasGroup;
     private Coroutine _rutina;
@@ -25,7 +29,6 @@ public class AutoCloseCanvasFade : MonoBehaviour
     {
         _canvasGroup.alpha = 1f;
 
-        // Reiniciar corrutina si se reactiva el canvas
         if (_rutina != null)
             StopCoroutine(_rutina);
 
@@ -34,25 +37,39 @@ public class AutoCloseCanvasFade : MonoBehaviour
 
     private IEnumerator CerrarCanvas()
     {
-        // 1) Esperar el tiempo visible completo
-        yield return new WaitForSeconds(_tiempoVisible);
+        float tiempoRestante = _tiempoVisible;
 
-        // 2) Fade-out suave
+        // 🔹 1) Conteo regresivo mientras el canvas está visible
+        while (tiempoRestante > 0f)
+        {
+            tiempoRestante -= Time.deltaTime;
+
+            if (_textoTemporizador != null)
+            {
+                // Mostramos en segundos enteros
+                int segundos = Mathf.CeilToInt(tiempoRestante);
+                _textoTemporizador.text = segundos.ToString();
+            }
+
+            yield return null;
+        }
+
+        // 🔹 2) Fade-out suave
         float t = 0f;
 
         while (t < _duracionFade)
         {
             t += Time.deltaTime;
-            float factor = t / _duracionFade;
 
+            float factor = t / _duracionFade;
             _canvasGroup.alpha = 1f - factor;
+
             yield return null;
         }
 
-        // 3) Asegurar alpha en 0
         _canvasGroup.alpha = 0f;
 
-        // 4) Desactivar el objeto
+        // 🔹 3) Desactivar canvas
         gameObject.SetActive(false);
     }
 }
