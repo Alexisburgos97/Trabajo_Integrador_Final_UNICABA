@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class MenuLoader : MonoBehaviour
+public class Menu_pausa : MonoBehaviour
 {
     //SOUND CONTROLLER
     SoundController soundController;
@@ -94,10 +94,6 @@ public class MenuLoader : MonoBehaviour
     public void OpenCretido()
     {
         GameControler.instance.mostrar_menu("Creditos");
-    }
-    public void ToNextMundo()
-    {
-        GameControler.instance.PasarNivel(true);
     }
     public void LoadFirstLevel() {
         //craga la primer pista de carreras
