@@ -7,11 +7,10 @@ using UnityEngine.UI;
 
 public class MenuLoader : MonoBehaviour
 {
-    //SOUND CONTROLLER
     SoundController soundController;
 
-    //[SerializeField] GameObject _PauseMenu;
     bool _isPaused;
+   
 
     [SerializeField] private Button _playButton;
     [SerializeField] private Button _Pausa;
@@ -24,11 +23,11 @@ public class MenuLoader : MonoBehaviour
     [SerializeField] private Button _toMainMenuButton;
     [SerializeField] private Button _toNextMundo;
 
-
     [Header("Botones a controlar")]
     [SerializeField] private List<Button> botones = new List<Button>();
 
-    // Start is called before the first frame update
+    [SerializeField] bool _activar_pausa=false;
+    [SerializeField] bool _esMenuDePausa = false;  // Nuevo: identifica si este menú fue cargado por PauseManager
     private void Awake()
     {
         _playButton?.onClick.AddListener(LoadFirstLevel);
@@ -40,7 +39,11 @@ public class MenuLoader : MonoBehaviour
         _quitButton?.onClick.AddListener(OnQuit);
         _toMainMenuButton?.onClick.AddListener(ToMainMenu);
         _Pausa?.onClick.AddListener(check_pausa);
+        _toNextMundo?.onClick.AddListener(ToNextMundo);
 
+        // Detecta si esta escena ES la de pausa
+        if (SceneManager.GetSceneAt(SceneManager.sceneCount - 1).name == "Pausa")
+            _esMenuDePausa = true;
     }
 
     private void OnDestroy()
@@ -54,30 +57,52 @@ public class MenuLoader : MonoBehaviour
         _quitButton?.onClick.RemoveAllListeners();
         _toMainMenuButton?.onClick.RemoveAllListeners();
         _Pausa?.onClick.RemoveAllListeners();
+        _toNextMundo?.onClick.RemoveAllListeners();
+    }
+
+    void Start()
+    {
+        // Solo los menús de Opciones / Controles / etc. usan esto
+        if (_activar_pausa)
+            OnPause();
     }
 
     public void check_pausa()
-{
-    if (!_isPaused)
     {
-        OnPause();
+        if (!_isPaused)
+        {
+            OnPause();
+        }
+        else
+        {
+            OnResume();
+
+            if (_esMenuDePausa)
+            {
+                // Usar PauseManager
+                FindFirstObjectByType<PauseManager>()?.UnloadPauseScene();
+            }
+            else
+            {
+                // No es menu de pausa -> descargar la escena actual del menú
+                Scene actual = gameObject.scene;
+                SceneManager.UnloadSceneAsync(actual);
+            }
+        }
     }
-    else
+
+    public void ToMainMenu()
     {
-        OnResume();
-        // avisar al PauseManager que descargue la escena
-        FindFirstObjectByType<PauseManager>()?.UnloadPauseScene();
-    }
-}
-    public void ToMainMenu() {
-        //carga el menu
         GameControler.Instance.mostrar_menu_inicial();
         GameControler.Instance.ResetVariables();
         Time.timeScale = 1.0f;
     }
-    public void OpenOpciones() {
+
+    public void OpenOpciones()
+    {
         GameControler.Instance.mostrar_menu("Opciones");
     }
+
     public void OpenControles()
     {
         GameControler.instance.mostrar_menu("Controles");
@@ -87,50 +112,53 @@ public class MenuLoader : MonoBehaviour
     {
         GameControler.instance.mostrar_menu("Sonido");
     }
+
     public void OpenAccesibilidad()
     {
-        //GameControler.instance.PasarNivel("Controles");
+        // Implementación futura
     }
+
     public void OpenCretido()
     {
         GameControler.instance.mostrar_menu("Creditos");
     }
+
     public void ToNextMundo()
     {
+        if (_activar_pausa)
+        {
+            OnResume();
+        }
         GameControler.instance.PasarNivel(true);
     }
-    public void LoadFirstLevel() {
-        //craga la primer pista de carreras
+
+    public void LoadFirstLevel()
+    {
         GameControler.Instance.PasarNivel();
-        GameControler.Instance.AgregarnEscena("Hud");
     }
 
     public void LoadNextNivel()
     {
         GameControler.Instance.PasarNivel(true);
-        GameControler.Instance.AgregarnEscena("Hud");
     }
-     public void OnPause() {
+
+    public void OnPause()
+    {
         _isPaused = true;
         Time.timeScale = 0f;
     }
 
-    public void OnResume() {
-        print("sin pausa");
+    public void OnResume()
+    {
         Time.timeScale = 1f;
         _isPaused = false;
     }
-    public void OnQuit() {
-       Application.Quit();
-        #if UNITY_EDITOR
-                EditorApplication.ExitPlaymode();
-        #endif
-    }
- 
 
-   void UnloadPauseScene()
+    public void OnQuit()
     {
-      SceneManager.UnloadSceneAsync("Pausa");
-   
+        Application.Quit();
+#if UNITY_EDITOR
+        EditorApplication.ExitPlaymode();
+#endif
     }
 }

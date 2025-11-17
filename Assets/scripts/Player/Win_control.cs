@@ -3,7 +3,6 @@ using Simplon;
 
 public class Win_control : MonoBehaviour
 {
-    [SerializeField] string _Escena_ganar = "Ganaste";
     [SerializeField] private GameObject _canvas70;   // Canvas con botones
     private bool _mostrado70 = false;
 
