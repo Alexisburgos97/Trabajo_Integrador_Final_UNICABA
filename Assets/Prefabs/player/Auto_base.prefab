@@ -619,7 +619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5c424ae439237c4a880abe46befb173, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Escena_ganar: Ganaste
+  _canvas70: {fileID: 0}
 --- !u!114 &-6776384648774321536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -666,6 +666,7 @@ MonoBehaviour:
   audioMaxVol: 0.426
   triggerOnHandbrake: 1
   handbrakeKey: 32
+  _handbrakeKey_mouse: 0
   minSpeed: 6
   slipThreshold: 0.6
   slipForMax: 1.8
@@ -830,6 +831,7 @@ MonoBehaviour:
   _offset_Y: 2
   _spawnPoint: {fileID: 2073300063812511046}
   _apagar_misil: 0.25
+  _duracion_cohetera: 20
 --- !u!135 &4575553953875096589
 SphereCollider:
   m_ObjectHideFlags: 0

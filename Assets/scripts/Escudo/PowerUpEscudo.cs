@@ -1,35 +1,32 @@
 using UnityEngine;
 using System.Collections;
+
 public class PowerUpEscudo : MonoBehaviour
 {
-    [Header("Duraci�n extra del escudo")]
-    public float duracion = 5f;
+    [Header("Duración del escudo")]
+    [SerializeField] float duracion = 5f;
+    [SerializeField] float _Reactivacion = 30f;
+    [SerializeField] GameObject _marcador,_marca_map;
 
-    //[Header("Efectos")]
-    //public GameObject recogerVFX;
-    //public AudioClip recogerSFX;
-    //public float volumen = 0.8f;
-    public void Start()
+    Collider _collider;
+    ParticleSystem _particles;
+    Rigidbody _rb;
+
+    void Start()
     {
-        // Asegurarse de que el collider es trigger
-        var col = GetComponent<Collider>();
-        if (col == null)
-        {
-            Debug.LogError("[POWERUP] No hay Collider en el PowerUpEscudo!");
-        }
-        else if (!col.isTrigger)
-        {
-            Debug.LogWarning("[POWERUP] El Collider no es trigger, ajustando...");
-            col.isTrigger = true;
-        }
+        _collider = GetComponent<Collider>();
+        _particles = GetComponent<ParticleSystem>();
+        _rb = GetComponent<Rigidbody>();
 
-        // Asegurarse de que hay un Rigidbody (puede ser cinem�tico)
-        var rb = GetComponent<Rigidbody>();
-        if (rb == null)
+        if (_collider == null)
+            Debug.LogError("[POWERUP] No hay Collider!");
+        else if (!_collider.isTrigger)
+            _collider.isTrigger = true;
+
+        if (_rb == null)
         {
-            Debug.LogWarning("[POWERUP] No hay Rigidbody, a�adiendo uno cinem�tico...");
-            rb = gameObject.AddComponent<Rigidbody>();
-            rb.isKinematic = true;
+            _rb = gameObject.AddComponent<Rigidbody>();
+            _rb.isKinematic = true;
         }
     }
 
@@ -38,22 +35,47 @@ public class PowerUpEscudo : MonoBehaviour
         var shield = other.GetComponentInChildren<EscudoJugador>();
         if (shield != null)
         {
-            shield.duracionEscudo = duracion; // opcional: actualizar duraci�n
+            // aplicar escudo
+            shield.duracionEscudo = duracion;
             shield.ActivarEscudo();
-            Debug.Log("activar escudo");
-            //if (recogerVFX)
-            //    Instantiate(recogerVFX, transform.position, Quaternion.identity);
-            //if (recogerSFX)
-            //    AudioSource.PlayClipAtPoint(recogerSFX, transform.position, volumen);
+            Debug.Log("Escudo ACTIVADO");
 
-            //Destroy(gameObject);
-            StartCoroutine(DestruirConDelay());
+            // ocultar power-up temporalmente
+            Desactivar();
+
+            // reactivarlo luego
+            StartCoroutine(Reactivar());
         }
     }
 
-    IEnumerator DestruirConDelay()
+    void Desactivar()
     {
-        yield return new WaitForFixedUpdate(); // espera al final del frame de física
-        Destroy(gameObject);
+        _collider.enabled = false;
+
+        if (_particles != null)
+            _particles.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+        /*
+        if (_rb != null)
+        {
+            _rb.isKinematic = true;
+            //_rb.velocity = Vector3.zero;
+        }*/
+        if(_marcador!=null)_marcador.SetActive(false);
+        if(_marca_map!=null)_marca_map.SetActive(false);
+    }
+
+    IEnumerator Reactivar()
+    {
+        yield return new WaitForSecondsRealtime(_Reactivacion);
+
+        _collider.enabled = true;
+
+        if (_particles != null)
+            _particles.Play();
+        
+        if(_marcador!=null)_marcador.SetActive(true);
+        if(_marca_map!=null)_marca_map.SetActive(true);
+
+        Debug.Log("PowerUp REACTIVADO");
     }
 }

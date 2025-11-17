@@ -248,6 +248,11 @@ MonoBehaviour:
   objetoADespertar: {fileID: 0}
   tagActivador: Player
   sonido_activador: {fileID: 3165724651218043505}
+  _Reactivacion: 20
+  _marcador: {fileID: 1368876689695196764}
+  _marca_map: {fileID: 362279553098064625}
+  _obj_x: {fileID: 2798180402080671207}
+  _obj_y: {fileID: 5521801903826840881}
 --- !u!82 &3165724651218043505
 AudioSource:
   m_ObjectHideFlags: 0
@@ -418,6 +423,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47ee2006a90a6b04eab84ad06c85d569, type: 3}
+--- !u!1 &1368876689695196764 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 447190513268141570, guid: 47ee2006a90a6b04eab84ad06c85d569, type: 3}
+  m_PrefabInstance: {fileID: 1498440283595860062}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6519437426208251654 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5670655025393334104, guid: 47ee2006a90a6b04eab84ad06c85d569, type: 3}
@@ -480,6 +490,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 570861acf9045c14ca32fa9124094ff6, type: 3}
+--- !u!1 &362279553098064625 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9029688539860715226, guid: 570861acf9045c14ca32fa9124094ff6, type: 3}
+  m_PrefabInstance: {fileID: 8667448749739238443}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2806114795592196879 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6825667293148727076, guid: 570861acf9045c14ca32fa9124094ff6, type: 3}

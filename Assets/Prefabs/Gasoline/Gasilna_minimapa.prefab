@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7664282977501882200}
   - component: {fileID: 299082462701250875}
-  - component: {fileID: 2185936910060429055}
+  - component: {fileID: 5437596791946717934}
   m_Layer: 0
   m_Name: Gasilna_minimapa
   m_TagString: Gasoline
@@ -48,8 +48,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
---- !u!65 &2185936910060429055
-BoxCollider:
+  _marcador: {fileID: 2515044844083411052}
+  _marca_map: {fileID: 4152984728114688828}
+  _Reactivacion: 20
+  _meshRenderer: {fileID: 7270798393183940198}
+--- !u!135 &5437596791946717934
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -67,8 +71,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.6501651, y: 1.8266305, z: 1.6530771}
-  m_Center: {x: -0.0031985682, y: 0.91331524, z: 0.0010328669}
+  m_Radius: 3.8
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1001 &4966828797886576102
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -131,6 +135,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6825667293148727076, guid: eada3331567d8a24f935c067b3ac10df, type: 3}
   m_PrefabInstance: {fileID: 4966828797886576102}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4152984728114688828 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9029688539860715226, guid: eada3331567d8a24f935c067b3ac10df, type: 3}
+  m_PrefabInstance: {fileID: 4966828797886576102}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8111980738185070369
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -179,23 +188,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 697760321041632449, guid: a83b55b11c03ad1459749472bad0460e, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1113628727357409426, guid: a83b55b11c03ad1459749472bad0460e, type: 3}
       propertyPath: m_Name
       value: Gasoline
-      objectReference: {fileID: 0}
-    - target: {fileID: 7451732503366451795, guid: a83b55b11c03ad1459749472bad0460e, type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a83b55b11c03ad1459749472bad0460e, type: 3}
+--- !u!1 &2515044844083411052 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5941567826200493901, guid: a83b55b11c03ad1459749472bad0460e, type: 3}
+  m_PrefabInstance: {fileID: 8111980738185070369}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &7270798393183940198 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1473973528379304263, guid: a83b55b11c03ad1459749472bad0460e, type: 3}
+  m_PrefabInstance: {fileID: 8111980738185070369}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8407160856129459465 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 306165343460479528, guid: a83b55b11c03ad1459749472bad0460e, type: 3}

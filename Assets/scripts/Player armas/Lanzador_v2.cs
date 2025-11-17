@@ -19,7 +19,12 @@ public class Lanzador_v2 : MonoBehaviour
     [Header("Retardo efecto de lanzamiento")]
     [SerializeField] float _apagar_misil = 0.25f;
     private List<Rigidbody> _EnemigosDetectados = new List<Rigidbody>();
-
+    [Header("Duracion Lanzador")]
+    [SerializeField] float _duracion_cohetera=10f;
+    void OnEnable()
+    {
+        StartCoroutine(Desactivar_lanzador());
+    }
     void OnTriggerEnter(Collider other)
     {
 
@@ -92,5 +97,10 @@ public class Lanzador_v2 : MonoBehaviour
 
         //Debug.Log("⏰ Tiempo terminado. Variable 'activo' = " + activo);
     }
-    
+
+    IEnumerator Desactivar_lanzador()
+    {
+        yield return new WaitForSeconds(_duracion_cohetera);
+        gameObject.SetActive(false);
+    }
 }
