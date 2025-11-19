@@ -16,6 +16,9 @@ public class Spawner_cilindro : MonoBehaviour
     [SerializeField] private float _tiempoMin = 1f;              // Mínimo tiempo entre spawns
     [SerializeField] private float _tiempoMax = 3f;              // Máximo tiempo entre spawns
 
+    // --- Mostrar Gizmo del trigger en modo edición ---
+    [Header("Activar gizmo")]
+    [SerializeField] private bool _mostrarGizmo = true;
     private float _espera = 0;
     private bool _activado = false;
     private bool _spawneando = false;
@@ -105,6 +108,56 @@ public class Spawner_cilindro : MonoBehaviour
             {
                 _activado = false;
             }
+        }
+    }
+    private void OnDrawGizmos()
+    {
+        if (!_mostrarGizmo) return;
+        Gizmos.color = new Color(0f, 1f, 0f, 0.25f); // Verde transparente
+
+        Collider col = GetComponent<Collider>();
+        if (col == null) return;
+
+        Gizmos.matrix = col.transform.localToWorldMatrix;
+
+        if (col is BoxCollider box)
+        {
+            Gizmos.DrawCube(box.center, box.size);
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireCube(box.center, box.size);
+        }
+        else if (col is SphereCollider sphere)
+        {
+            Gizmos.DrawSphere(sphere.center, sphere.radius);
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(sphere.center, sphere.radius);
+        }
+        else if (col is CapsuleCollider capsule)
+        {
+            // Dibujar cápsula aproximada
+            Gizmos.color = new Color(0f, 1f, 0f, 0.2f);
+            float height = capsule.height;
+            float radius = capsule.radius;
+
+            Vector3 center = capsule.center;
+            int direction = capsule.direction; // 0 = X, 1 = Y, 2 = Z
+
+            // Dibujo aproximado con dos esferas + cilindro
+            Vector3 dir = direction == 0 ? Vector3.right :
+                        direction == 1 ? Vector3.up : Vector3.forward;
+
+            float cylinderHeight = height - (radius * 2);
+
+            // Parte central
+            Gizmos.DrawCube(center, Vector3.one * radius * 2 + dir * cylinderHeight);
+
+            // Tapas
+            Gizmos.DrawSphere(center + dir * (cylinderHeight / 2), radius);
+            Gizmos.DrawSphere(center - dir * (cylinderHeight / 2), radius);
+
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(center + dir * (cylinderHeight / 2), radius);
+            Gizmos.DrawWireSphere(center - dir * (cylinderHeight / 2), radius);
         }
     }
 }

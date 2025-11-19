@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3781263997728311831}
   - component: {fileID: 6280689034892291444}
   - component: {fileID: 7786325077668866947}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Small_Rock_001_LOD0 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 4134086875782860103}
   - component: {fileID: 1761810460464895012}
   - component: {fileID: 4709799636460974793}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Small_Rock_001_LOD0 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -226,6 +226,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7608419381422787940}
     m_Modifications:
+    - target: {fileID: 5887440313406460502, guid: 73e87645b9b7bbc4ab2ad93d7f79e086, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6166982432887160842, guid: 73e87645b9b7bbc4ab2ad93d7f79e086, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 8213120270114856460, guid: 73e87645b9b7bbc4ab2ad93d7f79e086, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -282,9 +290,17 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8570395503174659808, guid: 73e87645b9b7bbc4ab2ad93d7f79e086, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 8840862878676403382, guid: 73e87645b9b7bbc4ab2ad93d7f79e086, type: 3}
       propertyPath: m_Name
       value: Small_Rock_001
+      objectReference: {fileID: 0}
+    - target: {fileID: 8840862878676403382, guid: 73e87645b9b7bbc4ab2ad93d7f79e086, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -304,6 +320,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -9187258101703092473, guid: 1096810296cf0424a80ec4cad53e59ed, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1096810296cf0424a80ec4cad53e59ed, type: 3}
       propertyPath: m_LocalScale.x
       value: 5
@@ -368,6 +388,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 383a85dcad7509547b98a28f24bfeb2c, type: 2}
+    - target: {fileID: -6357948088449700943, guid: 1096810296cf0424a80ec4cad53e59ed, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: -5605057028068773182, guid: 1096810296cf0424a80ec4cad53e59ed, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -375,6 +399,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 1096810296cf0424a80ec4cad53e59ed, type: 3}
       propertyPath: m_Name
       value: Piedra multiple
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1096810296cf0424a80ec4cad53e59ed, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2586722028529433069, guid: 1096810296cf0424a80ec4cad53e59ed, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
