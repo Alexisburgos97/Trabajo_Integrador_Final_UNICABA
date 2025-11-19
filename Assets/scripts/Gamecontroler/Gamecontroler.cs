@@ -48,7 +48,8 @@ namespace Simplon {
         public float _distancia { get; set; }
 
         //configuracion nivel inicial;
-        int _nivel_actual = _NIVEL_1;
+        [Header("configuracion de nivel inicial")]
+        [SerializeField] int _nivel_actual = _NIVEL_1;
 
 
         //--------
