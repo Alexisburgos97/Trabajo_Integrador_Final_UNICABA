@@ -44,9 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 831c782a6d0fab048b0cd5ce5c170c7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ConfLife: 3
-  _ConfCombustible: 200
-  _tiempo_Restante: 200
+  _ConfLife: 5
+  _ConfCombustible: 300
+  _tiempo_Restante: 300
   _total_a_rescatar: 5
   _Hud: Hud
   _Menu_muerte: Perdiste
