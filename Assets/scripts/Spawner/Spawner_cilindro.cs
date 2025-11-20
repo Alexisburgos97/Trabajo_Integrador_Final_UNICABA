@@ -22,23 +22,6 @@ public class Spawner_cilindro : MonoBehaviour
     [Header("Activar gizmo")]
     [SerializeField] private bool _mostrarGizmo = true;
 
-
-    // ------------------------------------------------------------
-    // 🔥 NUEVA SECCIÓN: DETECCIÓN DIRECCIONAL
-    // ------------------------------------------------------------
-    public enum EjeDeteccion { X, Y, Z }
-    public enum DireccionDeteccion { Positiva, Negativa }
-
-    [Header("Detección Direccional del Jugador")]
-    [SerializeField] private EjeDeteccion _ejeDeteccion = EjeDeteccion.Z;
-    [SerializeField] private DireccionDeteccion _direccion = DireccionDeteccion.Positiva;
-    [SerializeField, Range(0f, 180f)] private float _anguloTolerancia = 45f;
-
-    private Vector3 _prevPlayerPos;
-    private bool _tienePrevPos = false;
-
-    // ------------------------------------------------------------
-
     private float _espera = 0;
     private bool _activado = false;
     private bool _spawneando = false;
@@ -50,68 +33,31 @@ public class Spawner_cilindro : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Player") || _activado)
-            return;
-
-        // Guardar posición previa si es primera vez
-        if (!_tienePrevPos)
-        {
-            _prevPlayerPos = other.transform.position;
-            _tienePrevPos = true;
-            return;
-        }
-
-        // Calcular dirección de movimiento del jugador
-        Vector3 movimiento = other.transform.position - _prevPlayerPos;
-
-        if (DetectaDireccionCorrecta(movimiento))
+        if (other.CompareTag("Player") && !_activado)
         {
             ActivarSpawner();
         }
-
-        _prevPlayerPos = other.transform.position;
     }
 
-    // ------------------------------------------------------------
-    // 🔥 Lógica de detección en la dirección indicada
-    // ------------------------------------------------------------
-    private bool DetectaDireccionCorrecta(Vector3 mov)
-    {
-        if (mov.sqrMagnitude < 0.0001f)
-            return false; // no se movió
-
-        mov.Normalize();
-
-        Vector3 eje = Vector3.forward; // por defecto Z+
-
-        switch (_ejeDeteccion)
-        {
-            case EjeDeteccion.X: eje = Vector3.right; break;
-            case EjeDeteccion.Y: eje = Vector3.up; break;
-            case EjeDeteccion.Z: eje = Vector3.forward; break;
-        }
-
-        if (_direccion == DireccionDeteccion.Negativa)
-            eje = -eje;
-
-        float angulo = Vector3.Angle(mov, eje);
-
-        return angulo <= _anguloTolerancia;
-    }
-
-    // ------------------------------------------------------------
-
+    /// <summary>
+    /// Activa este spawner y todos los conectados.
+    /// </summary>
     private void ActivarSpawner()
     {
         if (_activado) return;
         _activado = true;
 
+        // 1. Activar este spawner
         StartCoroutine(SpawnMultiple());
 
+        // 2. Activar los demás spawners enlazados
         foreach (var spawner in _spawnersEnlazados)
+        {
             if (spawner != null)
-                spawner.ActivarSpawner();
+                spawner.ActivarSpawner(); 
+        }
 
+        // Si no es de uso único, inicia cooldown
         if (!_usarUnaVez)
             _espera = _cool_down;
     }
@@ -164,9 +110,13 @@ public class Spawner_cilindro : MonoBehaviour
         if (!_usarUnaVez)
         {
             if (_espera > 0)
+            {
                 _espera -= Time.deltaTime;
+            }
             else
+            {
                 _activado = false;
+            }
         }
     }
 
