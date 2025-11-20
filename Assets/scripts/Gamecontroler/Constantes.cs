@@ -3,6 +3,9 @@ public static class Constantes
 {
    public const int _NIVEL_1= 0,//para manejar los niveles
                     _NIVEL_2=1,
+                    _NIVEL_3=2,
+                    _NIVEL_4=3,
+                    _NIVEL_5=4,
                     _MENU_INICIO=0,//para manejar los menues
                     _MENU_MUERTE=1,
                     _MENU_GANAR=2,

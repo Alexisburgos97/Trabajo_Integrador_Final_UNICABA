@@ -31,12 +31,7 @@ namespace Simplon {
         [SerializeField] string _Hud, 
                         _Menu_muerte,
                         _Menu_ganar,
-                        _Menu_inicio,
-                        _Menu_opciones,
-                        _Menu_sonido,
-                        _Menu_controles,
-                        _Menu_creditos,
-                        _Menu_pausa;
+                        _Menu_inicio;
         //[SerializeField] string[] _Menues;
 
         [Header("Configuracion de niveles")]
@@ -158,6 +153,12 @@ namespace Simplon {
             //metodo para cambiar de nivel en el parametro nombre se indica el
             //nombre de la escena a cargar
             //SceneManager.LoadScene(nombre);
+        }
+        public void cargar_nivel(int nivel)
+        {
+            SceneManager.LoadScene(_Nivel[nivel], LoadSceneMode.Single);
+                SceneManager.LoadScene(_Hud, LoadSceneMode.Additive);
+                ResetVariables();
         }
         //mostrar menu muerte
         public void mostrar_menu_muerte() {

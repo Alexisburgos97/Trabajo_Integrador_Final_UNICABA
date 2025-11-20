@@ -4,7 +4,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+using static Constantes;
 public class MenuLoader : MonoBehaviour
 {
     SoundController soundController;
@@ -13,6 +13,7 @@ public class MenuLoader : MonoBehaviour
    
 
     [SerializeField] private Button _playButton;
+    [SerializeField] private Button _Niveles;
     [SerializeField] private Button _Pausa;
     [SerializeField] private Button _OpcionesButton;
     [SerializeField] private Button _ControlButton;
@@ -22,12 +23,15 @@ public class MenuLoader : MonoBehaviour
     [SerializeField] private Button _quitButton;
     [SerializeField] private Button _toMainMenuButton;
     [SerializeField] private Button _toNextMundo;
-
-    [Header("Botones a controlar")]
-    [SerializeField] private List<Button> botones = new List<Button>();
-
+    [Header("Niveles")]
+    [SerializeField] private Button _to_Nivel_1;
+    [SerializeField] private Button  _to_Nivel_2;
+    [SerializeField] private Button  _to_Nivel_3;
+    [SerializeField] private Button  _to_Nivel_4;
+    [SerializeField] private Button _to_Nivel_5;
     [SerializeField] bool _activar_pausa=false;
-    [SerializeField] bool _esMenuDePausa = false;  // Nuevo: identifica si este menú fue cargado por PauseManager
+    [Header("Activar si el menu pausa")]
+    [SerializeField] bool _esMenuDePausa = false;  // identifica si este menú fue cargado por PauseManager
     private void Awake()
     {
         _playButton?.onClick.AddListener(LoadFirstLevel);
@@ -40,6 +44,13 @@ public class MenuLoader : MonoBehaviour
         _toMainMenuButton?.onClick.AddListener(ToMainMenu);
         _Pausa?.onClick.AddListener(check_pausa);
         _toNextMundo?.onClick.AddListener(ToNextMundo);
+        _Niveles?.onClick.AddListener(Mostrar_niveles);
+        //niveles
+        _to_Nivel_1?.onClick.AddListener(Al_nivel_1);
+        _to_Nivel_2?.onClick.AddListener(Al_nivel_2);
+        _to_Nivel_3?.onClick.AddListener(Al_nivel_3);
+        _to_Nivel_4?.onClick.AddListener(Al_nivel_4);
+        _to_Nivel_5?.onClick.AddListener(Al_nivel_5);
 
         // Detecta si esta escena ES la de pausa
         if (SceneManager.GetSceneAt(SceneManager.sceneCount - 1).name == "Pausa")
@@ -58,6 +69,14 @@ public class MenuLoader : MonoBehaviour
         _toMainMenuButton?.onClick.RemoveAllListeners();
         _Pausa?.onClick.RemoveAllListeners();
         _toNextMundo?.onClick.RemoveAllListeners();
+        _Niveles?.onClick.RemoveAllListeners();
+        //niveles
+        _to_Nivel_1?.onClick.RemoveAllListeners();
+        _to_Nivel_2?.onClick.RemoveAllListeners();
+        _to_Nivel_3?.onClick.RemoveAllListeners();
+        _to_Nivel_4?.onClick.RemoveAllListeners();
+        _to_Nivel_5?.onClick.RemoveAllListeners();
+
     }
 
     void Start()
@@ -98,6 +117,10 @@ public class MenuLoader : MonoBehaviour
         Time.timeScale = 1.0f;
     }
 
+    public void Mostrar_niveles()
+    {
+        GameControler.Instance.mostrar_menu("Niveles");
+    }
     public void OpenOpciones()
     {
         GameControler.Instance.mostrar_menu("Opciones");
@@ -137,9 +160,26 @@ public class MenuLoader : MonoBehaviour
         GameControler.Instance.PasarNivel();
     }
 
-    public void LoadNextNivel()
+    //cargar niveles
+    public void Al_nivel_1()
     {
-        GameControler.Instance.PasarNivel(true);
+        GameControler.Instance.cargar_nivel(_NIVEL_1);
+    }
+    public void Al_nivel_2()
+    {
+        GameControler.Instance.cargar_nivel(_NIVEL_2);
+    }
+    public void Al_nivel_3()
+    {
+        GameControler.Instance.cargar_nivel(_NIVEL_3);
+    }
+    public void Al_nivel_4()
+    {
+        GameControler.Instance.cargar_nivel(_NIVEL_4);
+    }
+    public void Al_nivel_5()
+    {
+        GameControler.Instance.cargar_nivel(_NIVEL_5);
     }
 
     public void OnPause()
