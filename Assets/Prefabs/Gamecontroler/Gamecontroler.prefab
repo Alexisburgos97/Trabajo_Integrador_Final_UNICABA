@@ -46,8 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ConfLife: 3
   _ConfCombustible: 200
-  _tiempo_Restante: 60
-  _total_a_rescatar: 3
+  _tiempo_Restante: 200
+  _total_a_rescatar: 5
   _Hud: Hud
   _Menu_muerte: Perdiste
   _Menu_ganar: Ganaste
@@ -63,6 +63,6 @@ MonoBehaviour:
   - Nivel3
   - Nivel4
   - Nivel5
-  - Nivel6
+  _nivel_actual: 4
   MusicVolume: 0.3
   SFXVolume: 0.3
