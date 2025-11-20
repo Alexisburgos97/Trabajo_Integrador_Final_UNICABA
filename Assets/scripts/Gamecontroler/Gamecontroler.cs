@@ -146,6 +146,7 @@ namespace Simplon {
             {
                 SceneManager.LoadScene(_Nivel[_nivel_actual], LoadSceneMode.Single);
                 SceneManager.LoadScene(_Hud, LoadSceneMode.Additive);
+                ResetVariables();
                 //_Iplayer = Instantiate(_Player, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
             }
             else {
