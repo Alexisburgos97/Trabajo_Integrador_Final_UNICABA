@@ -4,21 +4,41 @@ using System.Collections;
 public class Spawner_cilindro : MonoBehaviour
 {
     [Header("Configuración del prefab y spawn")]
-    [SerializeField] private GameObject _cilindroPrefab; // Prefab del cilindro trampa
-    [SerializeField] private Transform _spawnPoint;      // Punto donde aparecerá el cilindro
-    [SerializeField] private bool _usarUnaVez = true;    // Solo se activa una vez
+    [SerializeField] private GameObject _cilindroPrefab; 
+    [SerializeField] private Transform _spawnPoint;      
+    [SerializeField] private bool _usarUnaVez = true;    
 
     [Header("Configuración de enemigos")]
-    [SerializeField, Min(1)] private int _cantidadEnemigos = 1; // Mínimo 1 enemigo
+    [SerializeField, Min(1)] private int _cantidadEnemigos = 1;
 
     [Header("Tiempo de respawn")]
-    [SerializeField] private float _cool_down = 30f;             // Tiempo base entre activaciones
-    [SerializeField] private float _tiempoMin = 1f;              // Mínimo tiempo entre spawns
-    [SerializeField] private float _tiempoMax = 3f;              // Máximo tiempo entre spawns
+    [SerializeField] private float _cool_down = 30f;
+    [SerializeField] private float _tiempoMin = 1f;
+    [SerializeField] private float _tiempoMax = 3f;
 
-    // --- Mostrar Gizmo del trigger en modo edición ---
+    [Header("Enlazar con otros spawners")]
+    [SerializeField] private Spawner_cilindro[] _spawnersEnlazados; 
+
     [Header("Activar gizmo")]
     [SerializeField] private bool _mostrarGizmo = true;
+
+
+    // ------------------------------------------------------------
+    // 🔥 NUEVA SECCIÓN: DETECCIÓN DIRECCIONAL
+    // ------------------------------------------------------------
+    public enum EjeDeteccion { X, Y, Z }
+    public enum DireccionDeteccion { Positiva, Negativa }
+
+    [Header("Detección Direccional del Jugador")]
+    [SerializeField] private EjeDeteccion _ejeDeteccion = EjeDeteccion.Z;
+    [SerializeField] private DireccionDeteccion _direccion = DireccionDeteccion.Positiva;
+    [SerializeField, Range(0f, 180f)] private float _anguloTolerancia = 45f;
+
+    private Vector3 _prevPlayerPos;
+    private bool _tienePrevPos = false;
+
+    // ------------------------------------------------------------
+
     private float _espera = 0;
     private bool _activado = false;
     private bool _spawneando = false;
@@ -30,34 +50,81 @@ public class Spawner_cilindro : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && !_activado)
-        {
-            _activado = true;
+        if (!other.CompareTag("Player") || _activado)
+            return;
 
-            if (_usarUnaVez)
-            {
-                // Instanciar directamente una vez
-                StartCoroutine(SpawnMultiple());
-            }
-            else
-            {
-                // Inicia la secuencia y luego se reactivará automáticamente
-                StartCoroutine(SpawnMultiple());
-                _espera = _cool_down;
-            }
+        // Guardar posición previa si es primera vez
+        if (!_tienePrevPos)
+        {
+            _prevPlayerPos = other.transform.position;
+            _tienePrevPos = true;
+            return;
         }
+
+        // Calcular dirección de movimiento del jugador
+        Vector3 movimiento = other.transform.position - _prevPlayerPos;
+
+        if (DetectaDireccionCorrecta(movimiento))
+        {
+            ActivarSpawner();
+        }
+
+        _prevPlayerPos = other.transform.position;
+    }
+
+    // ------------------------------------------------------------
+    // 🔥 Lógica de detección en la dirección indicada
+    // ------------------------------------------------------------
+    private bool DetectaDireccionCorrecta(Vector3 mov)
+    {
+        if (mov.sqrMagnitude < 0.0001f)
+            return false; // no se movió
+
+        mov.Normalize();
+
+        Vector3 eje = Vector3.forward; // por defecto Z+
+
+        switch (_ejeDeteccion)
+        {
+            case EjeDeteccion.X: eje = Vector3.right; break;
+            case EjeDeteccion.Y: eje = Vector3.up; break;
+            case EjeDeteccion.Z: eje = Vector3.forward; break;
+        }
+
+        if (_direccion == DireccionDeteccion.Negativa)
+            eje = -eje;
+
+        float angulo = Vector3.Angle(mov, eje);
+
+        return angulo <= _anguloTolerancia;
+    }
+
+    // ------------------------------------------------------------
+
+    private void ActivarSpawner()
+    {
+        if (_activado) return;
+        _activado = true;
+
+        StartCoroutine(SpawnMultiple());
+
+        foreach (var spawner in _spawnersEnlazados)
+            if (spawner != null)
+                spawner.ActivarSpawner();
+
+        if (!_usarUnaVez)
+            _espera = _cool_down;
     }
 
     private IEnumerator SpawnMultiple()
     {
-        if (_spawneando) yield break; // Evita solaparse
+        if (_spawneando) yield break; 
         _spawneando = true;
 
         for (int i = 0; i < _cantidadEnemigos; i++)
         {
             SpawnCilindro();
 
-            // Espera un tiempo aleatorio entre cada spawn
             if (i < _cantidadEnemigos - 1)
                 yield return new WaitForSeconds(Random.Range(_tiempoMin, _tiempoMax));
         }
@@ -67,14 +134,11 @@ public class Spawner_cilindro : MonoBehaviour
 
     private void SpawnCilindro()
     {
-        // Posición y rotación base
         Vector3 spawnPos = _spawnPoint != null ? _spawnPoint.position : transform.position;
         Quaternion spawnRot = _spawnPoint != null ? _spawnPoint.rotation : transform.rotation;
 
-        // Instanciamos el prefab
         GameObject spawned = Instantiate(_cilindroPrefab, spawnPos, spawnRot);
 
-        // --- Alineamos el FORWARD del cilindro con la LEFT del spawnPoint ---
         Vector3 leftDirWorld;
         Vector3 upVector;
 
@@ -95,25 +159,22 @@ public class Spawner_cilindro : MonoBehaviour
         }
     }
 
-    // --- Reactivación del spawner ---
     private void espera_respown()
     {
         if (!_usarUnaVez)
         {
             if (_espera > 0)
-            {
                 _espera -= Time.deltaTime;
-            }
             else
-            {
                 _activado = false;
-            }
         }
     }
+
     private void OnDrawGizmos()
     {
         if (!_mostrarGizmo) return;
-        Gizmos.color = new Color(0f, 1f, 0f, 0.25f); // Verde transparente
+
+        Gizmos.color = new Color(0f, 1f, 0f, 0.25f);
 
         Collider col = GetComponent<Collider>();
         if (col == null) return;
@@ -134,24 +195,20 @@ public class Spawner_cilindro : MonoBehaviour
         }
         else if (col is CapsuleCollider capsule)
         {
-            // Dibujar cápsula aproximada
             Gizmos.color = new Color(0f, 1f, 0f, 0.2f);
+
             float height = capsule.height;
             float radius = capsule.radius;
 
             Vector3 center = capsule.center;
-            int direction = capsule.direction; // 0 = X, 1 = Y, 2 = Z
+            int direction = capsule.direction;
 
-            // Dibujo aproximado con dos esferas + cilindro
             Vector3 dir = direction == 0 ? Vector3.right :
                         direction == 1 ? Vector3.up : Vector3.forward;
 
             float cylinderHeight = height - (radius * 2);
 
-            // Parte central
             Gizmos.DrawCube(center, Vector3.one * radius * 2 + dir * cylinderHeight);
-
-            // Tapas
             Gizmos.DrawSphere(center + dir * (cylinderHeight / 2), radius);
             Gizmos.DrawSphere(center - dir * (cylinderHeight / 2), radius);
 
