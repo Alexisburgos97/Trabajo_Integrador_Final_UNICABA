@@ -11,6 +11,9 @@ public class vista_camara : MonoBehaviour
     public float alturaMin = 5f;        // Altura mínima
     public float alturaMax = 30f;       // Altura máxima
     public float velocidadZoom = 5f;    // Velocidad de cambio de altura
+    [Range(0f, 90f)]
+    public float anguloCamara = 90f;    // Angulo de inclinacion de la camara
+    public Vector3 offsetCamara = Vector3.zero; // Offset de posicion de la camara
 
     private Vector3 posicionDeseada;
     
@@ -32,13 +35,13 @@ public class vista_camara : MonoBehaviour
         altura = Mathf.Clamp(altura, alturaMin, alturaMax);
 
         // Posición deseada: directamente arriba del jugador
-        posicionDeseada = new Vector3(player.position.x, player.position.y + altura, player.position.z);
+        posicionDeseada = new Vector3(player.position.x, player.position.y + altura, player.position.z) + offsetCamara;
 
         // Movimiento suavizado
         transform.position = Vector3.Lerp(transform.position, posicionDeseada, suavizado * Time.deltaTime);
 
         // Fijar rotación para que siempre mire hacia abajo (cenital pura)
-        transform.rotation = Quaternion.Euler(90f, 0f, 0f);
+        transform.rotation = Quaternion.Euler(anguloCamara, 0f, 0f);
     }
     
 }
